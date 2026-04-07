@@ -1,0 +1,76 @@
+---
+import type { Project } from '../../types';
+
+interface Props {
+  project: Project;
+}
+const { project } = Astro.props;
+---
+
+<article
+  class={`bg-surface-container-lowest rounded-xl border border-outline-variant/10 shadow-editorial
+    group cursor-pointer hover:bg-surface-bright transition-all duration-300
+    ${project.featured ? 'md:col-span-12 p-8' : 'md:col-span-6 p-8 flex flex-col'}`}
+>
+
+  <!-- Project image -->
+  <div class={`overflow-hidden rounded-xl bg-surface-container-low mb-6
+    ${project.featured ? 'aspect-video' : 'aspect-square'}`}>
+    <img
+      src={project.imageUrl}
+      alt={project.imageAlt}
+      class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+      width={project.featured ? 900 : 400}
+      height={project.featured ? 506 : 400}
+      loading="lazy"
+    />
+  </div>
+
+  <!-- Title + external links -->
+  <div class="flex justify-between items-start mb-4">
+    <h3 class={`font-headline font-bold text-on-surface ${project.featured ? 'text-2xl' : 'text-xl'}`}>
+      {project.title}
+    </h3>
+    <div class="flex gap-2 flex-shrink-0 ml-4">
+      {project.links.demo && (
+        <a
+          href={project.links.demo}
+          target="_blank"
+          rel="noopener noreferrer"
+          class="material-icons-outlined text-outline hover:text-primary transition-colors"
+          aria-label={`Live demo of ${project.title}`}
+          style="font-size:20px"
+        >
+          open_in_new
+        </a>
+      )}
+      {project.links.source && (
+        <a
+          href={project.links.source}
+          target="_blank"
+          rel="noopener noreferrer"
+          class="material-icons-outlined text-outline hover:text-primary transition-colors"
+          aria-label={`Source code for ${project.title}`}
+          style="font-size:20px"
+        >
+          code
+        </a>
+      )}
+    </div>
+  </div>
+
+  <!-- Description -->
+  <p class={`text-on-surface-variant leading-relaxed mb-6 ${project.featured ? 'max-w-3xl' : 'text-sm flex-1'}`}>
+    {project.description}
+  </p>
+
+  <!-- Tech tags -->
+  <div class="flex flex-wrap gap-2 mt-auto">
+    {project.tags.map((tag) => (
+      <span class="px-3 py-1 bg-surface-container-high text-on-surface-variant font-label font-bold text-xs rounded-full uppercase tracking-wider">
+        {tag}
+      </span>
+    ))}
+  </div>
+
+</article>

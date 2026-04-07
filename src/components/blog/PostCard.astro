@@ -1,0 +1,56 @@
+---
+import type { CollectionEntry } from 'astro:content';
+
+interface Props {
+  post: CollectionEntry<'blog'>;
+}
+const { post } = Astro.props;
+
+const formattedDate = post.data.date.toLocaleDateString('en-US', {
+  year: 'numeric',
+  month: 'long',
+  day: 'numeric',
+});
+---
+
+<article class="bg-surface-container-lowest rounded-xl flex flex-col h-full shadow-sm hover:shadow-md transition-all">
+
+  <!-- Cover image -->
+  <div class="h-48 rounded-t-xl overflow-hidden">
+    <img
+      src={post.data.coverImage}
+      alt={post.data.coverImageAlt}
+      class="w-full h-full object-cover hover:scale-105 transition-transform duration-500"
+      width="400"
+      height="192"
+      loading="lazy"
+    />
+  </div>
+
+  <!-- Card content -->
+  <div class="p-6 flex flex-col flex-1">
+
+    <div class="flex items-center justify-between mb-4">
+      <span class="text-on-surface-variant text-xs font-medium">{formattedDate}</span>
+      <span class="text-on-surface-variant text-xs font-medium">{post.data.readTime} min read</span>
+    </div>
+
+    <h3 class="text-xl font-bold font-headline text-on-surface mb-3 leading-tight">
+      {post.data.title}
+    </h3>
+
+    <p class="text-on-surface-variant text-sm mb-6 flex-1 leading-relaxed">
+      {post.data.excerpt}
+    </p>
+
+    <div class="flex items-center justify-between mt-auto">
+      <span class="px-3 py-1 bg-surface-container-high text-on-surface-variant text-xs font-bold rounded-full">
+        {post.data.category}
+      </span>
+      <a href={`/blog/${post.id}`} class="text-primary text-sm font-bold hover:underline">
+        Read More
+      </a>
+    </div>
+
+  </div>
+</article>

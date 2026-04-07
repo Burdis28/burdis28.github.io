@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700;800&amp;family=Inter:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "on-tertiary": "#ffffff",
+              "on-error-container": "#93000a",
+              "secondary-container": "#c6e4f4",
+              "primary-fixed": "#d6e3ff",
+              "on-surface-variant": "#414752",
+              "surface-container-highest": "#e0e3e5",
+              "surface-tint": "#005eb5",
+              "on-surface": "#181c1e",
+              "secondary": "#466270",
+              "tertiary": "#833900",
+              "outline-variant": "#c1c6d4",
+              "tertiary-fixed-dim": "#ffb68e",
+              "surface-container-lowest": "#ffffff",
+              "on-tertiary-fixed-variant": "#773300",
+              "on-secondary-container": "#4a6774",
+              "tertiary-container": "#a94b00",
+              "outline": "#727783",
+              "on-primary-fixed": "#001b3d",
+              "primary": "#004e99",
+              "on-tertiary-fixed": "#331200",
+              "on-error": "#ffffff",
+              "inverse-on-surface": "#eef1f3",
+              "on-primary-fixed-variant": "#00468a",
+              "inverse-primary": "#a8c8ff",
+              "on-tertiary-container": "#ffe0d1",
+              "on-secondary-fixed-variant": "#2e4b57",
+              "secondary-fixed-dim": "#adcbda",
+              "on-secondary": "#ffffff",
+              "on-primary-container": "#dbe6ff",
+              "surface-dim": "#d7dadc",
+              "surface-container-high": "#e5e9eb",
+              "on-background": "#181c1e",
+              "surface-container-low": "#f1f4f6",
+              "background": "#f7fafc",
+              "surface-container": "#ebeef0",
+              "on-secondary-fixed": "#001f2a",
+              "surface": "#f7fafc",
+              "secondary-fixed": "#c9e7f7",
+              "primary-fixed-dim": "#a8c8ff",
+              "primary-container": "#0a66c2",
+              "on-primary": "#ffffff",
+              "error": "#ba1a1a",
+              "surface-bright": "#f7fafc",
+              "error-container": "#ffdad6",
+              "surface-variant": "#e0e3e5",
+              "tertiary-fixed": "#ffdbca",
+              "inverse-surface": "#2d3133"
+            },
+            fontFamily: {
+              "headline": ["Manrope"],
+              "body": ["Inter"],
+              "label": ["Inter"]
+            },
+            borderRadius: {"DEFAULT": "0.125rem", "lg": "0.25rem", "xl": "0.5rem", "full": "0.75rem"},
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        body { font-family: 'Inter', sans-serif; }
+        h1, h2, h3, h4 { font-family: 'Manrope', sans-serif; }
+    </style>
+</head>
+<body class="bg-surface text-on-surface">
+<!-- TopNavBar -->
+<nav class="fixed top-0 w-full z-50 bg-white/80 dark:bg-slate-950/80 backdrop-blur-md border-b border-slate-200/50 shadow-sm">
+<div class="flex justify-between items-center px-6 py-3 max-w-7xl mx-auto">
+<div class="text-xl font-extrabold tracking-tighter text-slate-900">Professional Nexus</div>
+<div class="hidden md:flex items-center gap-8">
+<a class="text-slate-600 hover:text-slate-900 transition-colors font-semibold" href="#">Home</a>
+<a class="text-slate-600 hover:text-slate-900 transition-colors font-semibold" href="#">Experience</a>
+<a class="text-slate-600 hover:text-slate-900 transition-colors font-semibold" href="#">Skills</a>
+<a class="text-slate-600 hover:text-slate-900 transition-colors font-semibold" href="#">Projects</a>
+<a class="text-blue-700 border-b-2 border-blue-700 pb-1 font-bold" href="#">Blog</a>
+<a class="text-slate-600 hover:text-slate-900 transition-colors font-semibold" href="#">Contact</a>
+</div>
+<button class="bg-primary text-on-primary px-5 py-2 rounded-lg font-bold hover:bg-primary-container transition-all active:scale-95 duration-150">
+                Hire Me
+            </button>
+</div>
+</nav>
+<div class="max-w-7xl mx-auto pt-24 pb-12 flex flex-col lg:flex-row gap-8 px-6">
+<!-- Left SideNavBar -->
+<aside class="h-screen w-full lg:w-64 sticky top-24 left-0 flex flex-col p-6 gap-8 bg-slate-50 border-r border-slate-200 rounded-xl lg:rounded-none">
+<div class="flex flex-col items-center text-center gap-3">
+<div class="w-24 h-24 rounded-full overflow-hidden border-4 border-white shadow-sm">
+<img alt="Alex Dev" data-alt="professional headshot of a smiling male software architect in a modern office environment with soft natural lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCTGn9zVsGlffrJaza_zSY3E9mlohwZ4gwhPxYLoZ0OYUveD-k8oqTnEMCzEKJow_kX_zGwbj4YHJ1C2qPEBJm3d84bF3Ev_mXN7GIqPEIYY0yflycDTv2vP8GNmh1pPNtiRQ7Z5ijxMdi_WnjrN2Z2KpkYFhS4F2jkYYp-NrYQ0t8oM9F71oFeL8z34emBZ0hbcqdH-QdEYyZAlM8A22JKxXEud949NumUNBNEsYM_bmthCQazpuTxZJOeAyCiSgAkPkIHSs7s0A"/>
+</div>
+<div>
+<h2 class="text-lg font-bold text-slate-900 tracking-tight">Alex Dev</h2>
+<p class="text-sm font-medium text-slate-500">Full Stack Architect</p>
+</div>
+</div>
+<div class="flex flex-col gap-2">
+<a class="flex items-center gap-3 p-3 rounded-lg text-slate-500 hover:bg-slate-100 transition-transform hover:translate-x-1 font-manrope font-semibold text-sm" href="#">
+<span class="material-symbols-outlined" data-icon="code">code</span>
+                    GitHub
+                </a>
+<a class="flex items-center gap-3 p-3 rounded-lg text-slate-500 hover:bg-slate-100 transition-transform hover:translate-x-1 font-manrope font-semibold text-sm" href="#">
+<span class="material-symbols-outlined" data-icon="account_circle">account_circle</span>
+                    LinkedIn
+                </a>
+<a class="flex items-center gap-3 p-3 rounded-lg text-slate-500 hover:bg-slate-100 transition-transform hover:translate-x-1 font-manrope font-semibold text-sm" href="#">
+<span class="material-symbols-outlined" data-icon="language">language</span>
+                    Web
+                </a>
+<a class="flex items-center gap-3 p-3 rounded-lg text-slate-500 hover:bg-slate-100 transition-transform hover:translate-x-1 font-manrope font-semibold text-sm" href="#">
+<span class="material-symbols-outlined" data-icon="folder_special">folder_special</span>
+                    Portfolio
+                </a>
+</div>
+<div class="pt-4 border-t border-slate-200">
+<h3 class="text-xs font-bold text-slate-400 uppercase tracking-widest mb-4">Tech Stack</h3>
+<div class="flex flex-wrap gap-2">
+<span class="px-2 py-1 bg-white border border-slate-200 text-[10px] font-bold text-slate-600 rounded">React.js</span>
+<span class="px-2 py-1 bg-white border border-slate-200 text-[10px] font-bold text-slate-600 rounded">TypeScript</span>
+<span class="px-2 py-1 bg-white border border-slate-200 text-[10px] font-bold text-slate-600 rounded">Golang</span>
+<span class="px-2 py-1 bg-white border border-slate-200 text-[10px] font-bold text-slate-600 rounded">Kubernetes</span>
+<span class="px-2 py-1 bg-white border border-slate-200 text-[10px] font-bold text-slate-600 rounded">AWS</span>
+</div>
+</div>
+<button class="mt-auto w-full py-3 bg-blue-700 text-white rounded-lg font-bold text-sm hover:bg-blue-800 transition-colors">
+                Download CV
+            </button>
+</aside>
+<!-- Main Content (Blog Feed) -->
+<main class="flex-1 space-y-12">
+<!-- Header Section -->
+<section class="mb-8">
+<h1 class="text-5xl font-extrabold text-on-surface tracking-tighter mb-4">Insights &amp; Engineering</h1>
+<p class="text-on-surface-variant text-lg max-w-2xl leading-relaxed">
+                    Exploring the intersection of scalable architecture, modern frontend patterns, and the future of cloud computing.
+                </p>
+</section>
+<!-- Featured Post (Editorial Style) -->
+<section class="bg-surface-container-lowest rounded-xl overflow-hidden shadow-sm group hover:shadow-lg transition-all duration-300">
+<div class="grid md:grid-cols-2">
+<div class="h-64 md:h-full relative overflow-hidden">
+<img alt="Advanced Coding" class="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" data-alt="high contrast close-up of complex source code on a computer monitor with cool blue and violet neon reflections" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBuF-Af92EJQgdCpgKSjxDCgUUr8eJwP_HZQc2I0wyS8ioQgndGH2rOBDT7HAaPhKCBoI6WBwOewcCvyNStJyOaYpxdL_hBAO9ZgUa0AIze7xRpmay_anCNxIDiBQAaFepaNTu6NRmLzpCOxv7JKdJihq_JMDDIgL7rp1l0yAHMl64pHq0DvouLvFDn1h_gFQzB7Y89HKoDrKSyC_p9sAoBWq6nzEkl0xTBYB3SruQYl4yQ1bgEsm-ZuujWGpNFPVKFPUD9NsOrng"/>
+</div>
+<div class="p-8 md:p-12 flex flex-col justify-center">
+<div class="flex items-center gap-3 mb-6">
+<span class="bg-primary-fixed text-on-primary-fixed-variant text-[10px] font-extrabold px-2.5 py-1 rounded-full uppercase tracking-wider">Featured</span>
+<span class="text-on-surface-variant text-sm font-medium">May 12, 2024 • 12 min read</span>
+</div>
+<h2 class="text-3xl font-bold text-on-surface mb-4 leading-tight">Mastering React Performance: From Render-Cycles to Web Workers</h2>
+<p class="text-on-surface-variant mb-8 line-clamp-3">Deep dive into the internals of React reconciliation and how to leverage off-main-thread computation for truly fluid user experiences in complex data-driven applications.</p>
+<div class="flex items-center justify-between">
+<div class="flex gap-2">
+<span class="px-3 py-1 bg-surface-container-high text-on-surface-variant text-xs font-bold rounded-full">Frontend</span>
+<span class="px-3 py-1 bg-surface-container-high text-on-surface-variant text-xs font-bold rounded-full">Performance</span>
+</div>
+<button class="text-primary font-bold flex items-center gap-1 group-hover:gap-2 transition-all">
+                                Read Article <span class="material-symbols-outlined text-sm">arrow_forward</span>
+</button>
+</div>
+</div>
+</div>
+</section>
+<!-- Blog Grid -->
+<section class="grid md:grid-cols-2 gap-8">
+<!-- Post 2 -->
+<article class="bg-surface-container-lowest rounded-xl flex flex-col h-full shadow-sm hover:shadow-md transition-all">
+<div class="h-48 rounded-t-xl overflow-hidden">
+<img alt="AI Intelligence" class="w-full h-full object-cover" data-alt="abstract digital representation of neural networks and artificial intelligence nodes glowing in a deep blue space" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDvv0HFl2FF4em_iN2548ekO-NFr9e6_lwg0PFuoBLhm7sx6C_AC21Q5j4eUmAkZvYUEFFZ30Nn3WQJb-Nqgij3vCJaRPCRpzJtDw6arLfk03jnZivw4p9hUx6AgxBZRq6Uo9H4rz_hiehs7evgS3DuM4EAgxQMUHEaJHVvdOvfuhBQc2K7nyJtayF59iaUn-HfpOZ8I26M8SP3xvjn5X_GnGFU8SGX4CYex7l7deFxGY2z-MAD9ytlzBP3s3VJVXhoN1uQd4W6yg"/>
+</div>
+<div class="p-6 flex flex-col flex-1">
+<div class="flex items-center justify-between mb-4">
+<span class="text-on-surface-variant text-xs font-medium">April 28, 2024</span>
+<span class="text-on-surface-variant text-xs font-medium">8 min read</span>
+</div>
+<h3 class="text-xl font-bold text-on-surface mb-3">The Future of AI in Web Dev: Beyond Copilot</h3>
+<p class="text-on-surface-variant text-sm mb-6 flex-1">How generative models are shifting from autocomplete to architectural advisors and the impact on full-stack workflows.</p>
+<div class="flex items-center justify-between mt-auto">
+<span class="px-3 py-1 bg-surface-container-high text-on-surface-variant text-xs font-bold rounded-full">AI</span>
+<button class="text-primary text-sm font-bold">Read More</button>
+</div>
+</div>
+</article>
+<!-- Post 3 -->
+<article class="bg-surface-container-lowest rounded-xl flex flex-col h-full shadow-sm hover:shadow-md transition-all">
+<div class="h-48 rounded-t-xl overflow-hidden">
+<img alt="Cloud Computing" class="w-full h-full object-cover" data-alt="cinematic shot of data center server racks with blinking blue LED lights and fiber optic cables" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDCRoWWcfgUz4KT15l3C7iMkOOsJbyVMTefLIWW8loRTvFx9wxWpaYJn7vl79g-lMtYw08C56-IC1EAjINAtUJvnDgyN2s335oCZaSs_LofFLf7gFKm1IetsvxLoe5VGCWlNY0f9J5HAVmQ82bBxjfWpTC9Itwd_LCw1EGRgZTuSdBvTgnqwVDzsg_bP6ipM-Caxhmwr_kAqSDhCbuWmgQcMpNFDLWxdQvNcQ-pC24tdCy2dGiUGkHgir1yR9huaOvpXsNEBFectw"/>
+</div>
+<div class="p-6 flex flex-col flex-1">
+<div class="flex items-center justify-between mb-4">
+<span class="text-on-surface-variant text-xs font-medium">April 15, 2024</span>
+<span class="text-on-surface-variant text-xs font-medium">15 min read</span>
+</div>
+<h3 class="text-xl font-bold text-on-surface mb-3">Building Scalable Microservices with Go and K8s</h3>
+<p class="text-on-surface-variant text-sm mb-6 flex-1">A practical guide to implementing gRPC patterns and service mesh for high-availability enterprise systems.</p>
+<div class="flex items-center justify-between mt-auto">
+<span class="px-3 py-1 bg-surface-container-high text-on-surface-variant text-xs font-bold rounded-full">Architecture</span>
+<button class="text-primary text-sm font-bold">Read More</button>
+</div>
+</div>
+</article>
+<!-- Post 4 -->
+<article class="bg-surface-container-lowest rounded-xl flex flex-col h-full shadow-sm hover:shadow-md transition-all">
+<div class="h-48 rounded-t-xl overflow-hidden">
+<img alt="Database Infrastructure" class="w-full h-full object-cover" data-alt="overhead shot of a minimalist workstation with a laptop displaying clean database schema diagrams and a coffee cup" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAt6IDg9W7SxhH1w3Ksmrc8p70uooNX8BYzrUA712voEx7s8dxNmYnGFjLEdw7pRI6JehlKbmYnEQclrp2-NN6y3XmZTIQMjaYc76UGf_0VJcUS60OhOakXStUQx277YvAykVLQ1m543EjSClw1NlIIS1WWRidhwmI08bsPS4lE4S73KV89a4f_8PTa3E7QR7oCk-YMF86eoExt1pHQX0Mrx2xsI55FBxJuNVcd1WXzrx6aAWkMKmAP4FubIJFs-9dOOPgmW53Xgw"/>
+</div>
+<div class="p-6 flex flex-col flex-1">
+<div class="flex items-center justify-between mb-4">
+<span class="text-on-surface-variant text-xs font-medium">March 30, 2024</span>
+<span class="text-on-surface-variant text-xs font-medium">6 min read</span>
+</div>
+<h3 class="text-xl font-bold text-on-surface mb-3">PostgreSQL vs NoSQL: Choosing the Right Data Model</h3>
+<p class="text-on-surface-variant text-sm mb-6 flex-1">Evaluating consistency vs. flexibility in the era of serverless databases and edge computing.</p>
+<div class="flex items-center justify-between mt-auto">
+<span class="px-3 py-1 bg-surface-container-high text-on-surface-variant text-xs font-bold rounded-full">Backend</span>
+<button class="text-primary text-sm font-bold">Read More</button>
+</div>
+</div>
+</article>
+<!-- Post 5 -->
+<article class="bg-surface-container-lowest rounded-xl flex flex-col h-full shadow-sm hover:shadow-md transition-all">
+<div class="h-48 rounded-t-xl overflow-hidden">
+<img alt="Web Security" class="w-full h-full object-cover" data-alt="abstract close-up of a glass prism reflecting rainbow light onto a dark surface representing digital encryption and security" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAZPI9Kyn6YGVaZqrurNAz1eDhNOHeXVxdHLOzuDbgeGGWz9xwSbkYdYkSaJyo6wTx3-vZlXkmAEyckzJK05tOD34FxOo6eXmLr8QLwHip13Z8PB--l4oYUAPW2CXHUqqpzkF1GDuNAQ2WBCCORRXRXMz9GmObEG6KtO151mKk3UJR4kU9kg6RadMNRov0mlmhnsgfns6QfhwTuPtzOr74qBnJnQlGQTzTV7Ed6Yii8c7p0veOFMvPJ_g-eJW-eGFga8FOXLhHKng"/>
+</div>
+<div class="p-6 flex flex-col flex-1">
+<div class="flex items-center justify-between mb-4">
+<span class="text-on-surface-variant text-xs font-medium">March 12, 2024</span>
+<span class="text-on-surface-variant text-xs font-medium">10 min read</span>
+</div>
+<h3 class="text-xl font-bold text-on-surface mb-3">The Modern Web Security Checklist</h3>
+<p class="text-on-surface-variant text-sm mb-6 flex-1">Essential practices for OAuth2, JWT hardening, and preventing CSRF in modern single-page applications.</p>
+<div class="flex items-center justify-between mt-auto">
+<span class="px-3 py-1 bg-surface-container-high text-on-surface-variant text-xs font-bold rounded-full">Security</span>
+<button class="text-primary text-sm font-bold">Read More</button>
+</div>
+</div>
+</article>
+</section>
+<!-- Newsletter Component (Asymmetric Layout) -->
+<section class="mt-20 p-12 bg-primary-container rounded-2xl relative overflow-hidden flex flex-col md:flex-row items-center gap-8">
+<div class="absolute -right-20 -bottom-20 w-64 h-64 bg-primary rounded-full blur-3xl opacity-20"></div>
+<div class="relative z-10 flex-1">
+<h2 class="text-3xl font-bold text-on-primary mb-2">Subscribe to Tech Deep Dives</h2>
+<p class="text-on-primary-container text-opacity-80">Join 5,000+ developers getting bi-weekly architectural insights directly in their inbox.</p>
+</div>
+<div class="relative z-10 w-full md:w-auto flex flex-col sm:flex-row gap-3">
+<input class="px-6 py-4 rounded-xl bg-white/10 border border-white/20 text-white placeholder:text-white/60 focus:ring-2 focus:ring-white outline-none sm:w-80" placeholder="email@example.com" type="email"/>
+<button class="bg-white text-primary px-8 py-4 rounded-xl font-bold hover:bg-slate-50 transition-colors">Join Now</button>
+</div>
+</section>
+</main>
+</div>
+<!-- Footer -->
+<footer class="bg-surface-container-low border-t border-outline-variant/15 py-12 mt-20">
+<div class="max-w-7xl mx-auto px-6 flex flex-col md:flex-row justify-between items-center gap-6">
+<div class="text-on-surface-variant text-sm font-medium">
+                © 2024 Professional Nexus. All rights reserved.
+            </div>
+<div class="flex gap-8">
+<a class="text-on-surface-variant hover:text-primary transition-colors text-sm font-semibold" href="#">Privacy Policy</a>
+<a class="text-on-surface-variant hover:text-primary transition-colors text-sm font-semibold" href="#">Terms of Service</a>
+<a class="text-on-surface-variant hover:text-primary transition-colors text-sm font-semibold" href="#">Contact</a>
+</div>
+</div>
+</footer>
+</body></html>

@@ -1,0 +1,41 @@
+[
+  {
+    "id": "project-1",
+    "title": "CloudCore Analytics Platform",
+    "description": "A real-time data processing engine for enterprise SaaS metrics. Built to handle 10k+ events per second with sub-second latency for visualization. Features custom-built D3.js charting and a multi-tenant PostgreSQL architecture.",
+    "featured": true,
+    "imageUrl": "/images/projects/cloudcore.jpg",
+    "imageAlt": "CloudCore Analytics dashboard showing real-time metrics",
+    "tags": ["React", "Node.js", "Redis", "AWS Lambda"],
+    "links": {
+      "demo": null,
+      "source": "https://github.com/Burdis28/cloudcore"
+    }
+  },
+  {
+    "id": "project-2",
+    "title": "VeloHealth Mobile",
+    "description": "End-to-end encrypted health tracking app focusing on biometric data privacy and offline-first synchronization.",
+    "featured": false,
+    "imageUrl": "/images/projects/velohealth.jpg",
+    "imageAlt": "VeloHealth mobile app interface",
+    "tags": ["React Native", "GraphQL"],
+    "links": {
+      "demo": null,
+      "source": null
+    }
+  },
+  {
+    "id": "project-3",
+    "title": "InfraGuard Bot",
+    "description": "Automated security auditing tool for AWS IAM policies and VPC configurations. Reduces manual security review time by 80%.",
+    "featured": false,
+    "imageUrl": "/images/projects/infraguard.jpg",
+    "imageAlt": "InfraGuard server infrastructure visualization",
+    "tags": ["Python", "Terraform"],
+    "links": {
+      "demo": null,
+      "source": "https://github.com/Burdis28/infraguard"
+    }
+  }
+]

@@ -1,0 +1,294 @@
+<html class="light" lang="en"><head></head><body class="bg-surface font-body text-on-surface">```html
+
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>DevPortfolio | Alex Dev - Full Stack Architect</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;700;800&amp;family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "on-primary-fixed-variant": "#00468a",
+              "inverse-primary": "#a8c8ff",
+              "on-secondary-fixed-variant": "#2e4b57",
+              "surface-container-lowest": "#ffffff",
+              "secondary-fixed": "#c9e7f7",
+              "on-secondary-fixed": "#001f2a",
+              "surface": "#f7fafc",
+              "surface-tint": "#005eb5",
+              "error-container": "#ffdad6",
+              "tertiary-fixed": "#ffdbca",
+              "surface-container": "#ebeef0",
+              "primary-fixed-dim": "#a8c8ff",
+              "inverse-surface": "#2d3133",
+              "surface-dim": "#d7dadc",
+              "on-surface": "#181c1e",
+              "secondary": "#466270",
+              "inverse-on-surface": "#eef1f3",
+              "on-tertiary-fixed-variant": "#773300",
+              "secondary-container": "#c6e4f4",
+              "on-tertiary-container": "#ffe0d1",
+              "on-primary": "#ffffff",
+              "primary": "#004e99",
+              "surface-bright": "#f7fafc",
+              "surface-container-highest": "#e0e3e5",
+              "on-error": "#ffffff",
+              "background": "#f7fafc",
+              "surface-variant": "#e0e3e5",
+              "outline": "#727783",
+              "secondary-fixed-dim": "#adcbda",
+              "tertiary-fixed-dim": "#ffb68e",
+              "on-secondary-container": "#4a6774",
+              "on-surface-variant": "#414752",
+              "surface-container-high": "#e5e9eb",
+              "on-background": "#181c1e",
+              "surface-container-low": "#f1f4f6",
+              "primary-container": "#0a66c2",
+              "error": "#ba1a1a",
+              "on-primary-fixed": "#001b3d",
+              "on-secondary": "#ffffff",
+              "on-primary-container": "#dbe6ff",
+              "tertiary-container": "#a94b00",
+              "primary-fixed": "#d6e3ff",
+              "outline-variant": "#c1c6d4",
+              "on-error-container": "#93000a",
+              "tertiary": "#833900",
+              "on-tertiary": "#ffffff",
+              "on-tertiary-fixed": "#331200"
+            },
+            fontFamily: {
+              "headline": ["Manrope"],
+              "body": ["Inter"],
+              "label": ["Inter"]
+            },
+            borderRadius: {"DEFAULT": "0.125rem", "lg": "0.25rem", "xl": "0.5rem", "full": "0.75rem"},
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+            vertical-align: middle;
+        }
+        .editorial-shadow {
+            box-shadow: 0 20px 40px rgba(24, 28, 30, 0.06);
+        }
+    </style>
+<!-- TopNavBar (Identical to SCREEN_5) -->
+<nav class="fixed top-0 w-full z-50 bg-[#ffffff]/80 backdrop-blur-md border-b border-[#c1c6d4]/15 shadow-sm">
+<div class="max-w-7xl mx-auto px-6 h-16 flex items-center justify-between">
+<div class="text-xl font-black text-primary font-headline tracking-tight">DevPortfolio</div>
+<div class="hidden md:flex items-center space-x-8">
+<a class="text-primary border-b-2 border-primary pb-1 font-label text-sm font-bold" href="#">Home</a>
+<a class="text-on-surface-variant hover:text-primary transition-colors font-label text-sm font-medium" href="#">Experience</a>
+<a class="text-on-surface-variant hover:text-primary transition-colors font-label text-sm font-medium" href="#">Skills</a>
+<a class="text-on-surface-variant hover:text-primary transition-colors font-label text-sm font-medium" href="#">Projects</a>
+<a class="text-on-surface-variant hover:text-primary transition-colors font-label text-sm font-medium" href="#">Contact</a>
+</div>
+<div class="flex items-center gap-4">
+<button class="p-2 rounded-full hover:bg-surface-container-low transition-colors text-on-surface-variant">
+<span class="material-symbols-outlined">notifications</span>
+</button>
+<button class="p-2 rounded-full hover:bg-surface-container-low transition-colors text-on-surface-variant">
+<span class="material-symbols-outlined">message</span>
+</button>
+<div class="w-8 h-8 rounded-full overflow-hidden border border-outline-variant/30">
+<img class="w-full h-full object-cover" data-alt="Professional headshot of Alex Dev" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDHe90zw1qWuxq7BmS4xWK102-_4c3Eenx6Ll2ZL3GV2pRGdYY9zbzcsIxw6l9IfqO2OuEQ_yjWlZVFvJ0A_r57KiiS8ZRTRJ40eulkwzH6K7a3bSi9Rd6MNk7pEK9iXOfjV0wqigRwswQ-OO4byIQy29otzW2kBHnL5sPHOpuqpZSHF5H1Tju_q3Ygjx_mPOTYeM2w-GyDRIPnJgV7ax2c4BXbpgF84hrNeYQTt7LDSqoJCVtKIu0DjJMH7pL8rXjnkRNcP7B0gA"/>
+</div>
+</div>
+</div>
+</nav>
+<main class="max-w-7xl mx-auto px-6 pt-32 pb-12">
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-12">
+<!-- SideNavBar (Identical to SCREEN_5) -->
+<aside class="lg:col-span-3 space-y-6">
+<div class="bg-surface-container-lowest rounded-xl p-8 border border-outline-variant/10 editorial-shadow">
+<div class="flex flex-col items-center text-center">
+<div class="w-32 h-32 rounded-xl overflow-hidden mb-6 border-2 border-primary-container p-1 bg-surface-container-low">
+<img alt="Alex Dev" class="w-full h-full object-cover rounded-lg shadow-inner" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCTOaqAeHEgsuZEEzkLAgEU0ikF0WEwk5SRA9zfQggdYLYC0teFQ5Tz_VpINve6U17URTdGitDfM7ytAkYkSAqaE1ItuWbYbw_DkhIVHBh2swX9BmMbYcjfqEBWjOQ81vAmItgNG9UgbHnhrMcAzFiI-gROQEnNaGmun1-Fw6d45NMW5mB_R2TDedyOpFGwD1v6YKE8fkOWwZLYkiRQ4_rLRbJ90QX5OpBybF99ZrRbPWpbl0rWexBn4N3fwA2o56Hi3izvNvhlEw"/>
+</div>
+<h2 class="font-headline font-bold text-2xl text-on-surface">Alex Dev</h2>
+<p class="text-sm text-on-surface-variant font-medium mt-1">Full Stack Architect</p>
+<div class="flex items-center gap-3 mt-6 mb-8">
+<a class="w-10 h-10 flex items-center justify-center rounded-lg bg-surface-container-low text-on-surface-variant hover:bg-primary hover:text-on-primary transition-all" href="#">
+<span class="material-symbols-outlined text-xl">code</span>
+</a>
+<a class="w-10 h-10 flex items-center justify-center rounded-lg bg-surface-container-low text-on-surface-variant hover:bg-primary hover:text-on-primary transition-all" href="#">
+<span class="material-symbols-outlined text-xl">share</span>
+</a>
+<a class="w-10 h-10 flex items-center justify-center rounded-lg bg-surface-container-low text-on-surface-variant hover:bg-primary hover:text-on-primary transition-all" href="#">
+<span class="material-symbols-outlined text-xl">language</span>
+</a>
+</div>
+<button class="w-full py-4 bg-primary text-on-primary rounded-xl font-bold text-sm tracking-wide hover:bg-primary-container transition-all shadow-lg shadow-primary/20 flex items-center justify-center gap-2">
+<span class="material-symbols-outlined text-lg">download</span>
+                            Download Resume
+                        </button>
+</div>
+<div class="mt-10 pt-8 border-t border-outline-variant/10">
+<h3 class="font-headline font-bold text-sm text-on-surface mb-6 flex items-center gap-2 uppercase tracking-widest text-[10px]">
+<span class="material-symbols-outlined text-primary text-base">token</span>
+                            Tech Stack
+                        </h3>
+<div class="flex flex-wrap gap-2">
+<span class="px-3 py-1.5 bg-surface-container-high rounded-lg text-[10px] font-bold text-on-surface uppercase tracking-wider">React.js</span>
+<span class="px-3 py-1.5 bg-surface-container-high rounded-lg text-[10px] font-bold text-on-surface uppercase tracking-wider">TypeScript</span>
+<span class="px-3 py-1.5 bg-surface-container-high rounded-lg text-[10px] font-bold text-on-surface uppercase tracking-wider">GoLang</span>
+<span class="px-3 py-1.5 bg-surface-container-high rounded-lg text-[10px] font-bold text-on-surface uppercase tracking-wider">Kubernetes</span>
+<span class="px-3 py-1.5 bg-surface-container-high rounded-lg text-[10px] font-bold text-on-surface uppercase tracking-wider">AWS</span>
+</div>
+</div>
+</div>
+</aside>
+<!-- Main Feed -->
+<div class="lg:col-span-9 space-y-6">
+<!-- Hero Section -->
+<section class="bg-surface-container-lowest rounded-xl shadow-sm overflow-hidden border border-outline-variant/15">
+<div class="h-48 relative overflow-hidden">
+<img alt="Modern office background" class="w-full h-full object-cover" data-alt="Clean minimal architectural office space background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuA7DDUfPTo1f9gwOqgs3OsM_NLWgBlH_EVB79eagtAj7HNLgoEmv1_XlPkvVM55IORyVE61zpEXuYcSmH3MyhwestiBcdJeR8LOW-kDwJPAPQiOdf8KAdQ01pSr3ilEBWXohgLLuhuy-9dPPAvsmBmKZHhGM9PoItOL7HNA8O5NnG3xCXGRkRQZgoJVDRu77cjlK8BCVkPYfqawSesO64D7RwTUUvK8T-_mcscJCX6tR-Gr_veKNJQFwDLO7FaSBsR6LjbgG7Agxg"/>
+<div class="absolute inset-0 bg-gradient-to-t from-surface-container-lowest via-transparent to-transparent"></div>
+</div>
+<div class="px-8 pb-8 -mt-16 relative z-10">
+<div class="flex justify-between items-end mb-6">
+<img alt="Professional headshot" class="w-32 h-32 rounded-xl border-4 border-surface-container-lowest object-cover shadow-lg" data-alt="Alex Dev professional headshot large" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBnXLjBOP6ML35fTzVmq8MCkFJnmfHOKVwwo3Ii4lyTOW7UmWcf_Wp9cuZjZ_1sZ-L9o9x1hXzNKHSSVy3ziti6NJtwW6GuoJvrAwwfQfbKdz3fKQWXUFgmXSxlUEDyHKuupC53sL6uMUL840uixiXabjPnQrgwXSx2YpFtKBlXeO9dobFi954w2PENNDQCA6uVHuKqEP9dLQq7BY5onayH020w7gzxWjikcIbe-GYxZFJoGleo35r9tMnLUiqhYYk00GSVqwMxRA"/>
+<div class="flex gap-2">
+<button class="px-6 py-2 bg-primary text-on-primary rounded-full font-bold transition-all hover:bg-surface-tint active:scale-95">Connect</button>
+<button class="px-6 py-2 border-2 border-primary text-primary rounded-full font-bold transition-all hover:bg-primary/5 active:scale-95">Message</button>
+</div>
+</div>
+<h1 class="text-3xl font-black font-headline text-on-surface tracking-tight leading-none mb-1">Alex Dev</h1>
+<p class="text-xl text-on-surface-variant font-medium mb-4">Full-Stack Software Engineer &amp; Technical Architect</p>
+<div class="flex items-center gap-4 text-sm text-on-surface-variant mb-6">
+<div class="flex items-center gap-1">
+<span class="material-symbols-outlined text-base">location_on</span>
+<span>San Francisco Bay Area</span>
+</div>
+<div class="flex items-center gap-1">
+<span class="material-symbols-outlined text-base">link</span>
+<a class="text-primary font-bold hover:underline" href="#">alexdev.tech</a>
+</div>
+</div>
+<div class="bg-surface-container-low p-6 rounded-xl border border-outline-variant/15">
+<h3 class="font-headline font-bold mb-2">About</h3>
+<p class="text-on-surface-variant leading-relaxed font-body">
+                                Passionate about building scalable digital systems and crafting elegant user experiences. With over 8 years of experience in distributed systems and modern front-end frameworks, I focus on bridging the gap between complex engineering and human-centric design. Currently exploring the intersection of AI and developer productivity.
+                            </p>
+</div>
+</div>
+</section>
+<!-- Featured Section (Bento Grid Style) -->
+<section class="space-y-4">
+<div class="flex justify-between items-center px-2">
+<h2 class="text-xl font-black font-headline text-on-surface tracking-tight">Featured Highlights</h2>
+<button class="text-primary font-bold text-sm hover:underline">Manage Featured</button>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+<!-- Highlight 1: Top Project -->
+<div class="group bg-surface-container-lowest rounded-xl overflow-hidden border border-outline-variant/15 shadow-sm transition-all hover:shadow-md hover:bg-surface-bright">
+<div class="h-40 overflow-hidden relative">
+<img alt="Code on screen" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" data-alt="Clean computer code displayed on a monitor" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCZqlK9wDZCuv8ycWYxnbi-nuyjREwB_GLWxZvhmRaT5LmiVktNKtQ3hqfheqk3SxrwI1-UsHSoPZqQVqHlxZXkkIpK3Bk2-hYUopxDJUpfceOG0bvDzBGVbSLG6e-WtjGozlBtLTaHewQVbT0prb4ULqNFHfsALWK4zree5UtCMIIOsIgxxz3NN_3FFDAel959ezecXVjsQwpKpne8UtAru_nkw1xfSYyevSJEHkIwKSMjErAa2Yzj33mUajORz4dNS081iF_0NA"/>
+<div class="absolute top-3 right-3 bg-primary-container px-3 py-1 rounded-full">
+<span class="text-[10px] font-bold text-on-primary-container uppercase tracking-widest">Project</span>
+</div>
+</div>
+<div class="p-6">
+<h3 class="font-headline font-bold text-lg mb-2">Architect.ui Framework</h3>
+<p class="text-sm text-on-surface-variant mb-4 line-clamp-2">A high-performance design system framework for enterprise React applications, downloaded over 50k times.</p>
+<div class="flex items-center justify-between">
+<div class="flex -space-x-2">
+<div class="w-6 h-6 rounded-full bg-secondary-container flex items-center justify-center text-[10px] font-bold border-2 border-surface-container-lowest">JS</div>
+<div class="w-6 h-6 rounded-full bg-tertiary-fixed flex items-center justify-center text-[10px] font-bold border-2 border-surface-container-lowest">TS</div>
+</div>
+<span class="material-symbols-outlined text-primary group-hover:translate-x-1 transition-transform">arrow_forward</span>
+</div>
+</div>
+</div>
+<!-- Highlight 2: Achievement -->
+<div class="group bg-surface-container-lowest rounded-xl overflow-hidden border border-outline-variant/15 shadow-sm transition-all hover:shadow-md hover:bg-surface-bright">
+<div class="h-40 bg-on-primary-fixed-variant flex items-center justify-center p-8 relative">
+<div class="text-center">
+<span class="material-symbols-outlined text-5xl text-inverse-primary mb-2" style='font-variation-settings: "FILL" 1;'>workspace_premium</span>
+<h4 class="text-on-primary font-headline font-black text-xl leading-tight">Speaker at Conf_2024</h4>
+</div>
+<div class="absolute top-3 right-3 bg-tertiary-container px-3 py-1 rounded-full">
+<span class="text-[10px] font-bold text-on-tertiary-container uppercase tracking-widest">Talk</span>
+</div>
+</div>
+<div class="p-6">
+<h3 class="font-headline font-bold text-lg mb-2">The Future of Edge Computing</h3>
+<p class="text-sm text-on-surface-variant mb-4 line-clamp-2">Presented a deep-dive into distributed state management at the largest developer conference in the region.</p>
+<div class="flex items-center justify-between">
+<span class="text-xs font-bold text-on-surface-variant">March 2024 • TechHub</span>
+<span class="material-symbols-outlined text-primary group-hover:translate-x-1 transition-transform">arrow_forward</span>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Experience Preview -->
+<section class="bg-surface-container-lowest rounded-xl p-8 border border-outline-variant/15 shadow-sm">
+<div class="flex justify-between items-center mb-8">
+<h2 class="text-xl font-black font-headline text-on-surface tracking-tight">Experience</h2>
+<button class="p-2 rounded-full hover:bg-surface-container-low transition-colors">
+<span class="material-symbols-outlined text-on-surface-variant">add</span>
+</button>
+</div>
+<div class="space-y-12 relative">
+<!-- Item 1 -->
+<div class="relative flex gap-6">
+<div class="absolute -top-12 -left-4 text-6xl font-black text-primary/5 pointer-events-none select-none">2023</div>
+<div class="flex-shrink-0">
+<div class="w-12 h-12 rounded-lg bg-surface-container flex items-center justify-center">
+<span class="material-symbols-outlined text-primary">corporate_fare</span>
+</div>
+</div>
+<div class="flex-grow border-b border-outline-variant/10 pb-8">
+<h4 class="font-bold text-on-surface text-lg">Lead Software Engineer</h4>
+<p class="text-on-surface-variant text-sm mb-2">CloudScale Systems • Full-time</p>
+<p class="text-on-surface-variant text-xs mb-4">Jan 2023 - Present · 1 yr 4 mos</p>
+<p class="text-sm text-on-surface-variant/80 max-w-2xl">Spearheading the migration of legacy monolith to micro-frontends architecture. Reduced deployment time by 40% using custom CI/CD pipelines.</p>
+</div>
+</div>
+<!-- Item 2 -->
+<div class="relative flex gap-6">
+<div class="absolute -top-12 -left-4 text-6xl font-black text-primary/5 pointer-events-none select-none">2020</div>
+<div class="flex-shrink-0">
+<div class="w-12 h-12 rounded-lg bg-surface-container flex items-center justify-center">
+<span class="material-symbols-outlined text-primary">developer_board</span>
+</div>
+</div>
+<div class="flex-grow border-b border-outline-variant/10 pb-8">
+<h4 class="font-bold text-on-surface text-lg">Senior Full Stack Developer</h4>
+<p class="text-on-surface-variant text-sm mb-2">InnovateHQ • Remote</p>
+<p class="text-on-surface-variant text-xs mb-4">Aug 2020 - Dec 2022 · 2 yrs 5 mos</p>
+<p class="text-sm text-on-surface-variant/80 max-w-2xl">Owned the development of a real-time analytics dashboard used by 100+ B2B clients. Mentored a team of 4 junior developers.</p>
+</div>
+</div>
+</div>
+<button class="w-full mt-6 py-2 text-on-surface-variant font-bold text-sm hover:bg-surface-container-low rounded-lg transition-colors">
+                        Show all 6 experiences
+                    </button>
+</section>
+</div>
+</div>
+</main>
+<!-- Footer -->
+<footer class="w-full py-8 mt-12 bg-[#f7fafc] border-t border-[#c1c6d4]/15">
+<div class="max-w-7xl mx-auto px-6 flex flex-col md:flex-row justify-between items-center gap-6">
+<p class="font-['Inter'] text-[10px] uppercase tracking-widest text-[#414752]">
+                © 2024 Architect Portfolio. Built with Precision.
+            </p>
+<div class="flex gap-8">
+<a class="font-['Inter'] text-[10px] uppercase tracking-widest text-[#414752] hover:text-[#004e99] transition-opacity duration-300" href="#">Privacy Policy</a>
+<a class="font-['Inter'] text-[10px] uppercase tracking-widest text-[#414752] hover:text-[#004e99] transition-opacity duration-300" href="#">Accessibility</a>
+<a class="font-['Inter'] text-[10px] uppercase tracking-widest text-[#414752] hover:text-[#004e99] transition-opacity duration-300" href="#">User Agreement</a>
+<a class="font-['Inter'] text-[10px] uppercase tracking-widest text-[#414752] hover:text-[#004e99] transition-opacity duration-300" href="#">Help Center</a>
+</div>
+</div>
+</footer>
+```</body></html>

@@ -1,0 +1,14 @@
+---
+import type { Degree } from '../../types';
+
+interface Props {
+  item: Degree;
+}
+const { item } = Astro.props;
+---
+
+<div class={`relative pl-4 border-l-2 ${item.isActive ? 'border-primary-fixed' : 'border-outline-variant/30'}`}>
+  <h4 class="font-headline font-bold text-on-surface">{item.degree}</h4>
+  <p class="text-primary text-sm font-semibold">{item.institution}</p>
+  <p class="text-on-surface-variant text-xs mt-1">{item.period}</p>
+</div>

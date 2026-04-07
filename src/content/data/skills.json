@@ -1,0 +1,20 @@
+[
+  {
+    "id": "frontend",
+    "category": "Frontend Engineering",
+    "icon": "palette",
+    "skills": ["React 18", "Next.js", "TypeScript", "Tailwind CSS"]
+  },
+  {
+    "id": "backend",
+    "category": "Backend & Core",
+    "icon": "dns",
+    "skills": ["Node.js", "PostgreSQL", "Go", "Redis"]
+  },
+  {
+    "id": "devops",
+    "category": "Architecture & DevOps",
+    "icon": "terminal",
+    "skills": ["AWS Cloud", "Docker", "Kubernetes", "CI/CD"]
+  }
+]

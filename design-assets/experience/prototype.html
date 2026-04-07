@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Experience | DevPortfolio</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;700;800&amp;family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "on-primary-fixed-variant": "#00468a",
+              "inverse-primary": "#a8c8ff",
+              "on-secondary-fixed-variant": "#2e4b57",
+              "surface-container-lowest": "#ffffff",
+              "secondary-fixed": "#c9e7f7",
+              "on-secondary-fixed": "#001f2a",
+              "surface": "#f7fafc",
+              "surface-tint": "#005eb5",
+              "error-container": "#ffdad6",
+              "tertiary-fixed": "#ffdbca",
+              "surface-container": "#ebeef0",
+              "primary-fixed-dim": "#a8c8ff",
+              "inverse-surface": "#2d3133",
+              "surface-dim": "#d7dadc",
+              "on-surface": "#181c1e",
+              "secondary": "#466270",
+              "inverse-on-surface": "#eef1f3",
+              "on-tertiary-fixed-variant": "#773300",
+              "secondary-container": "#c6e4f4",
+              "on-tertiary-container": "#ffe0d1",
+              "on-primary": "#ffffff",
+              "primary": "#004e99",
+              "surface-bright": "#f7fafc",
+              "surface-container-highest": "#e0e3e5",
+              "on-error": "#ffffff",
+              "background": "#f7fafc",
+              "surface-variant": "#e0e3e5",
+              "outline": "#727783",
+              "secondary-fixed-dim": "#adcbda",
+              "tertiary-fixed-dim": "#ffb68e",
+              "on-secondary-container": "#4a6774",
+              "on-surface-variant": "#414752",
+              "surface-container-high": "#e5e9eb",
+              "on-background": "#181c1e",
+              "surface-container-low": "#f1f4f6",
+              "primary-container": "#0a66c2",
+              "error": "#ba1a1a",
+              "on-primary-fixed": "#001b3d",
+              "on-secondary": "#ffffff",
+              "on-primary-container": "#dbe6ff",
+              "tertiary-container": "#a94b00",
+              "primary-fixed": "#d6e3ff",
+              "outline-variant": "#c1c6d4",
+              "on-error-container": "#93000a",
+              "tertiary": "#833900",
+              "on-tertiary": "#ffffff",
+              "on-tertiary-fixed": "#331200"
+            },
+            fontFamily: {
+              "headline": ["Manrope"],
+              "body": ["Inter"],
+              "label": ["Inter"]
+            },
+            borderRadius: {"DEFAULT": "0.125rem", "lg": "0.25rem", "xl": "0.5rem", "full": "0.75rem"},
+          },
+        },
+      }
+    </script>
+<style>
+      .material-symbols-outlined {
+        font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+      }
+      .experience-timeline::before {
+        content: '';
+        position: absolute;
+        left: 28px;
+        top: 0;
+        bottom: 0;
+        width: 2px;
+        background: repeating-linear-gradient(to bottom, transparent, transparent 4px, #c1c6d4 4px, #c1c6d4 8px);
+        opacity: 0.3;
+      }
+      .editorial-shadow {
+        box-shadow: 0 20px 40px rgba(24, 28, 30, 0.06);
+      }
+    </style>
+</head>
+<body class="bg-surface text-on-surface selection:bg-primary-fixed selection:text-on-primary-fixed">
+<!-- TopNavBar synced from SCREEN_5 -->
+<nav class="fixed top-0 w-full z-50 bg-[#ffffff]/80 backdrop-blur-md border-b border-[#c1c6d4]/15 shadow-sm">
+<div class="max-w-7xl mx-auto px-6 h-16 flex items-center justify-between">
+<div class="text-xl font-black text-primary font-headline tracking-tight">DevPortfolio</div>
+<div class="hidden md:flex items-center space-x-8">
+<a class="text-on-surface-variant hover:text-primary transition-colors font-label text-sm font-medium" href="#">Home</a>
+<a class="text-primary border-b-2 border-primary pb-1 font-label text-sm font-bold" href="#">Experience</a>
+<a class="text-on-surface-variant hover:text-primary transition-colors font-label text-sm font-medium" href="#">Skills</a>
+<a class="text-on-surface-variant hover:text-primary transition-colors font-label text-sm font-medium" href="#">Projects</a>
+<a class="text-on-surface-variant hover:text-primary transition-colors font-label text-sm font-medium" href="#">Contact</a>
+</div>
+<div class="flex items-center gap-4">
+<button class="p-2 rounded-full hover:bg-surface-container-low transition-colors text-on-surface-variant">
+<span class="material-symbols-outlined">notifications</span>
+</button>
+<button class="p-2 rounded-full hover:bg-surface-container-low transition-colors text-on-surface-variant">
+<span class="material-symbols-outlined">message</span>
+</button>
+<div class="w-8 h-8 rounded-full overflow-hidden border border-outline-variant/30">
+<img class="w-full h-full object-cover" data-alt="Professional headshot of Alex Dev" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDHe90zw1qWuxq7BmS4xWK102-_4c3Eenx6Ll2ZL3GV2pRGdYY9zbzcsIxw6l9IfqO2OuEQ_yjWlZVFvJ0A_r57KiiS8ZRTRJ40eulkwzH6K7a3bSi9Rd6MNk7pEK9iXOfjV0wqigRwswQ-OO4byIQy29otzW2kBHnL5sPHOpuqpZSHF5H1Tju_q3Ygjx_mPOTYeM2w-GyDRIPnJgV7ax2c4BXbpgF84hrNeYQTt7LDSqoJCVtKIu0DjJMH7pL8rXjnkRNcP7B0gA"/>
+</div>
+</div>
+</div>
+</nav>
+<main class="max-w-7xl mx-auto px-6 pt-32 pb-24 grid grid-cols-1 lg:grid-cols-12 gap-12">
+<!-- Left Sidebar: Synced from SCREEN_5 -->
+<aside class="lg:col-span-3 space-y-6">
+<div class="bg-surface-container-lowest rounded-xl p-8 border border-outline-variant/10 editorial-shadow">
+<div class="flex flex-col items-center text-center">
+<div class="w-32 h-32 rounded-xl overflow-hidden mb-6 border-2 border-primary-container p-1 bg-surface-container-low">
+<img alt="Alex Dev" class="w-full h-full object-cover rounded-lg shadow-inner" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCTOaqAeHEgsuZEEzkLAgEU0ikF0WEwk5SRA9zfQggdYLYC0teFQ5Tz_VpINve6U17URTdGitDfM7ytAkYkSAqaE1ItuWbYbw_DkhIVHBh2swX9BmMbYcjfqEBWjOQ81vAmItgNG9UgbHnhrMcAzFiI-gROQEnNaGmun1-Fw6d45NMW5mB_R2TDedyOpFGwD1v6YKE8fkOWwZLYkiRQ4_rLRbJ90QX5OpBybF99ZrRbPWpbl0rWexBn4N3fwA2o56Hi3izvNvhlEw"/>
+</div>
+<h2 class="font-headline font-bold text-2xl text-on-surface">Alex Dev</h2>
+<p class="text-sm text-on-surface-variant font-medium mt-1">Full Stack Architect</p>
+<div class="flex items-center gap-3 mt-6 mb-8">
+<a class="w-10 h-10 flex items-center justify-center rounded-lg bg-surface-container-low text-on-surface-variant hover:bg-primary hover:text-on-primary transition-all" href="#">
+<span class="material-symbols-outlined text-xl">code</span>
+</a>
+<a class="w-10 h-10 flex items-center justify-center rounded-lg bg-surface-container-low text-on-surface-variant hover:bg-primary hover:text-on-primary transition-all" href="#">
+<span class="material-symbols-outlined text-xl">share</span>
+</a>
+<a class="w-10 h-10 flex items-center justify-center rounded-lg bg-surface-container-low text-on-surface-variant hover:bg-primary hover:text-on-primary transition-all" href="#">
+<span class="material-symbols-outlined text-xl">language</span>
+</a>
+</div>
+<button class="w-full py-4 bg-primary text-on-primary rounded-xl font-bold text-sm tracking-wide hover:bg-primary-container transition-all shadow-lg shadow-primary/20 flex items-center justify-center gap-2">
+<span class="material-symbols-outlined text-lg">download</span>
+                            Download Resume
+                        </button>
+</div>
+<div class="mt-10 pt-8 border-t border-outline-variant/10">
+<h3 class="font-headline font-bold text-sm text-on-surface mb-6 flex items-center gap-2 uppercase tracking-widest text-[10px]">
+<span class="material-symbols-outlined text-primary text-base">token</span>
+                            Tech Stack
+                        </h3>
+<div class="flex flex-wrap gap-2">
+<span class="px-3 py-1.5 bg-surface-container-high rounded-lg text-[10px] font-bold text-on-surface uppercase tracking-wider">React.js</span>
+<span class="px-3 py-1.5 bg-surface-container-high rounded-lg text-[10px] font-bold text-on-surface uppercase tracking-wider">TypeScript</span>
+<span class="px-3 py-1.5 bg-surface-container-high rounded-lg text-[10px] font-bold text-on-surface uppercase tracking-wider">GoLang</span>
+<span class="px-3 py-1.5 bg-surface-container-high rounded-lg text-[10px] font-bold text-on-surface uppercase tracking-wider">Kubernetes</span>
+<span class="px-3 py-1.5 bg-surface-container-high rounded-lg text-[10px] font-bold text-on-surface uppercase tracking-wider">AWS</span>
+</div>
+</div>
+</div>
+</aside>
+<!-- Main Content: Experience Timeline -->
+<div class="lg:col-span-9 space-y-8">
+<section class="bg-surface-container-lowest rounded-xl shadow-sm border border-outline-variant/10 p-8">
+<header class="mb-12">
+<h1 class="text-4xl font-headline font-extrabold text-on-surface tracking-tight mb-2">Professional Experience</h1>
+<p class="text-on-surface-variant max-w-2xl">A selective journey through my career as a builder of digital products and high-performance engineering systems.</p>
+</header>
+<div class="experience-timeline relative space-y-16">
+<!-- Experience Item 1 -->
+<div class="relative pl-16 group">
+<!-- Timeline Year Watermark -->
+<span class="absolute -left-4 top-0 text-7xl font-headline font-extrabold text-primary-fixed-dim opacity-20 pointer-events-none select-none">2023</span>
+<!-- Timeline Node Icon -->
+<div class="absolute left-[21px] top-1 w-4 h-4 rounded-full border-4 border-primary bg-white z-10"></div>
+<div class="flex flex-col md:flex-row gap-6">
+<div class="flex-shrink-0">
+<div class="w-16 h-16 bg-surface-container flex items-center justify-center rounded-xl border border-outline-variant/20">
+<span class="material-symbols-outlined text-primary text-3xl">developer_mode_tv</span>
+</div>
+</div>
+<div class="flex-grow">
+<div class="flex flex-col md:flex-row md:items-center justify-between gap-2 mb-4">
+<div>
+<h3 class="text-xl font-headline font-extrabold text-on-surface">Senior Full Stack Architect</h3>
+<p class="text-primary font-bold">Technovate Systems Inc.</p>
+</div>
+<div class="text-right">
+<span class="text-sm font-label text-on-surface-variant bg-surface-container-low px-3 py-1 rounded-full uppercase tracking-widest font-bold">Jan 2023 - Present</span>
+<p class="text-xs text-on-surface-variant mt-1">San Francisco, CA (Hybrid)</p>
+</div>
+</div>
+<ul class="space-y-3 text-on-surface-variant">
+<li class="flex gap-3">
+<span class="w-1.5 h-1.5 rounded-full bg-primary-container mt-2 shrink-0"></span>
+<p>Leading the architectural redesign of the core SaaS platform, resulting in a 40% improvement in load times and a 25% reduction in server costs.</p>
+</li>
+<li class="flex gap-3">
+<span class="w-1.5 h-1.5 rounded-full bg-primary-container mt-2 shrink-0"></span>
+<p>Mentoring a cross-functional team of 12 developers, implementing modern CI/CD pipelines and rigorous code review standards.</p>
+</li>
+<li class="flex gap-3">
+<span class="w-1.5 h-1.5 rounded-full bg-primary-container mt-2 shrink-0"></span>
+<p>Pioneered the integration of AI-driven analytics, enabling real-time predictive insights for over 500 enterprise clients.</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<!-- Experience Item 2 -->
+<div class="relative pl-16 group">
+<span class="absolute -left-4 top-0 text-7xl font-headline font-extrabold text-primary-fixed-dim opacity-20 pointer-events-none select-none">2021</span>
+<div class="absolute left-[21px] top-1 w-4 h-4 rounded-full border-4 border-outline-variant bg-white z-10"></div>
+<div class="flex flex-col md:flex-row gap-6">
+<div class="flex-shrink-0">
+<div class="w-16 h-16 bg-surface-container flex items-center justify-center rounded-xl border border-outline-variant/20">
+<span class="material-symbols-outlined text-on-surface-variant text-3xl">cloud_done</span>
+</div>
+</div>
+<div class="flex-grow">
+<div class="flex flex-col md:flex-row md:items-center justify-between gap-2 mb-4">
+<div>
+<h3 class="text-xl font-headline font-extrabold text-on-surface">Software Engineer II</h3>
+<p class="text-primary font-bold">CloudStream Labs</p>
+</div>
+<div class="text-right">
+<span class="text-sm font-label text-on-surface-variant bg-surface-container-low px-3 py-1 rounded-full uppercase tracking-widest font-bold">Aug 2021 - Dec 2022</span>
+<p class="text-xs text-on-surface-variant mt-1">Austin, TX (Remote)</p>
+</div>
+</div>
+<ul class="space-y-3 text-on-surface-variant">
+<li class="flex gap-3">
+<span class="w-1.5 h-1.5 rounded-full bg-primary-container mt-2 shrink-0"></span>
+<p>Developed and maintained high-traffic microservices using Node.js and Go, handling over 2 million daily active requests.</p>
+</li>
+<li class="flex gap-3">
+<span class="w-1.5 h-1.5 rounded-full bg-primary-container mt-2 shrink-0"></span>
+<p>Optimized database queries in PostgreSQL, reducing average API response time by 150ms.</p>
+</li>
+<li class="flex gap-3">
+<span class="w-1.5 h-1.5 rounded-full bg-primary-container mt-2 shrink-0"></span>
+<p>Successfully migrated 10+ legacy modules to a modern React-based micro-frontend architecture.</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<!-- Experience Item 3 -->
+<div class="relative pl-16 group">
+<span class="absolute -left-4 top-0 text-7xl font-headline font-extrabold text-primary-fixed-dim opacity-20 pointer-events-none select-none">2019</span>
+<div class="absolute left-[21px] top-1 w-4 h-4 rounded-full border-4 border-outline-variant bg-white z-10"></div>
+<div class="flex flex-col md:flex-row gap-6">
+<div class="flex-shrink-0">
+<div class="w-16 h-16 bg-surface-container flex items-center justify-center rounded-xl border border-outline-variant/20">
+<span class="material-symbols-outlined text-on-surface-variant text-3xl">terminal</span>
+</div>
+</div>
+<div class="flex-grow">
+<div class="flex flex-col md:flex-row md:items-center justify-between gap-2 mb-4">
+<div>
+<h3 class="text-xl font-headline font-extrabold text-on-surface">Junior Web Developer</h3>
+<p class="text-primary font-bold">PixelPerfect Creative Agency</p>
+</div>
+<div class="text-right">
+<span class="text-sm font-label text-on-surface-variant bg-surface-container-low px-3 py-1 rounded-full uppercase tracking-widest font-bold">May 2019 - July 2021</span>
+<p class="text-xs text-on-surface-variant mt-1">New York, NY</p>
+</div>
+</div>
+<ul class="space-y-3 text-on-surface-variant">
+<li class="flex gap-3">
+<span class="w-1.5 h-1.5 rounded-full bg-primary-container mt-2 shrink-0"></span>
+<p>Built over 20+ responsive custom WordPress and Shopify themes for high-profile fashion and lifestyle brands.</p>
+</li>
+<li class="flex gap-3">
+<span class="w-1.5 h-1.5 rounded-full bg-primary-container mt-2 shrink-0"></span>
+<p>Collaborated closely with design teams to translate complex Figma prototypes into pixel-perfect CSS and JavaScript.</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Education & Certifications Section -->
+<div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+<!-- Education -->
+<section class="bg-surface-container-lowest rounded-xl shadow-sm border border-outline-variant/10 p-8">
+<div class="flex items-center gap-3 mb-8">
+<span class="material-symbols-outlined text-primary text-3xl">school</span>
+<h2 class="text-2xl font-headline font-extrabold text-on-surface">Education</h2>
+</div>
+<div class="space-y-8">
+<div class="relative pl-4 border-l-2 border-primary-fixed">
+<h4 class="font-headline font-bold text-on-surface">M.S. in Computer Science</h4>
+<p class="text-primary text-sm font-semibold">Stanford University</p>
+<p class="text-on-surface-variant text-xs mt-1">2017 - 2019</p>
+</div>
+<div class="relative pl-4 border-l-2 border-outline-variant/30">
+<h4 class="font-headline font-bold text-on-surface">B.S. in Software Engineering</h4>
+<p class="text-primary text-sm font-semibold">Georgia Institute of Technology</p>
+<p class="text-on-surface-variant text-xs mt-1">2013 - 2017</p>
+</div>
+</div>
+</section>
+<!-- Certifications -->
+<section class="bg-surface-container-lowest rounded-xl shadow-sm border border-outline-variant/10 p-8">
+<div class="flex items-center gap-3 mb-8">
+<span class="material-symbols-outlined text-primary text-3xl">verified</span>
+<h2 class="text-2xl font-headline font-extrabold text-on-surface">Certifications</h2>
+</div>
+<div class="grid grid-cols-1 gap-4">
+<div class="flex items-center gap-4 p-4 rounded-lg bg-surface-container-low group hover:bg-surface-container-high transition-colors">
+<div class="w-10 h-10 flex-shrink-0 bg-white rounded border border-outline-variant/20 flex items-center justify-center">
+<span class="material-symbols-outlined text-primary">cloud</span>
+</div>
+<div>
+<h4 class="font-bold text-sm text-on-surface">AWS Certified Solutions Architect</h4>
+<p class="text-[10px] text-on-surface-variant uppercase tracking-widest font-bold">Credential ID: AWS-88291</p>
+</div>
+</div>
+<div class="flex items-center gap-4 p-4 rounded-lg bg-surface-container-low group hover:bg-surface-container-high transition-colors">
+<div class="w-10 h-10 flex-shrink-0 bg-white rounded border border-outline-variant/20 flex items-center justify-center">
+<span class="material-symbols-outlined text-primary">security</span>
+</div>
+<div>
+<h4 class="font-bold text-sm text-on-surface">Google Professional Cloud Security Engineer</h4>
+<p class="text-[10px] text-on-surface-variant uppercase tracking-widest font-bold">Issued: Oct 2022</p>
+</div>
+</div>
+<div class="flex items-center gap-4 p-4 rounded-lg bg-surface-container-low group hover:bg-surface-container-high transition-colors">
+<div class="w-10 h-10 flex-shrink-0 bg-white rounded border border-outline-variant/20 flex items-center justify-center">
+<span class="material-symbols-outlined text-primary">workspace_premium</span>
+</div>
+<div>
+<h4 class="font-bold text-sm text-on-surface">Meta Front-End Developer Professional Certificate</h4>
+<p class="text-[10px] text-on-surface-variant uppercase tracking-widest font-bold">Coursera Specialization</p>
+</div>
+</div>
+</div>
+</section>
+</div>
+</div>
+</main>
+<!-- Footer -->
+<footer class="bg-[#f7fafc] border-t border-[#c1c6d4]/15 py-8 mt-12">
+<div class="max-w-7xl mx-auto px-6 flex flex-col md:flex-row justify-between items-center">
+<p class="font-['Inter'] text-[10px] uppercase tracking-widest text-[#414752] transition-opacity duration-300">© 2024 Architect Portfolio. Built with Precision.</p>
+<div class="flex gap-6 mt-4 md:mt-0">
+<a class="font-['Inter'] text-[10px] uppercase tracking-widest text-[#414752] hover:text-[#004e99] hover:underline transition-colors" href="#">Privacy Policy</a>
+<a class="font-['Inter'] text-[10px] uppercase tracking-widest text-[#414752] hover:text-[#004e99] hover:underline transition-colors" href="#">Accessibility</a>
+<a class="font-['Inter'] text-[10px] uppercase tracking-widest text-[#414752] hover:text-[#004e99] hover:underline transition-colors" href="#">User Agreement</a>
+<a class="font-['Inter'] text-[10px] uppercase tracking-widest text-[#414752] hover:text-[#004e99] hover:underline transition-colors" href="#">Help Center</a>
+</div>
+</div>
+</footer>
+</body></html>

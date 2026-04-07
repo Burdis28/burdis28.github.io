@@ -1,0 +1,49 @@
+[
+  {
+    "id": "job-1",
+    "role": "Senior Full Stack Architect",
+    "company": "Technovate Systems Inc.",
+    "type": "Full-time",
+    "period": { "start": "Jan 2023", "end": "Present" },
+    "location": "San Francisco, CA (Hybrid)",
+    "icon": "developer_mode_tv",
+    "isActive": true,
+    "year": "2023",
+    "bullets": [
+      "Leading the architectural redesign of the core SaaS platform, resulting in a 40% improvement in load times and a 25% reduction in server costs.",
+      "Mentoring a cross-functional team of 12 developers, implementing modern CI/CD pipelines and rigorous code review standards.",
+      "Pioneered the integration of AI-driven analytics, enabling real-time predictive insights for over 500 enterprise clients."
+    ]
+  },
+  {
+    "id": "job-2",
+    "role": "Software Engineer II",
+    "company": "CloudStream Labs",
+    "type": "Remote",
+    "period": { "start": "Aug 2021", "end": "Dec 2022" },
+    "location": "Austin, TX (Remote)",
+    "icon": "cloud_done",
+    "isActive": false,
+    "year": "2021",
+    "bullets": [
+      "Developed and maintained high-traffic microservices using Node.js and Go, handling over 2 million daily active requests.",
+      "Optimized database queries in PostgreSQL, reducing average API response time by 150ms.",
+      "Successfully migrated 10+ legacy modules to a modern React-based micro-frontend architecture."
+    ]
+  },
+  {
+    "id": "job-3",
+    "role": "Junior Web Developer",
+    "company": "PixelPerfect Creative Agency",
+    "type": "Full-time",
+    "period": { "start": "May 2019", "end": "Jul 2021" },
+    "location": "New York, NY",
+    "icon": "terminal",
+    "isActive": false,
+    "year": "2019",
+    "bullets": [
+      "Built 20+ responsive custom themes for high-profile fashion and lifestyle brands.",
+      "Collaborated with design teams to translate Figma prototypes into pixel-perfect CSS and JavaScript."
+    ]
+  }
+]

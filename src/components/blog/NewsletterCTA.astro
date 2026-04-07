@@ -1,0 +1,43 @@
+---
+import profile from '../../content/data/profile.json';
+const email = profile.social.email;
+const contactUrl = '/contact';
+---
+
+<section class="mt-20 p-12 bg-primary-container rounded-2xl relative overflow-hidden">
+  <!-- Decorative blob -->
+  <div
+    class="absolute -right-20 -bottom-20 w-64 h-64 bg-primary rounded-full blur-3xl opacity-20"
+    aria-hidden="true"
+  ></div>
+
+  <div class="relative z-10 flex flex-col md:flex-row items-center gap-8">
+
+    <div class="flex-1">
+      <h2 class="text-3xl font-bold font-headline text-on-primary mb-2">
+        Stay in Touch
+      </h2>
+      <p class="text-on-primary-container">
+        Interested in collaborating or just want to talk tech? Drop me a line directly — no forms, no friction.
+      </p>
+    </div>
+
+    <div class="relative z-10 flex flex-col sm:flex-row gap-3 shrink-0">
+      <a
+        href={`mailto:${email}`}
+        class="flex items-center gap-2 px-8 py-4 bg-white text-primary rounded-xl font-bold hover:bg-surface-container-low transition-colors"
+      >
+        <span class="material-icons-outlined" style="font-size:18px">mail</span>
+        Send an Email
+      </a>
+      <a
+        href={contactUrl}
+        class="flex items-center gap-2 px-8 py-4 bg-white/10 border border-white/20 text-white rounded-xl font-bold hover:bg-white/20 transition-colors"
+      >
+        <span class="material-icons-outlined" style="font-size:18px">contacts</span>
+        All Contacts
+      </a>
+    </div>
+
+  </div>
+</section>

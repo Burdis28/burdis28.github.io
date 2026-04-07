@@ -1,0 +1,20 @@
+{
+  "name": "Ondřej Burda",
+  "title": "Software Developer",
+  "tagline": "Building scalable systems and clean interfaces.",
+  "location": "Prague, Czech Republic",
+  "website": {
+    "label": "burdis28.github.io",
+    "url": "https://burdis28.github.io"
+  },
+  "social": {
+    "github": "https://github.com/Burdis28",
+    "linkedin": "https://linkedin.com/in/YOUR_LINKEDIN",
+    "email": "YOUR_EMAIL@example.com"
+  },
+  "about": "Passionate about building scalable digital systems and crafting clean user experiences. Experienced in full-stack development with a focus on modern frontend frameworks, distributed backend architecture, and cloud infrastructure. Always exploring the intersection of engineering quality and developer productivity.",
+  "resumeUrl": "/files/ondrej-burda-cv.pdf",
+  "avatarUrl": "/images/profile.jpg",
+  "heroBannerUrl": "/images/hero-banner.jpg",
+  "techStack": ["React.js", "TypeScript", "Go", "Kubernetes", "AWS"]
+}

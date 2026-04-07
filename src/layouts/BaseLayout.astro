@@ -1,0 +1,71 @@
+---
+import '../styles/global.css';
+import TopNavBar from '../components/layout/TopNavBar.astro';
+import LeftSidebar from '../components/layout/LeftSidebar.astro';
+import Footer from '../components/layout/Footer.astro';
+
+interface Props {
+  title: string;
+  activeNav: 'home' | 'experience' | 'projects' | 'blog' | 'contact';
+  description?: string;
+}
+
+const {
+  title,
+  activeNav,
+  description = 'Personal portfolio of Ondřej Burda — software developer.',
+} = Astro.props;
+
+const siteUrl = 'https://burdis28.github.io';
+const canonicalUrl = new URL(Astro.url.pathname, siteUrl).href;
+---
+
+<!DOCTYPE html>
+<html lang="en" class="light">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>{title}</title>
+
+  <!-- SEO -->
+  <meta name="description" content={description} />
+  <link rel="canonical" href={canonicalUrl} />
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content={canonicalUrl} />
+  <meta property="og:title" content={title} />
+  <meta property="og:description" content={description} />
+  <meta property="og:image" content={`${siteUrl}/images/og-card.jpg`} />
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+
+  <!-- Sitemap -->
+  <link rel="sitemap" href="/sitemap-index.xml" />
+</head>
+
+<body class="bg-surface font-body text-on-surface min-h-screen flex flex-col">
+  <TopNavBar activeNav={activeNav} />
+
+  <main class="flex-1 max-w-7xl mx-auto w-full px-4 md:px-6 pt-28 pb-12">
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12">
+
+      <!-- Left sidebar — sticky on desktop, stacked on mobile -->
+      <aside class="lg:col-span-3">
+        <div class="lg:sticky lg:top-24">
+          <LeftSidebar />
+        </div>
+      </aside>
+
+      <!-- Main content area -->
+      <div class="lg:col-span-9">
+        <slot />
+      </div>
+
+    </div>
+  </main>
+
+  <Footer />
+</body>
+</html>

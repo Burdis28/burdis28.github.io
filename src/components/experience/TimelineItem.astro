@@ -1,0 +1,67 @@
+---
+import type { ExperienceItem } from '../../types';
+
+interface Props {
+  item: ExperienceItem;
+}
+const { item } = Astro.props;
+---
+
+<div class="relative pl-16 group">
+
+  <!-- Year watermark -->
+  <span
+    class="absolute -left-4 top-0 text-7xl font-headline font-extrabold text-primary-fixed-dim opacity-20 pointer-events-none select-none"
+    aria-hidden="true"
+  >
+    {item.year}
+  </span>
+
+  <!-- Timeline dot -->
+  <div
+    class={`absolute left-[21px] top-1 w-4 h-4 rounded-full border-4 bg-white z-10
+      ${item.isActive ? 'border-primary' : 'border-outline-variant'}`}
+  ></div>
+
+  <!-- Content -->
+  <div class="flex flex-col md:flex-row gap-6">
+
+    <!-- Company icon -->
+    <div class="flex-shrink-0">
+      <div class="w-16 h-16 bg-surface-container flex items-center justify-center rounded-xl border border-outline-variant/20">
+        <span class={`material-icons-outlined text-3xl ${item.isActive ? 'text-primary' : 'text-on-surface-variant'}`} style="font-size:28px">
+          {item.icon}
+        </span>
+      </div>
+    </div>
+
+    <!-- Text block -->
+    <div class="flex-grow">
+
+      <!-- Role + period row -->
+      <div class="flex flex-col md:flex-row md:items-center justify-between gap-2 mb-4">
+        <div>
+          <h3 class="text-xl font-headline font-extrabold text-on-surface">{item.role}</h3>
+          <p class="text-primary font-bold">{item.company}</p>
+        </div>
+        <div class="text-left md:text-right flex-shrink-0">
+          <span class="text-sm font-label text-on-surface-variant bg-surface-container-low px-3 py-1 rounded-full uppercase tracking-widest font-bold">
+            {item.period.start} – {item.period.end}
+          </span>
+          <p class="text-xs text-on-surface-variant mt-1">{item.location}</p>
+        </div>
+      </div>
+
+      <!-- Bullet points -->
+      <ul class="space-y-3">
+        {item.bullets.map((bullet) => (
+          <li class="flex gap-3 text-on-surface-variant">
+            <span class="w-1.5 h-1.5 rounded-full bg-primary-container mt-2 shrink-0" aria-hidden="true"></span>
+            <p>{bullet}</p>
+          </li>
+        ))}
+      </ul>
+
+    </div>
+  </div>
+</div>

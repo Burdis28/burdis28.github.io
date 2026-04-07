@@ -1,0 +1,93 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import FeaturedHighlights from '../components/home/FeaturedHighlights.astro';
+import ExperiencePreview from '../components/home/ExperiencePreview.astro';
+import profile from '../content/data/profile.json';
+---
+
+<BaseLayout
+  title="Ondřej Burda — Software Developer"
+  activeNav="home"
+  description={profile.tagline}
+>
+  <div class="space-y-6">
+
+    <!-- Hero + About card -->
+    <div class="bg-surface-container-lowest rounded-xl shadow-sm overflow-hidden border border-outline-variant/15">
+
+      <!-- Banner -->
+      <div class="h-48 relative overflow-hidden bg-gradient-to-br from-primary to-on-primary-fixed-variant">
+        <img
+          src={profile.heroBannerUrl}
+          alt="Profile banner"
+          class="w-full h-full object-cover"
+          width="900"
+          height="192"
+          onerror="this.style.display='none'"
+        />
+        <div class="absolute inset-0 bg-gradient-to-t from-surface-container-lowest/60 via-transparent to-transparent"></div>
+      </div>
+
+      <!-- Overlapping content -->
+      <div class="px-8 pb-8 -mt-16 relative z-10">
+
+        <!-- Avatar + action buttons row -->
+        <div class="flex justify-between items-end mb-6">
+          <img
+            src={profile.avatarUrl}
+            alt={profile.name}
+            class="w-32 h-32 rounded-xl border-4 border-surface-container-lowest object-cover shadow-lg bg-surface-container-low"
+            width="128"
+            height="128"
+            onerror="this.src='data:image/svg+xml;utf8,<svg xmlns=&quot;http://www.w3.org/2000/svg&quot; width=&quot;128&quot; height=&quot;128&quot; viewBox=&quot;0 0 128 128&quot;><rect width=&quot;128&quot; height=&quot;128&quot; fill=&quot;%23e5e9eb&quot;/><text x=&quot;50%&quot; y=&quot;54%&quot; dominant-baseline=&quot;middle&quot; text-anchor=&quot;middle&quot; font-size=&quot;48&quot; fill=&quot;%23727783&quot;&gt;OB&lt;/text&gt;&lt;/svg&gt;'"
+          />
+          <div class="flex gap-2 mb-2">
+            <a
+              href="/contact"
+              class="px-6 py-2 bg-primary text-on-primary rounded-full font-bold text-sm transition-all hover:bg-surface-tint active:scale-95"
+            >
+              Connect
+            </a>
+            <a
+              href={`mailto:${profile.social.email}`}
+              class="px-6 py-2 border-2 border-primary text-primary rounded-full font-bold text-sm transition-all hover:bg-primary/5 active:scale-95"
+            >
+              Message
+            </a>
+          </div>
+        </div>
+
+        <!-- Name & title -->
+        <h1 class="text-3xl font-black font-headline text-on-surface tracking-tight leading-none mb-1">
+          {profile.name}
+        </h1>
+        <p class="text-xl text-on-surface-variant font-medium mb-4">{profile.title}</p>
+
+        <!-- Meta: location + website -->
+        <div class="flex flex-wrap items-center gap-4 text-sm text-on-surface-variant mb-6">
+          <div class="flex items-center gap-1">
+            <span class="material-icons-outlined" style="font-size:16px">location_on</span>
+            <span>{profile.location}</span>
+          </div>
+          <div class="flex items-center gap-1">
+            <span class="material-icons-outlined" style="font-size:16px">link</span>
+            <a href={profile.website.url} class="text-primary font-bold hover:underline">
+              {profile.website.label}
+            </a>
+          </div>
+        </div>
+
+        <!-- About block -->
+        <div class="bg-surface-container-low p-6 rounded-xl border border-outline-variant/15">
+          <h3 class="font-headline font-bold mb-2 text-on-surface">About</h3>
+          <p class="text-on-surface-variant leading-relaxed">{profile.about}</p>
+        </div>
+
+      </div>
+    </div>
+
+    <FeaturedHighlights />
+    <ExperiencePreview />
+
+  </div>
+</BaseLayout>

@@ -1,0 +1,41 @@
+{
+  "degrees": [
+    {
+      "id": "degree-1",
+      "degree": "M.S. in Computer Science",
+      "institution": "Stanford University",
+      "period": "2017 – 2019",
+      "isActive": true
+    },
+    {
+      "id": "degree-2",
+      "degree": "B.S. in Software Engineering",
+      "institution": "Georgia Institute of Technology",
+      "period": "2013 – 2017",
+      "isActive": false
+    }
+  ],
+  "certifications": [
+    {
+      "id": "cert-1",
+      "name": "AWS Certified Solutions Architect",
+      "issuer": "Amazon Web Services",
+      "meta": "Credential ID: AWS-88291",
+      "icon": "cloud"
+    },
+    {
+      "id": "cert-2",
+      "name": "Google Professional Cloud Security Engineer",
+      "issuer": "Google Cloud",
+      "meta": "Issued: Oct 2022",
+      "icon": "security"
+    },
+    {
+      "id": "cert-3",
+      "name": "Meta Front-End Developer Professional Certificate",
+      "issuer": "Meta / Coursera",
+      "meta": "Coursera Specialization",
+      "icon": "workspace_premium"
+    }
+  ]
+}

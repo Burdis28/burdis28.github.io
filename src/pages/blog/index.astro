@@ -1,0 +1,45 @@
+---
+import { getCollection } from 'astro:content';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import FeaturedPost from '../../components/blog/FeaturedPost.astro';
+import PostCard from '../../components/blog/PostCard.astro';
+import NewsletterCTA from '../../components/blog/NewsletterCTA.astro';
+
+const allPosts = (await getCollection('blog')).sort(
+  (a, b) => b.data.date.valueOf() - a.data.date.valueOf()
+);
+
+const featuredPost = allPosts.find((p) => p.data.featured);
+const gridPosts = allPosts.filter((p) => !p.data.featured);
+---
+
+<BaseLayout
+  title="Blog — Ondřej Burda"
+  activeNav="blog"
+  description="Articles on scalable architecture, modern frontend patterns, and cloud computing."
+>
+  <div class="space-y-12">
+
+    <header>
+      <h1 class="text-5xl font-extrabold font-headline text-on-surface tracking-tighter mb-4">
+        Insights & Engineering
+      </h1>
+      <p class="text-on-surface-variant text-lg max-w-2xl leading-relaxed">
+        Exploring the intersection of scalable architecture, modern frontend patterns, and the future of cloud computing.
+      </p>
+    </header>
+
+    {featuredPost && <FeaturedPost post={featuredPost} />}
+
+    {gridPosts.length > 0 && (
+      <section class="grid md:grid-cols-2 gap-8">
+        {gridPosts.map((post) => (
+          <PostCard post={post} />
+        ))}
+      </section>
+    )}
+
+    <NewsletterCTA />
+
+  </div>
+</BaseLayout>

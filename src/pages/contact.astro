@@ -1,0 +1,104 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import profile from '../content/data/profile.json';
+---
+
+<BaseLayout
+  title="Contact — Ondřej Burda"
+  activeNav="contact"
+  description="Get in touch — project inquiries, job opportunities, or general questions."
+>
+  <div class="space-y-8">
+
+    <header>
+      <h1 class="text-4xl font-headline font-extrabold text-on-surface tracking-tight mb-2">
+        Get In Touch
+      </h1>
+      <p class="text-on-surface-variant max-w-2xl">
+        Whether it's a project inquiry, a job opportunity, or just to say hi — reach out directly via any of the channels below.
+      </p>
+    </header>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+
+      <!-- Email -->
+      <a
+        href={`mailto:${profile.social.email}`}
+        class="group bg-surface-container-lowest rounded-xl p-6 border border-outline-variant/10 shadow-editorial hover:border-primary/30 hover:shadow-md transition-all"
+      >
+        <div class="flex items-center gap-4">
+          <div class="w-12 h-12 flex items-center justify-center rounded-xl bg-surface-container text-on-surface-variant group-hover:bg-primary group-hover:text-on-primary transition-all flex-shrink-0">
+            <span class="material-icons-outlined" style="font-size:22px">mail</span>
+          </div>
+          <div>
+            <p class="text-xs font-label font-bold uppercase tracking-widest text-on-surface-variant mb-0.5">Email</p>
+            <p class="font-bold text-on-surface group-hover:text-primary transition-colors">{profile.social.email}</p>
+          </div>
+          <span class="material-icons-outlined text-on-surface-variant/40 group-hover:text-primary ml-auto transition-colors" style="font-size:18px">arrow_forward</span>
+        </div>
+      </a>
+
+      <!-- LinkedIn -->
+      <a
+        href={profile.social.linkedin}
+        target="_blank"
+        rel="noopener noreferrer"
+        class="group bg-surface-container-lowest rounded-xl p-6 border border-outline-variant/10 shadow-editorial hover:border-primary/30 hover:shadow-md transition-all"
+      >
+        <div class="flex items-center gap-4">
+          <div class="w-12 h-12 flex items-center justify-center rounded-xl bg-surface-container text-on-surface-variant group-hover:bg-primary group-hover:text-on-primary transition-all flex-shrink-0">
+            <span class="material-icons-outlined" style="font-size:22px">share</span>
+          </div>
+          <div>
+            <p class="text-xs font-label font-bold uppercase tracking-widest text-on-surface-variant mb-0.5">LinkedIn</p>
+            <p class="font-bold text-on-surface group-hover:text-primary transition-colors">Connect on LinkedIn</p>
+          </div>
+          <span class="material-icons-outlined text-on-surface-variant/40 group-hover:text-primary ml-auto transition-colors" style="font-size:18px">open_in_new</span>
+        </div>
+      </a>
+
+      <!-- GitHub -->
+      <a
+        href={profile.social.github}
+        target="_blank"
+        rel="noopener noreferrer"
+        class="group bg-surface-container-lowest rounded-xl p-6 border border-outline-variant/10 shadow-editorial hover:border-primary/30 hover:shadow-md transition-all"
+      >
+        <div class="flex items-center gap-4">
+          <div class="w-12 h-12 flex items-center justify-center rounded-xl bg-surface-container text-on-surface-variant group-hover:bg-primary group-hover:text-on-primary transition-all flex-shrink-0">
+            <span class="material-icons-outlined" style="font-size:22px">code</span>
+          </div>
+          <div>
+            <p class="text-xs font-label font-bold uppercase tracking-widest text-on-surface-variant mb-0.5">GitHub</p>
+            <p class="font-bold text-on-surface group-hover:text-primary transition-colors">Burdis28</p>
+          </div>
+          <span class="material-icons-outlined text-on-surface-variant/40 group-hover:text-primary ml-auto transition-colors" style="font-size:18px">open_in_new</span>
+        </div>
+      </a>
+
+      <!-- Location -->
+      <div class="bg-surface-container-lowest rounded-xl p-6 border border-outline-variant/10 shadow-editorial">
+        <div class="flex items-center gap-4">
+          <div class="w-12 h-12 flex items-center justify-center rounded-xl bg-surface-container text-on-surface-variant flex-shrink-0">
+            <span class="material-icons-outlined text-primary" style="font-size:22px">location_on</span>
+          </div>
+          <div>
+            <p class="text-xs font-label font-bold uppercase tracking-widest text-on-surface-variant mb-0.5">Location</p>
+            <p class="font-bold text-on-surface">{profile.location}</p>
+            <p class="text-sm text-on-surface-variant mt-0.5">Open to remote worldwide</p>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Response time note -->
+    <div class="flex items-center gap-3 p-5 bg-surface-container-low rounded-xl border border-outline-variant/10">
+      <span class="material-icons-outlined text-primary" style="font-size:20px">schedule</span>
+      <p class="text-sm text-on-surface-variant">
+        I typically respond within <strong class="text-on-surface">1–2 business days</strong>.
+      </p>
+    </div>
+
+  </div>
+</BaseLayout>

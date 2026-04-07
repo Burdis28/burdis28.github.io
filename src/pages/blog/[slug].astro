@@ -1,0 +1,91 @@
+---
+import { getCollection, render } from 'astro:content';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+
+export async function getStaticPaths() {
+  const posts = await getCollection('blog');
+  return posts.map((post) => ({
+    params: { slug: post.id },
+    props: { post },
+  }));
+}
+
+const { post } = Astro.props;
+const { Content } = await render(post);
+
+const formattedDate = post.data.date.toLocaleDateString('en-US', {
+  year: 'numeric',
+  month: 'long',
+  day: 'numeric',
+});
+---
+
+<BaseLayout
+  title={`${post.data.title} — Ondřej Burda`}
+  activeNav="blog"
+  description={post.data.excerpt}
+>
+  <article class="max-w-3xl">
+
+    <!-- Back link -->
+    <a href="/blog" class="inline-flex items-center gap-1 text-on-surface-variant hover:text-primary text-sm font-medium mb-8 transition-colors">
+      <span class="material-icons-outlined" style="font-size:16px">arrow_back</span>
+      Back to Insights
+    </a>
+
+    <!-- Cover image -->
+    <div class="aspect-video rounded-xl overflow-hidden mb-8 bg-surface-container-low">
+      <img
+        src={post.data.coverImage}
+        alt={post.data.coverImageAlt}
+        class="w-full h-full object-cover"
+        width="900"
+        height="506"
+      />
+    </div>
+
+    <!-- Article header -->
+    <header class="mb-10">
+      <div class="flex flex-wrap items-center gap-3 mb-6">
+        <span class="px-3 py-1 bg-surface-container-high text-on-surface-variant text-xs font-bold rounded-full">
+          {post.data.category}
+        </span>
+        <span class="text-on-surface-variant text-sm">
+          {formattedDate} · {post.data.readTime} min read
+        </span>
+      </div>
+
+      <h1 class="text-4xl md:text-5xl font-headline font-extrabold text-on-surface tracking-tight leading-tight mb-4">
+        {post.data.title}
+      </h1>
+
+      <p class="text-xl text-on-surface-variant leading-relaxed">
+        {post.data.excerpt}
+      </p>
+    </header>
+
+    <hr class="border-outline-variant/20 mb-10" />
+
+    <!-- Article body -->
+    <div class="prose prose-slate max-w-none
+      prose-headings:font-headline prose-headings:text-on-surface
+      prose-p:text-on-surface-variant prose-p:leading-relaxed
+      prose-a:text-primary prose-a:font-bold prose-a:no-underline hover:prose-a:underline
+      prose-code:text-primary prose-code:bg-surface-container-low prose-code:rounded prose-code:px-1
+      prose-pre:bg-on-primary-fixed-variant prose-pre:text-on-primary-container prose-pre:rounded-xl
+      prose-strong:text-on-surface
+      prose-li:text-on-surface-variant
+    ">
+      <Content />
+    </div>
+
+    <!-- Bottom back link -->
+    <div class="mt-16 pt-8 border-t border-outline-variant/15">
+      <a href="/blog" class="inline-flex items-center gap-1 text-primary font-bold hover:underline transition-colors">
+        <span class="material-icons-outlined" style="font-size:16px">arrow_back</span>
+        All Articles
+      </a>
+    </div>
+
+  </article>
+</BaseLayout>
