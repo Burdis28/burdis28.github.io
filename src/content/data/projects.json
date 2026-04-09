@@ -1,41 +1,28 @@
 [
   {
     "id": "project-1",
-    "title": "CloudCore Analytics Platform",
-    "description": "A real-time data processing engine for enterprise SaaS metrics. Built to handle 10k+ events per second with sub-second latency for visualization. Features custom-built D3.js charting and a multi-tenant PostgreSQL architecture.",
+    "title": "UPCE Esports",
+    "description": "Studentský spolek Univerzity Pardubice, který jsem spoluzakládal v roce 2018, záhy po prvním fakultním turnaji v CS:GO. Jako předseda jsem vybudoval komunitu, která přesahuje herní scénu: pravidelné akce, univerzitní Derby UPCE vs. UHK a místo, kde se potkávají lidi s chutí něco dělat.",
     "featured": true,
-    "imageUrl": "/images/projects/cloudcore.jpg",
-    "imageAlt": "CloudCore Analytics dashboard showing real-time metrics",
-    "tags": ["React", "Node.js", "Redis", "AWS Lambda"],
+    "imageUrl": "/images/projects/upce-esports/cover.jpg",
+    "imageAlt": "UPCE Esports spolek logo",
+    "tags": ["Esport", "Komunitní akce", "Organizace", "CS:GO"],
     "links": {
-      "demo": null,
-      "source": "https://github.com/Burdis28/cloudcore"
-    }
-  },
-  {
-    "id": "project-2",
-    "title": "VeloHealth Mobile",
-    "description": "End-to-end encrypted health tracking app focusing on biometric data privacy and offline-first synchronization.",
-    "featured": false,
-    "imageUrl": "/images/projects/velohealth.jpg",
-    "imageAlt": "VeloHealth mobile app interface",
-    "tags": ["React Native", "GraphQL"],
-    "links": {
-      "demo": null,
+      "demo": "https://www.facebook.com/UPCEesports",
       "source": null
     }
   },
   {
-    "id": "project-3",
-    "title": "InfraGuard Bot",
-    "description": "Automated security auditing tool for AWS IAM policies and VPC configurations. Reduces manual security review time by 80%.",
+    "id": "project-2",
+    "title": "Osobní web",
+    "description": "Tenhle web, přehled mé práce, zkušeností a myšlenek. Postavený na Astru s Tailwindem, navržený tak, aby byl rychlý, přehledný a trochu osobnější než klasické CV.",
     "featured": false,
-    "imageUrl": "/images/projects/infraguard.jpg",
-    "imageAlt": "InfraGuard server infrastructure visualization",
-    "tags": ["Python", "Terraform"],
+    "imageUrl": "/images/projects/personal-web/cover.jpg",
+    "imageAlt": "Osobní web Ondřeje Burdy",
+    "tags": ["Astro", "TypeScript", "Web"],
     "links": {
-      "demo": null,
-      "source": "https://github.com/Burdis28/infraguard"
+      "demo": "https://burdis28.github.io",
+      "source": "https://github.com/Burdis28"
     }
   }
 ]

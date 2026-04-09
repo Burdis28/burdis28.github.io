@@ -7,12 +7,10 @@ interface Props {
 const { item } = Astro.props;
 ---
 
-<div class="flex items-center gap-4 p-4 rounded-xl bg-surface-container-low hover:bg-surface-container-high transition-colors">
-  <div class="w-10 h-10 flex-shrink-0 bg-white rounded-xl border border-outline-variant/20 flex items-center justify-center">
-    <span class="material-icons-outlined text-primary" style="font-size:20px">{item.icon}</span>
-  </div>
+<li class="flex items-start gap-4">
+  <div class="mt-1 w-2 h-2 rounded-full bg-primary shrink-0"></div>
   <div>
-    <h4 class="font-bold text-sm text-on-surface">{item.name}</h4>
-    <p class="text-[10px] text-on-surface-variant uppercase tracking-widest font-bold">{item.meta}</p>
+    <h5 class="font-headline font-bold text-sm text-on-surface">{item.name}</h5>
+    <p class="text-xs text-on-surface-variant">{item.meta}</p>
   </div>
-</div>
+</li>

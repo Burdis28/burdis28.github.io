@@ -7,20 +7,20 @@ interface Props {
 const { category } = Astro.props;
 ---
 
-<div class="space-y-8">
+<div class="space-y-6">
 
   <!-- Category header -->
   <div class="flex items-center gap-3">
-    <span class="material-icons-outlined text-primary p-2 bg-primary-container/20 rounded-xl" style="font-size:22px">
+    <span class="material-symbols-outlined text-primary" style="font-size:22px">
       {category.icon}
     </span>
-    <h4 class="font-headline font-bold text-xl text-on-surface">{category.category}</h4>
+    <h4 class="font-headline font-bold text-lg text-on-surface">{category.category}</h4>
   </div>
 
   <!-- Skill chips -->
-  <div class="flex flex-wrap gap-3">
+  <div class="flex flex-wrap gap-2">
     {category.skills.map((skill) => (
-      <span class="px-4 py-2 bg-surface-container-low text-on-surface-variant font-label font-semibold rounded-full border border-outline-variant/10 hover:border-primary/50 transition-colors text-sm">
+      <span class="px-3 py-1 bg-secondary-fixed text-on-secondary-fixed-variant font-label font-bold rounded-full text-xs uppercase tracking-tight">
         {skill}
       </span>
     ))}

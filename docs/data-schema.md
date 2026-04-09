@@ -11,11 +11,11 @@ All structured content lives in `src/content/data/` (JSON) and `src/content/blog
 ```json
 {
   "name": "Ondřej Burda",
-  "title": "Software Developer",
-  "tagline": "Full-stack developer focused on scalable systems and clean interfaces.",
+  "title": "Java/Kotlin Software Engineer",
+  "tagline": "Backend developer focused on Kotlin, Java, and modern distributed systems.",
   "location": "Prague, Czech Republic",
   "website": {
-    "label": "burda.dev",
+    "label": "burdis28.github.io",
     "url": "https://burdis28.github.io"
   },
   "social": {
@@ -23,13 +23,24 @@ All structured content lives in `src/content/data/` (JSON) and `src/content/blog
     "linkedin": "https://linkedin.com/in/YOUR_LINKEDIN",
     "email": "your@email.com"
   },
-  "about": "Multi-sentence bio paragraph. Appears in the About block on the Home page and in the sidebar.",
+  "heroHeadline": "Engineering with",
+  "heroAccent": "Precision.",
+  "about": "Multi-sentence bio paragraph shown on the Home page hero section.",
+  "aboutQuote": "Optional single-sentence quote shown in an italic blockquote style.",
+  "yearsExperience": "5",
   "resumeUrl": "/files/ondrej-burda-cv.pdf",
   "avatarUrl": "/images/profile.jpg",
   "heroBannerUrl": "/images/hero-banner.jpg",
-  "techStack": ["React.js", "TypeScript", "Go", "Kubernetes", "AWS"]
+  "techStack": ["Java", "Kotlin", "MongoDB", "SQL", "Spring Boot"]
 }
 ```
+
+Fields:
+- `heroHeadline` — first line of the home page h1 (e.g. "Engineering with")
+- `heroAccent` — second line of the home page h1, rendered in `text-tertiary` (e.g. "Precision.")
+- `aboutQuote` — optional; if present, shown as an italic border-left styled quote
+- `yearsExperience` — shown in the hero stat card overlay (e.g. "5")
+- `techStack` — array shown in the sidebar (currently unused — sidebar shows social links instead)
 
 ### `experience.json`
 
@@ -37,37 +48,38 @@ All structured content lives in `src/content/data/` (JSON) and `src/content/blog
 [
   {
     "id": "job-1",
-    "role": "Senior Software Engineer",
+    "role": "Java/Kotlin Software Engineer",
     "company": "Company Name",
     "type": "Full-time",
     "period": {
-      "start": "Jan 2023",
+      "start": "Nov 2021",
       "end": "Present"
     },
-    "location": "Prague, CZ (Hybrid)",
+    "location": "Prague, Czech Republic",
     "icon": "developer_mode_tv",
     "isActive": true,
-    "year": "2023",
+    "year": "2021",
     "bullets": [
       "First achievement bullet point.",
-      "Second achievement bullet point.",
-      "Third achievement bullet point."
-    ]
+      "Second achievement bullet point."
+    ],
+    "tags": ["Kotlin", "Spring Boot", "MongoDB"]
   }
 ]
 ```
 
 Fields:
 - `id` — unique string identifier
-- `role` — job title
-- `company` — company name (shown in `text-primary`)
-- `type` — "Full-time" / "Contract" / "Remote" etc.
-- `period.start` / `period.end` — displayed in period badge
-- `location` — shown as metadata below period badge
-- `icon` — Material Symbols icon name for the company icon box
-- `isActive` — `true` = active timeline dot (border-primary), `false` = past (border-outline-variant)
-- `year` — 4-digit string, shown as watermark background (e.g. `"2023"`)
-- `bullets` — array of achievement strings
+- `role` — job title (shown as `text-2xl font-headline font-bold text-on-surface`)
+- `company` — company name (shown as `text-secondary`)
+- `type` — "Full-time" / "Part-time" / "Contract" etc. (currently not displayed, kept for reference)
+- `period.start` / `period.end` — displayed in the period badge
+- `location` — kept for reference (not currently displayed in the timeline)
+- `icon` — Material Symbols icon name (kept for reference — timeline uses dot instead of icon)
+- `isActive` — `true` = primary-colored dot, `false` = surface-colored dot
+- `year` — 4-digit string (kept for reference)
+- `bullets` — array of achievement strings, each shown with a small olive dot
+- `tags` — optional array of tech/skill strings; shown as `secondary-fixed` chips
 
 ### `education.json`
 
@@ -76,29 +88,34 @@ Fields:
   "degrees": [
     {
       "id": "degree-1",
-      "degree": "Bc. in Computer Science",
-      "institution": "Czech Technical University",
-      "period": "2014 – 2018",
-      "isActive": true
+      "degree": "Ing. in Information Technology",
+      "institution": "University of Pardubice",
+      "period": "2018 – 2021",
+      "isActive": true,
+      "note": "Optional note, e.g. specialization or honors."
     }
   ],
   "certifications": [
     {
       "id": "cert-1",
-      "name": "AWS Certified Solutions Architect",
-      "issuer": "Amazon Web Services",
-      "meta": "Credential ID: AWS-XXXXX",
-      "icon": "cloud"
+      "name": "Kotlin Academy",
+      "issuer": "Kotlin Academy",
+      "meta": "Kotlin Course",
+      "icon": "code"
     }
   ]
 }
 ```
 
 Degree fields:
-- `isActive` — `true` = `border-primary-fixed` (highlighted), `false` = `border-outline-variant/30`
+- `period` — displayed as `text-tertiary` label above the degree title
+- `note` — optional; shown as italic text below institution
+- `isActive` — kept for reference (not currently used in the new EducationItem style)
 
 Certification fields:
-- `icon` — Material Symbols icon name for the icon box
+- `name` — shown as `font-headline font-bold text-sm text-on-surface`
+- `meta` — shown as `text-xs text-on-surface-variant`
+- `icon` — kept for reference (new CertificationItem uses a dot instead of icon box)
 
 ### `projects.json`
 
@@ -111,7 +128,7 @@ Certification fields:
     "featured": true,
     "imageUrl": "/images/projects/project-1.jpg",
     "imageAlt": "Description of the project screenshot",
-    "tags": ["React", "Node.js", "Redis", "AWS Lambda"],
+    "tags": ["Kotlin", "Spring Boot", "MongoDB"],
     "links": {
       "demo": "https://example.com",
       "source": "https://github.com/Burdis28/project"
@@ -124,36 +141,31 @@ Fields:
 - `featured` — `true` = `md:col-span-12` (full-width bento card), `false` = `md:col-span-6`
 - Only one project should have `featured: true`
 - `links.demo` and `links.source` can be `null` if not applicable
-- `tags` — shown as pill chips at the bottom of the card
+- `tags` — shown as `surface-container-highest` chips (max 3 displayed)
+- Image is shown in grayscale by default, color on hover
 
 ### `skills.json`
 
 ```json
 [
   {
-    "id": "frontend",
-    "category": "Frontend Engineering",
-    "icon": "palette",
-    "skills": ["React 18", "Next.js", "TypeScript", "Tailwind CSS"]
-  },
-  {
     "id": "backend",
     "category": "Backend & Core",
     "icon": "dns",
-    "skills": ["Node.js", "PostgreSQL", "Go", "Redis"]
+    "skills": ["Java", "Kotlin", "Spring Boot", "MongoDB", "SQL"]
   },
   {
-    "id": "devops",
-    "category": "Architecture & DevOps",
+    "id": "tools",
+    "category": "Tools & DevOps",
     "icon": "terminal",
-    "skills": ["AWS Cloud", "Docker", "Kubernetes", "CI/CD"]
+    "skills": ["Docker", "Git", "CI/CD", "Linux"]
   }
 ]
 ```
 
 Fields:
-- `icon` — Material Symbols icon name (shown in `bg-primary-container/20 rounded-lg` box)
-- `skills` — array of skill strings, each rendered as a pill chip
+- `icon` — Material Symbols icon name (shown `text-primary` next to category name)
+- `skills` — array of skill strings, each rendered as `secondary-fixed` chip
 
 ---
 
@@ -168,10 +180,10 @@ Location: `src/content/blog/*.md`
 title: "Article Title"
 date: 2024-05-12
 readTime: 12
-category: "Frontend"
+category: "Backend"
 featured: true
 excerpt: "Short 1–2 sentence summary shown in the card on the blog listing page."
-coverImage: "/images/blog/react-performance.jpg"
+coverImage: "/images/blog/article-name.jpg"
 coverImageAlt: "Description of the cover image for accessibility"
 ---
 ```
@@ -179,24 +191,24 @@ coverImageAlt: "Description of the cover image for accessibility"
 Fields:
 - `title` — displayed as H1 on article page, H2/H3 on listing cards
 - `date` — `YYYY-MM-DD` format; displayed as `Month DD, YYYY`
-- `readTime` — integer, minutes; displayed as `X min read`
-- `category` — single category string; displayed as a chip (e.g. "Frontend", "Architecture", "AI", "Backend", "Security")
-- `featured` — `true` for exactly one post; renders as the large FeaturedPost component on listing page
+- `readTime` — integer, minutes; displayed as `X Min Read`
+- `category` — single category string; displayed as a chip (e.g. "Backend", "Architecture", "Kotlin")
+- `featured` — `true` for exactly one post; renders as the large FeaturedPost component (full-width grid card)
 - `excerpt` — shown in post card on listing page; not shown on article page
-- `coverImage` — relative path from `public/`
+- `coverImage` — relative path from `public/`; shown in grayscale with color-on-hover on listing page
 - `coverImageAlt` — required for accessibility
 
 ### Naming Convention
 
 Filename becomes the URL slug:
-- `react-performance.md` → `/blog/react-performance`
-- `ai-in-web-dev.md` → `/blog/ai-in-web-dev`
+- `kotlin-coroutines.md` → `/blog/kotlin-coroutines`
+- `spring-boot-patterns.md` → `/blog/spring-boot-patterns`
 
 Use lowercase kebab-case.
 
 ---
 
-## Content Collections Config (`src/content/config.ts`)
+## Content Collections Config (`src/content/content.config.ts`)
 
 ```typescript
 import { defineCollection, z } from 'astro:content';
@@ -220,13 +232,9 @@ export const collections = { blog };
 
 ---
 
-## TypeScript Interfaces
-
-For use in Astro components when importing JSON data:
+## TypeScript Interfaces (`src/types.ts`)
 
 ```typescript
-// src/types.ts
-
 export interface Profile {
   name: string;
   title: string;
@@ -234,7 +242,11 @@ export interface Profile {
   location: string;
   website: { label: string; url: string };
   social: { github: string; linkedin: string; email: string };
+  heroHeadline?: string;
+  heroAccent?: string;
   about: string;
+  aboutQuote?: string;
+  yearsExperience?: string;
   resumeUrl: string;
   avatarUrl: string;
   heroBannerUrl: string;
@@ -252,6 +264,7 @@ export interface ExperienceItem {
   isActive: boolean;
   year: string;
   bullets: string[];
+  tags?: string[];
 }
 
 export interface Degree {
@@ -260,6 +273,7 @@ export interface Degree {
   institution: string;
   period: string;
   isActive: boolean;
+  note?: string;
 }
 
 export interface Certification {

@@ -16,30 +16,29 @@ const gridPosts = allPosts.filter((p) => !p.data.featured);
 <BaseLayout
   title="Blog — Ondřej Burda"
   activeNav="blog"
-  description="Articles on scalable architecture, modern frontend patterns, and cloud computing."
+  description="Zápisky o backendovém inženýrství, Kotlin/Java vzorech a softwarové architektuře."
 >
-  <div class="space-y-12">
 
-    <header>
-      <h1 class="text-5xl font-extrabold font-headline text-on-surface tracking-tighter mb-4">
-        Insights & Engineering
-      </h1>
-      <p class="text-on-surface-variant text-lg max-w-2xl leading-relaxed">
-        Exploring the intersection of scalable architecture, modern frontend patterns, and the future of cloud computing.
-      </p>
-    </header>
+  <header class="mb-16">
+    <p class="text-tertiary font-label font-semibold tracking-widest uppercase mb-4">Z inženýrského deníku</p>
+    <h1 class="text-5xl lg:text-7xl font-headline font-bold text-on-surface leading-[1.1] mb-6">
+      Myšlenky <span class="text-primary">nahlas.</span>
+    </h1>
+    <p class="text-lg lg:text-xl text-on-surface-variant max-w-2xl font-body leading-relaxed">
+      Texty o věcech, které mě v backendovém inženýrství zaujaly: architektonická rozhodnutí, zkušenosti z praxe a občasné zamyšlení nad tím, proč věci fungují tak, jak fungují.
+    </p>
+  </header>
 
-    {featuredPost && <FeaturedPost post={featuredPost} />}
+  {featuredPost && <FeaturedPost post={featuredPost} />}
 
-    {gridPosts.length > 0 && (
-      <section class="grid md:grid-cols-2 gap-8">
-        {gridPosts.map((post) => (
-          <PostCard post={post} />
-        ))}
-      </section>
-    )}
+  {gridPosts.length > 0 && (
+    <div class="grid grid-cols-1 md:grid-cols-12 gap-y-16 md:gap-x-12 mb-24 mt-16">
+      {gridPosts.map((post, i) => (
+        <PostCard post={post} offset={i % 2 === 1} />
+      ))}
+    </div>
+  )}
 
-    <NewsletterCTA />
+  <NewsletterCTA />
 
-  </div>
 </BaseLayout>

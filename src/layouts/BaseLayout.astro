@@ -13,7 +13,7 @@ interface Props {
 const {
   title,
   activeNav,
-  description = 'Personal portfolio of Ondřej Burda — software developer.',
+  description = 'Ondřej Burda — backend inženýr se zaměřením na Kotlin a Javu. Portfolio, praxe a blog.',
 } = Astro.props;
 
 const siteUrl = 'https://burdis28.github.io';
@@ -21,7 +21,7 @@ const canonicalUrl = new URL(Astro.url.pathname, siteUrl).href;
 ---
 
 <!DOCTYPE html>
-<html lang="en" class="light">
+<html lang="cs" class="light">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -45,27 +45,47 @@ const canonicalUrl = new URL(Astro.url.pathname, siteUrl).href;
   <link rel="sitemap" href="/sitemap-index.xml" />
 </head>
 
-<body class="bg-surface font-body text-on-surface min-h-screen flex flex-col">
+<body class="bg-surface font-body text-on-surface selection:bg-primary-fixed selection:text-on-primary-fixed">
+
+  <!-- Fixed top navigation bar -->
   <TopNavBar activeNav={activeNav} />
 
-  <main class="flex-1 max-w-7xl mx-auto w-full px-4 md:px-6 pt-28 pb-12">
-    <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12">
+  <!-- Fixed left sidebar (desktop only) -->
+  <LeftSidebar activeNav={activeNav} />
 
-      <!-- Left sidebar — sticky on desktop, stacked on mobile -->
-      <aside class="lg:col-span-3">
-        <div class="lg:sticky lg:top-24">
-          <LeftSidebar />
-        </div>
-      </aside>
+  <!-- Content area — offset by sidebar on desktop, then centered within that space -->
+  <div class="lg:ml-72">
+    <main class="pt-20 pb-12 px-6 lg:px-16 max-w-[1400px] mx-auto">
+      <slot />
+    </main>
 
-      <!-- Main content area -->
-      <div class="lg:col-span-9">
-        <slot />
-      </div>
+    <!-- Footer -->
+    <Footer />
+  </div>
 
-    </div>
-  </main>
+  <!-- Mobile bottom navigation -->
+  <nav class="md:hidden fixed bottom-0 left-0 w-full bg-surface-container-low/90 backdrop-blur-lg flex justify-around items-center h-16 z-50 px-4 border-t border-outline-variant/10">
+    <a href="/" class={`flex flex-col items-center gap-0.5 ${activeNav === 'home' ? 'text-primary' : 'text-on-surface-variant'}`}>
+      <span class="material-symbols-outlined" style={activeNav === 'home' ? 'font-variation-settings: "FILL" 1' : ''}>home</span>
+      <span class="text-[10px] font-label font-bold uppercase tracking-tighter">Domů</span>
+    </a>
+    <a href="/experience" class={`flex flex-col items-center gap-0.5 ${activeNav === 'experience' ? 'text-primary' : 'text-on-surface-variant'}`}>
+      <span class="material-symbols-outlined" style={activeNav === 'experience' ? 'font-variation-settings: "FILL" 1' : ''}>work</span>
+      <span class="text-[10px] font-label font-bold uppercase tracking-tighter">Praxe</span>
+    </a>
+    <a href="/projects" class={`flex flex-col items-center gap-0.5 ${activeNav === 'projects' ? 'text-primary' : 'text-on-surface-variant'}`}>
+      <span class="material-symbols-outlined" style={activeNav === 'projects' ? 'font-variation-settings: "FILL" 1' : ''}>terminal</span>
+      <span class="text-[10px] font-label font-bold uppercase tracking-tighter">Projekty</span>
+    </a>
+    <a href="/blog" class={`flex flex-col items-center gap-0.5 ${activeNav === 'blog' ? 'text-primary' : 'text-on-surface-variant'}`}>
+      <span class="material-symbols-outlined" style={activeNav === 'blog' ? 'font-variation-settings: "FILL" 1' : ''}>menu_book</span>
+      <span class="text-[10px] font-label font-bold uppercase tracking-tighter">Blog</span>
+    </a>
+    <a href="/contact" class={`flex flex-col items-center gap-0.5 ${activeNav === 'contact' ? 'text-primary' : 'text-on-surface-variant'}`}>
+      <span class="material-symbols-outlined" style={activeNav === 'contact' ? 'font-variation-settings: "FILL" 1' : ''}>mail</span>
+      <span class="text-[10px] font-label font-bold uppercase tracking-tighter">Kontakt</span>
+    </a>
+  </nav>
 
-  <Footer />
 </body>
 </html>

@@ -1,284 +1,158 @@
 # Step 05 — Home Page
 
-Build the Home page (`/`) with all four sections: HeroCard, AboutBlock, FeaturedHighlights, and ExperiencePreview.
+Build the Home page (`/`) with a narrative hero section, featured blog insights, and an experience preview CTA.
 
-**Prerequisite:** Steps 01–04 complete. `BaseLayout` renders correctly.
+**Prerequisite:** Steps 01–04 complete. `BaseLayout` renders correctly with fixed sidebar.
 
-**Reference:** `design-assets/home/prototype.html`, `design-assets/home/screen.png`
+**Reference design:** `rework/stitch_projects_skills(1)/stitch_projects_skills/home_summary_updated_structure/code.html`
 
 ---
 
-## 5.1 `src/components/home/HeroCard.astro`
+## 5.1 `src/components/home/FeaturedHighlights.astro`
 
-The main profile card with banner image, overlapping profile photo, name, and Connect/Message buttons.
+Fetches the two most recent blog posts from the Content Collection and renders them as editorial cards with a grayscale-to-color hover effect.
 
 ```astro
 ---
-import profile from '../../content/data/profile.json';
+import { getCollection } from 'astro:content';
 
-interface Props {
-  name: string;
-  title: string;
-  location: string;
-  website: { label: string; url: string };
-  avatarUrl: string;
-  heroBannerUrl: string;
-}
-const { name, title, location, website, avatarUrl, heroBannerUrl } = Astro.props;
+const allPosts = (await getCollection('blog')).sort(
+  (a, b) => b.data.date.valueOf() - a.data.date.valueOf()
+).slice(0, 2);
 ---
 
-<section class="bg-surface-container-lowest rounded-xl shadow-sm overflow-hidden border border-outline-variant/15">
-
-  <!-- Banner image -->
-  <div class="h-48 relative overflow-hidden">
-    <img
-      src={heroBannerUrl}
-      alt="Profile banner"
-      class="w-full h-full object-cover"
-      width="900"
-      height="192"
-    />
-    <div class="absolute inset-0 bg-gradient-to-t from-surface-container-lowest via-transparent to-transparent"></div>
-  </div>
-
-  <!-- Profile content — overlaps the banner -->
-  <div class="px-8 pb-8 -mt-16 relative z-10">
-
-    <!-- Photo + action buttons row -->
-    <div class="flex justify-between items-end mb-6">
-      <img
-        src={avatarUrl}
-        alt={`${name} — profile photo`}
-        class="w-32 h-32 rounded-xl border-4 border-surface-container-lowest object-cover shadow-lg"
-        width="128"
-        height="128"
-      />
-      <div class="flex gap-2 mb-2">
-        <a
-          href="/contact"
-          class="px-6 py-2 bg-primary text-on-primary rounded-full font-bold text-sm transition-all hover:bg-surface-tint active:scale-95"
-        >
-          Connect
-        </a>
-        <a
-          href={`mailto:${profile.social.email}`}
-          class="px-6 py-2 border-2 border-primary text-primary rounded-full font-bold text-sm transition-all hover:bg-primary/5 active:scale-95"
-        >
-          Message
-        </a>
-      </div>
+<section class="mb-24">
+  <div class="flex justify-between items-end mb-12">
+    <div>
+      <p class="font-label text-[10px] uppercase tracking-widest text-tertiary font-bold mb-2">Knowledge Base</p>
+      <h2 class="text-3xl font-bold font-headline text-primary tracking-tight">Latest Insights</h2>
     </div>
-
-    <!-- Name & title -->
-    <h1 class="text-3xl font-black font-headline text-on-surface tracking-tight leading-none mb-1">
-      {name}
-    </h1>
-    <p class="text-xl text-on-surface-variant font-medium mb-4">{title}</p>
-
-    <!-- Meta row: location + website -->
-    <div class="flex flex-wrap items-center gap-4 text-sm text-on-surface-variant mb-6">
-      <div class="flex items-center gap-1">
-        <span class="material-symbols-outlined text-base">location_on</span>
-        <span>{location}</span>
-      </div>
-      <div class="flex items-center gap-1">
-        <span class="material-symbols-outlined text-base">link</span>
-        <a href={website.url} class="text-primary font-bold hover:underline" target="_blank" rel="noopener noreferrer">
-          {website.label}
-        </a>
-      </div>
-    </div>
-
-  </div>
-</section>
-```
-
----
-
-## 5.2 `src/components/home/AboutBlock.astro`
-
-Simple about section that renders inside the HeroCard or as a standalone card below it.
-
-> Place this **inside** the HeroCard's bottom section (within `px-8 pb-8` div), after the meta row.
-
-```astro
----
-interface Props {
-  text: string;
-}
-const { text } = Astro.props;
----
-
-<div class="bg-surface-container-low p-6 rounded-xl border border-outline-variant/15">
-  <h3 class="font-headline font-bold text-on-surface mb-2">About</h3>
-  <p class="text-on-surface-variant leading-relaxed font-body">{text}</p>
-</div>
-```
-
----
-
-## 5.3 `src/components/home/FeaturedHighlights.astro`
-
-The 2-column bento grid featuring the top project and a "Talk/Achievement" card.
-
-```astro
----
-import type { Project } from '../../types';
-import projects from '../../content/data/projects.json';
-
-// Featured project — the one with featured: true
-const featuredProject = projects.find((p) => p.featured);
----
-
-<section class="space-y-4">
-
-  <!-- Section header -->
-  <div class="flex justify-between items-center px-2">
-    <h2 class="text-xl font-black font-headline text-on-surface tracking-tight">Featured Highlights</h2>
+    <a href="/blog" class="text-primary font-bold text-sm flex items-center group">
+      View All Articles
+      <span class="material-symbols-outlined ml-1 group-hover:translate-x-1 transition-transform">arrow_forward</span>
+    </a>
   </div>
 
-  <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-
-    <!-- Card 1: Featured Project -->
-    {featuredProject && (
-      <div class="group bg-surface-container-lowest rounded-xl overflow-hidden border border-outline-variant/15 shadow-sm transition-all hover:shadow-md hover:bg-surface-bright">
-        <div class="h-40 overflow-hidden relative">
-          <img
-            src={featuredProject.imageUrl}
-            alt={featuredProject.imageAlt}
-            class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
-            width="400"
-            height="160"
-          />
-          <div class="absolute top-3 right-3 bg-primary-container px-3 py-1 rounded-full">
-            <span class="text-[10px] font-bold text-on-primary-container uppercase tracking-widest">Project</span>
+  <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+    {allPosts.length > 0 ? allPosts.map((post) => {
+      const formattedDate = post.data.date.toLocaleDateString('en-US', {
+        year: 'numeric', month: 'long', day: 'numeric',
+      });
+      return (
+        <article class="bg-surface-container-lowest p-10 group hover:shadow-editorial transition-all flex flex-col h-full rounded-xl">
+          <div class="aspect-[16/9] mb-8 overflow-hidden rounded-lg bg-surface-container-low">
+            <img
+              src={post.data.coverImage}
+              alt={post.data.coverImageAlt}
+              class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-500"
+              width="600"
+              height="337"
+              loading="lazy"
+            />
           </div>
-        </div>
-        <div class="p-6">
-          <h3 class="font-headline font-bold text-lg mb-2">{featuredProject.title}</h3>
-          <p class="text-sm text-on-surface-variant mb-4 line-clamp-2">{featuredProject.description}</p>
-          <div class="flex items-center justify-between">
-            <div class="flex flex-wrap gap-1">
-              {featuredProject.tags.slice(0, 2).map((tag) => (
-                <div class="w-6 h-6 rounded-full bg-secondary-container flex items-center justify-center text-[10px] font-bold border-2 border-surface-container-lowest text-on-secondary-container">
-                  {tag.slice(0, 2).toUpperCase()}
-                </div>
-              ))}
-            </div>
-            <a href="/projects" class="material-symbols-outlined text-primary group-hover:translate-x-1 transition-transform">
-              arrow_forward
-            </a>
+          <div class="flex items-center space-x-3 mb-4">
+            <span class="font-label text-[9px] uppercase tracking-widest text-on-surface-variant px-2 py-1 bg-surface-container-high rounded-sm">{post.data.category}</span>
+            <span class="text-on-surface-variant text-[11px]">{post.data.readTime} min read</span>
           </div>
-        </div>
+          <h3 class="text-2xl font-bold font-headline text-primary mb-4 leading-tight group-hover:text-tertiary transition-colors">{post.data.title}</h3>
+          <p class="text-on-surface-variant text-sm mb-8 flex-grow leading-relaxed">{post.data.excerpt}</p>
+          <a
+            href={`/blog/${post.id}`}
+            class="flex items-center space-x-2 text-primary font-bold text-xs uppercase tracking-widest border-t border-surface-container-low pt-6"
+          >
+            <span>Read Full Insight</span>
+            <span class="material-symbols-outlined text-sm">north_east</span>
+          </a>
+        </article>
+      );
+    }) : (
+      <div class="md:col-span-2 bg-surface-container-lowest p-10 rounded-xl text-center text-on-surface-variant">
+        <span class="material-symbols-outlined text-4xl text-primary/20 block mb-4">edit_note</span>
+        <p class="font-label text-sm">Articles coming soon.</p>
       </div>
     )}
-
-    <!-- Card 2: Achievement / Talk (static — update with real data when available) -->
-    <div class="group bg-surface-container-lowest rounded-xl overflow-hidden border border-outline-variant/15 shadow-sm transition-all hover:shadow-md hover:bg-surface-bright">
-      <div class="h-40 bg-on-primary-fixed-variant flex items-center justify-center p-8 relative">
-        <div class="text-center">
-          <span
-            class="material-symbols-outlined text-5xl text-inverse-primary mb-2"
-            style="font-variation-settings: 'FILL' 1, 'wght' 400, 'GRAD' 0, 'opsz' 24"
-          >
-            workspace_premium
-          </span>
-          <h4 class="text-on-primary font-headline font-black text-xl leading-tight">Open to Opportunities</h4>
-        </div>
-        <div class="absolute top-3 right-3 bg-tertiary-container px-3 py-1 rounded-full">
-          <span class="text-[10px] font-bold text-on-tertiary-container uppercase tracking-widest">Status</span>
-        </div>
-      </div>
-      <div class="p-6">
-        <h3 class="font-headline font-bold text-lg mb-2">Available for New Projects</h3>
-        <p class="text-sm text-on-surface-variant mb-4 line-clamp-2">
-          Looking for interesting engineering challenges. Let's build something great together.
-        </p>
-        <div class="flex items-center justify-between">
-          <span class="text-xs font-bold text-on-surface-variant">Full-time or Contract</span>
-          <a href="/contact" class="material-symbols-outlined text-primary group-hover:translate-x-1 transition-transform">
-            arrow_forward
-          </a>
-        </div>
-      </div>
-    </div>
-
   </div>
 </section>
 ```
 
+Key details:
+- Uses `post.id` (not `post.slug`) for the blog link — required in Astro Content Collections v2
+- Images start grayscale and transition to colour on card hover (`grayscale group-hover:grayscale-0`)
+- Fallback block renders when no blog posts exist yet
+
 ---
 
-## 5.4 `src/components/home/ExperiencePreview.astro`
+## 5.2 `src/components/home/ExperiencePreview.astro`
 
-Shows the two most recent experience items, with a "Show all" link to `/experience`.
+Renders the most recent experience entry inside a `bg-primary-container` CTA block with a honey `bg-tertiary` button and stats row.
 
 ```astro
 ---
-import type { ExperienceItem } from '../../types';
 import experience from '../../content/data/experience.json';
 
-// Show only the 2 most recent (first 2 items in the array)
-const previewItems = experience.slice(0, 2);
+const latestJob = experience[0];
 ---
 
-<section class="bg-surface-container-lowest rounded-xl p-8 border border-outline-variant/15 shadow-sm">
-
-  <div class="flex justify-between items-center mb-8">
-    <h2 class="text-xl font-black font-headline text-on-surface tracking-tight">Experience</h2>
+<section class="bg-primary-container p-12 lg:p-20 rounded-lg relative overflow-hidden mb-12">
+  <div class="absolute -right-20 -bottom-20 opacity-10" aria-hidden="true">
+    <span class="material-symbols-outlined text-[300px] text-on-primary-container" style="font-variation-settings: 'FILL' 1">architecture</span>
   </div>
 
-  <div class="space-y-12 relative">
-    {previewItems.map((item) => (
-      <div class="relative flex gap-6">
-        <!-- Year watermark -->
-        <div
-          class="absolute -top-10 -left-4 text-6xl font-black text-primary/5 pointer-events-none select-none font-headline"
-          aria-hidden="true"
-        >
-          {item.year}
-        </div>
+  <div class="relative z-10 grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+    <div>
+      <p class="font-label text-[10px] uppercase tracking-[0.3em] text-on-primary-container font-bold mb-6">Currently Engaged</p>
+      {latestJob && (
+        <>
+          <h2 class="text-4xl lg:text-5xl font-extrabold font-headline text-white mb-6 tracking-tight leading-tight">
+            {latestJob.role} <br/>
+            <span class="text-on-primary-container">@ {latestJob.company}</span>
+          </h2>
+          <p class="text-on-primary-container/80 text-lg max-w-md leading-relaxed mb-8">
+            {latestJob.bullets[0]}
+          </p>
+        </>
+      )}
+    </div>
 
-        <!-- Company icon -->
-        <div class="flex-shrink-0">
-          <div class="w-12 h-12 rounded-lg bg-surface-container flex items-center justify-center">
-            <span class="material-symbols-outlined text-primary">{item.icon}</span>
-          </div>
+    <div class="flex flex-col space-y-6 lg:items-end">
+      <a
+        href="/experience"
+        class="bg-tertiary text-on-tertiary px-10 py-5 rounded-lg text-sm font-bold uppercase tracking-widest shadow-xl hover:-translate-y-0.5 active:translate-y-0 transition-all w-full lg:w-auto text-center"
+      >
+        View Full Experience
+      </a>
+      <div class="flex space-x-4">
+        <div class="flex flex-col items-center">
+          <span class="text-white font-bold text-xl">{experience.length}</span>
+          <span class="text-on-primary-container/60 text-[9px] uppercase tracking-widest">Positions</span>
         </div>
-
-        <!-- Content -->
-        <div class="flex-grow border-b border-outline-variant/10 pb-8">
-          <h4 class="font-bold text-on-surface text-lg">{item.role}</h4>
-          <p class="text-on-surface-variant text-sm mb-1">{item.company} · {item.type}</p>
-          <p class="text-on-surface-variant text-xs mb-4">{item.period.start} – {item.period.end}</p>
-          <p class="text-sm text-on-surface-variant/80 max-w-2xl">{item.bullets[0]}</p>
+        <div class="w-px h-10 bg-on-primary-container/20"></div>
+        <div class="flex flex-col items-center">
+          <span class="text-white font-bold text-xl">5+</span>
+          <span class="text-on-primary-container/60 text-[9px] uppercase tracking-widest">Years</span>
+        </div>
+        <div class="w-px h-10 bg-on-primary-container/20"></div>
+        <div class="flex flex-col items-center">
+          <span class="text-white font-bold text-xl">BE</span>
+          <span class="text-on-primary-container/60 text-[9px] uppercase tracking-widest">Speciality</span>
         </div>
       </div>
-    ))}
+    </div>
   </div>
-
-  <a
-    href="/experience"
-    class="block w-full mt-6 py-2 text-center text-on-surface-variant font-bold text-sm hover:bg-surface-container-low rounded-lg transition-colors"
-  >
-    Show all {experience.length} experiences →
-  </a>
-
 </section>
 ```
 
+The honey CTA button uses `bg-tertiary text-on-tertiary` — the Professional Olive accent colour (`#753d00`).
+
 ---
 
-## 5.5 `src/pages/index.astro`
-
-Compose the full Home page:
+## 5.3 `src/pages/index.astro`
 
 ```astro
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
-import HeroCard from '@components/home/HeroCard.astro';
-import FeaturedHighlights from '@components/home/FeaturedHighlights.astro';
-import ExperiencePreview from '@components/home/ExperiencePreview.astro';
+import FeaturedHighlights from '../components/home/FeaturedHighlights.astro';
+import ExperiencePreview from '../components/home/ExperiencePreview.astro';
 import profile from '../content/data/profile.json';
 ---
 
@@ -287,88 +161,80 @@ import profile from '../content/data/profile.json';
   activeNav="home"
   description={profile.tagline}
 >
-  <div class="space-y-6">
+  <!-- Narrative hero -->
+  <section class="mb-24">
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
 
-    <!-- Hero + About -->
-    <div class="bg-surface-container-lowest rounded-xl shadow-sm overflow-hidden border border-outline-variant/15">
-      <!-- Banner -->
-      <div class="h-48 relative overflow-hidden">
-        <img
-          src={profile.heroBannerUrl}
-          alt="Profile banner"
-          class="w-full h-full object-cover"
-          width="900" height="192"
-        />
-        <div class="absolute inset-0 bg-gradient-to-t from-surface-container-lowest via-transparent to-transparent" />
-      </div>
-
-      <!-- Overlapping content -->
-      <div class="px-8 pb-8 -mt-16 relative z-10">
-        <div class="flex justify-between items-end mb-6">
-          <img
-            src={profile.avatarUrl}
-            alt={profile.name}
-            class="w-32 h-32 rounded-xl border-4 border-surface-container-lowest object-cover shadow-lg"
-            width="128" height="128"
-          />
-          <div class="flex gap-2 mb-2">
-            <a href="/contact" class="px-6 py-2 bg-primary text-on-primary rounded-full font-bold text-sm transition-all hover:bg-surface-tint active:scale-95">
-              Connect
-            </a>
-            <a href={`mailto:${profile.social.email}`} class="px-6 py-2 border-2 border-primary text-primary rounded-full font-bold text-sm transition-all hover:bg-primary/5 active:scale-95">
-              Message
-            </a>
-          </div>
+      <!-- Left: headline + about text -->
+      <div class="lg:col-span-7">
+        <div class="mb-4 inline-block bg-secondary-container px-3 py-1 rounded-full">
+          <span class="text-on-secondary-container font-label text-[10px] uppercase tracking-widest font-bold">The Narrative</span>
         </div>
-
-        <h1 class="text-3xl font-black font-headline text-on-surface tracking-tight leading-none mb-1">
-          {profile.name}
+        <h1 class="text-5xl lg:text-7xl font-extrabold font-headline text-primary mb-8 tracking-tight leading-none">
+          {profile.heroHeadline ?? 'Engineering with'} <br/>
+          <span class="text-tertiary">{profile.heroAccent ?? 'Precision.'}</span>
         </h1>
-        <p class="text-xl text-on-surface-variant font-medium mb-4">{profile.title}</p>
-
-        <div class="flex flex-wrap items-center gap-4 text-sm text-on-surface-variant mb-6">
-          <div class="flex items-center gap-1">
-            <span class="material-symbols-outlined text-base">location_on</span>
-            <span>{profile.location}</span>
-          </div>
-          <div class="flex items-center gap-1">
-            <span class="material-symbols-outlined text-base">link</span>
-            <a href={profile.website.url} class="text-primary font-bold hover:underline">
-              {profile.website.label}
-            </a>
-          </div>
-        </div>
-
-        <!-- About block -->
-        <div class="bg-surface-container-low p-6 rounded-xl border border-outline-variant/15">
-          <h3 class="font-headline font-bold mb-2">About</h3>
-          <p class="text-on-surface-variant leading-relaxed">{profile.about}</p>
+        <div class="space-y-6 text-on-surface text-lg max-w-2xl leading-relaxed">
+          <p>{profile.about}</p>
+          {profile.aboutQuote && (
+            <p class="text-on-surface-variant italic border-l-4 border-tertiary/30 pl-6">
+              "{profile.aboutQuote}"
+            </p>
+          )}
         </div>
       </div>
+
+      <!-- Right: portrait card + years badge -->
+      <div class="lg:col-span-5 relative mt-12 lg:mt-0">
+        <div class="aspect-square bg-surface-container-low rounded-lg relative overflow-hidden group">
+          <img
+            src={profile.heroBannerUrl}
+            alt="Profile"
+            class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+            width="500"
+            height="500"
+            onerror="this.style.display='none'"
+          />
+          <div class="absolute bottom-6 -left-6 bg-surface-container-lowest p-6 shadow-xl max-w-[240px]">
+            <p class="font-headline font-bold text-primary text-xl mb-1">{profile.yearsExperience ?? '5'}+</p>
+            <p class="font-label text-[10px] uppercase tracking-widest text-on-surface-variant">Years of Experience</p>
+          </div>
+        </div>
+      </div>
+
     </div>
+  </section>
 
-    <FeaturedHighlights />
-    <ExperiencePreview />
-
-  </div>
+  <FeaturedHighlights />
+  <ExperiencePreview />
 </BaseLayout>
 ```
 
+Required `profile.json` fields (added in Step 03):
+- `heroHeadline` — first line of the H1 (e.g. `"Engineering with"`)
+- `heroAccent` — second line in `text-tertiary` (e.g. `"Precision."`)
+- `aboutQuote` — optional italic blockquote beneath the about paragraph
+- `yearsExperience` — number shown in the portrait badge (e.g. `"5"`)
+- `heroBannerUrl` — used as the portrait / banner image in the right column
+
 ---
 
-## 5.6 Visual Verification Checklist
+## 5.4 Visual Verification Checklist
 
-Open `http://localhost:4321` and compare against `design-assets/home/screen.png`:
+Open `http://localhost:4321`:
 
-- [ ] Banner image fills the top area, gradient fades to white at bottom
-- [ ] Profile photo overlaps the banner (via `-mt-16`)
-- [ ] "Connect" button is `bg-primary` (dark blue), rounded-full
-- [ ] "Message" button is outlined, rounded-full
-- [ ] Name in `font-headline font-black`, large and tight
-- [ ] About block has `bg-surface-container-low` background (slightly grey)
-- [ ] Featured Highlights: 2-column grid, project card has image, achievement card has dark `#00468a` background
-- [ ] Experience Preview: year watermarks visible (very faint blue numbers)
-- [ ] "Show all X experiences" link at bottom
+- [ ] H1 renders the `heroHeadline` + `heroAccent` on two lines; accent is `text-tertiary` (warm brown)
+- [ ] "The Narrative" pill badge visible above the H1
+- [ ] About paragraph and optional italic quote visible
+- [ ] Portrait card: aspect-square image, hovers to scale
+- [ ] Years badge: white card overlapping bottom-left of portrait
+- [ ] "Knowledge Base / Latest Insights" section header visible
+- [ ] Blog cards: images start greyscale, transition to colour on hover
+- [ ] "Read Full Insight" link with `north_east` icon
+- [ ] Fallback "Articles coming soon" renders if no posts exist
+- [ ] ExperiencePreview: `bg-primary-container` block, current role + company visible
+- [ ] Honey "View Full Experience" button (`bg-tertiary`)
+- [ ] Stats row: Positions / Years / Speciality
 
 ---
 
@@ -376,5 +242,5 @@ Open `http://localhost:4321` and compare against `design-assets/home/screen.png`
 
 ```bash
 git add src/components/home/ src/pages/index.astro
-git commit -m "feat: implement Home page — hero, about, featured highlights, experience preview"
+git commit -m "feat: implement Home page — narrative hero, blog highlights, experience CTA"
 ```

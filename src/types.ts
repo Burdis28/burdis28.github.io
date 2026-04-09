@@ -23,6 +23,7 @@ export interface ExperienceItem {
   isActive: boolean;
   year: string;
   bullets: string[];
+  tags?: string[];
 }
 
 export interface Degree {
@@ -31,6 +32,7 @@ export interface Degree {
   institution: string;
   period: string;
   isActive: boolean;
+  note?: string;
 }
 
 export interface Certification {

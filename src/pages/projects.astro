@@ -7,46 +7,42 @@ import skills from '../content/data/skills.json';
 ---
 
 <BaseLayout
-  title="Projects — Ondřej Burda"
+  title="Projekty — Ondřej Burda"
   activeNav="projects"
-  description="Selected projects and technical skills — full-stack applications, distributed systems, and modern UI engineering."
+  description="Vybrané projekty a technické dovednosti — backendové aplikace, systémové integrace a API inženýrství."
 >
-  <div>
 
-    <!-- Page header -->
-    <header class="mb-20">
-      <h1 class="font-headline font-extrabold text-5xl md:text-6xl text-primary mb-4 tracking-tight">
-        Selected Projects
-      </h1>
-      <p class="text-on-surface-variant text-xl max-w-2xl leading-relaxed">
-        An architectural showcase of full-stack applications, distributed systems, and modern UI engineering.
-      </p>
-    </header>
+  <!-- Page header -->
+  <header class="mb-16">
+    <p class="text-tertiary font-label font-semibold tracking-widest uppercase mb-4">Co jsem stavěl</p>
+    <h1 class="text-5xl lg:text-7xl font-headline font-bold text-on-surface leading-[1.1] mb-6">
+      Vybrané projekty
+    </h1>
+    <p class="text-on-surface-variant text-lg lg:text-xl max-w-2xl leading-relaxed">
+      Od komunitních iniciativ přes osobní projekty až po produkční systémy, tady je průřez tím, co jsem za ta léta tvořil.
+    </p>
+  </header>
 
-    <!-- Projects bento grid -->
-    <div class="grid grid-cols-1 md:grid-cols-12 gap-8 mb-24">
-      {projects.map((project) => (
-        <ProjectCard project={project} />
-      ))}
+  <!-- Projects bento grid -->
+  <div class="grid grid-cols-1 md:grid-cols-12 gap-8 mb-24">
+    {projects.map((project) => (
+      <ProjectCard project={project} />
+    ))}
+  </div>
+
+  <!-- Technical Arsenal -->
+  <section class="mb-12">
+    <div class="flex items-center gap-4 mb-12">
+      <div class="h-px flex-grow bg-outline-variant opacity-20"></div>
+      <h2 class="text-3xl font-headline font-semibold text-primary">Technická výbava</h2>
+      <div class="h-px w-24 bg-outline-variant opacity-20"></div>
     </div>
 
-    <!-- Technical Arsenal -->
-    <section>
-      <div class="flex flex-col md:flex-row justify-between items-baseline mb-12 border-b border-outline-variant/10 pb-6">
-        <h2 class="font-headline font-extrabold text-4xl text-on-surface tracking-tight">
-          Technical Arsenal
-        </h2>
-        <span class="text-primary font-bold tracking-widest text-xs uppercase mt-4 md:mt-0">
-          Stacks & Proficiencies
-        </span>
-      </div>
+    <div class="grid grid-cols-1 lg:grid-cols-3 gap-12">
+      {skills.map((category) => (
+        <SkillCategory category={category} />
+      ))}
+    </div>
+  </section>
 
-      <div class="grid grid-cols-1 lg:grid-cols-3 gap-12">
-        {skills.map((category) => (
-          <SkillCategory category={category} />
-        ))}
-      </div>
-    </section>
-
-  </div>
 </BaseLayout>

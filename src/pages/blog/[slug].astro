@@ -29,8 +29,8 @@ const formattedDate = post.data.date.toLocaleDateString('en-US', {
 
     <!-- Back link -->
     <a href="/blog" class="inline-flex items-center gap-1 text-on-surface-variant hover:text-primary text-sm font-medium mb-8 transition-colors">
-      <span class="material-icons-outlined" style="font-size:16px">arrow_back</span>
-      Back to Insights
+      <span class="material-symbols-outlined" style="font-size:16px">arrow_back</span>
+      Zpět na přehled
     </a>
 
     <!-- Cover image -->
@@ -51,7 +51,7 @@ const formattedDate = post.data.date.toLocaleDateString('en-US', {
           {post.data.category}
         </span>
         <span class="text-on-surface-variant text-sm">
-          {formattedDate} · {post.data.readTime} min read
+          {formattedDate} · {post.data.readTime} min čtení
         </span>
       </div>
 
@@ -75,6 +75,8 @@ const formattedDate = post.data.date.toLocaleDateString('en-US', {
       prose-pre:bg-on-primary-fixed-variant prose-pre:text-on-primary-container prose-pre:rounded-xl
       prose-strong:text-on-surface
       prose-li:text-on-surface-variant
+      prose-img:rounded-xl prose-img:shadow-lg prose-img:mx-auto prose-img:my-8
+      prose-figcaption:text-center prose-figcaption:text-on-surface-variant/60 prose-figcaption:text-sm prose-figcaption:mt-2
     ">
       <Content />
     </div>
@@ -82,8 +84,8 @@ const formattedDate = post.data.date.toLocaleDateString('en-US', {
     <!-- Bottom back link -->
     <div class="mt-16 pt-8 border-t border-outline-variant/15">
       <a href="/blog" class="inline-flex items-center gap-1 text-primary font-bold hover:underline transition-colors">
-        <span class="material-icons-outlined" style="font-size:16px">arrow_back</span>
-        All Articles
+        <span class="material-symbols-outlined" style="font-size:16px">arrow_back</span>
+        Všechny články
       </a>
     </div>
 

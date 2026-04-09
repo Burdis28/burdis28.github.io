@@ -1,16 +1,16 @@
 # Step 07 — Projects Page
 
-Build the Projects & Skills page (`/projects`) with the bento-style project grid and the Technical Arsenal section.
+Build the Projects & Skills page (`/projects`) with an editorial hero header, a 12-column bento project grid, and the Technical Arsenal section.
 
 **Prerequisite:** Steps 01–04 complete.
 
-**Reference:** `design-assets/projects/prototype.html`, `design-assets/projects/screen.png`
+**Reference design:** `rework/stitch_projects_skills(1)/stitch_projects_skills/`
 
 ---
 
 ## 7.1 `src/components/projects/ProjectCard.astro`
 
-Renders a single project. The `featured` flag controls whether it spans full width or half width in the grid.
+A project card that spans either the full 12 columns (featured) or 6 columns (regular). Images start greyscale and transition to colour on hover.
 
 ```astro
 ---
@@ -23,8 +23,7 @@ const { project } = Astro.props;
 ---
 
 <article
-  class={`bg-surface-container-lowest rounded-xl border border-outline-variant/10 editorial-shadow
-    group cursor-pointer hover:bg-surface-bright transition-all duration-300
+  class={`bg-surface-container-lowest rounded-xl group cursor-pointer hover:shadow-editorial transition-all duration-300
     ${project.featured ? 'md:col-span-12 p-8' : 'md:col-span-6 p-8 flex flex-col'}`}
 >
 
@@ -34,28 +33,37 @@ const { project } = Astro.props;
     <img
       src={project.imageUrl}
       alt={project.imageAlt}
-      class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+      class="w-full h-full object-cover grayscale group-hover:grayscale-0 group-hover:scale-105 transition-all duration-500"
       width={project.featured ? 900 : 400}
       height={project.featured ? 506 : 400}
       loading="lazy"
     />
   </div>
 
+  <!-- Tag chips -->
+  <div class="flex items-center gap-3 mb-4">
+    {project.tags.slice(0, 3).map((tag) => (
+      <span class="bg-surface-container-highest text-on-surface-variant px-3 py-1 rounded-sm text-[0.6875rem] font-label font-bold tracking-widest uppercase">
+        {tag}
+      </span>
+    ))}
+  </div>
+
   <!-- Title + external links -->
   <div class="flex justify-between items-start mb-4">
-    <h3 class={`font-headline font-bold text-on-surface ${project.featured ? 'text-2xl' : 'text-xl'}`}>
+    <h3 class={`font-headline font-bold text-on-surface group-hover:text-primary transition-colors ${project.featured ? 'text-2xl' : 'text-xl'}`}>
       {project.title}
     </h3>
-    <div class="flex gap-2 flex-shrink-0 ml-4">
+    <div class="flex gap-3 flex-shrink-0 ml-4">
       {project.links.demo && (
         <a
           href={project.links.demo}
           target="_blank"
           rel="noopener noreferrer"
-          class="material-symbols-outlined text-outline hover:text-primary transition-colors"
+          class="text-on-surface-variant hover:text-primary transition-colors"
           aria-label={`Live demo of ${project.title}`}
         >
-          open_in_new
+          <span class="material-symbols-outlined" style="font-size:16px">open_in_new</span>
         </a>
       )}
       {project.links.source && (
@@ -63,37 +71,39 @@ const { project } = Astro.props;
           href={project.links.source}
           target="_blank"
           rel="noopener noreferrer"
-          class="material-symbols-outlined text-outline hover:text-primary transition-colors"
+          class="text-on-surface-variant hover:text-primary transition-colors"
           aria-label={`Source code for ${project.title}`}
         >
-          code
+          <span class="material-symbols-outlined" style="font-size:16px">code</span>
         </a>
       )}
     </div>
   </div>
 
   <!-- Description -->
-  <p class={`text-on-surface-variant leading-relaxed mb-6 ${project.featured ? 'max-w-3xl' : 'text-sm flex-1'}`}>
+  <p class={`text-on-surface-variant leading-relaxed ${project.featured ? 'max-w-3xl' : 'text-sm flex-1'}`}>
     {project.description}
   </p>
 
-  <!-- Tech tags -->
-  <div class="flex flex-wrap gap-2 mt-auto">
-    {project.tags.map((tag) => (
-      <span class="px-3 py-1 bg-surface-container-high text-on-surface-variant font-label font-bold text-xs rounded-full uppercase tracking-wider">
-        {tag}
-      </span>
-    ))}
+  <!-- CTA row -->
+  <div class="flex items-center space-x-2 text-primary font-bold text-xs uppercase tracking-widest border-t border-surface-container-low pt-6 mt-6">
+    <span>View Project</span>
+    <span class="material-symbols-outlined text-sm">north_east</span>
   </div>
 
 </article>
 ```
 
+Notes:
+- Tag chips use `rounded-sm` (not `rounded-full`) — square-ish editorial style
+- Images: `grayscale group-hover:grayscale-0` transition on the parent `group`
+- Max 3 tags shown (`project.tags.slice(0, 3)`)
+
 ---
 
 ## 7.2 `src/components/projects/SkillCategory.astro`
 
-Renders one skill category column in the Technical Arsenal grid.
+One skill category in the Technical Arsenal section.
 
 ```astro
 ---
@@ -105,20 +115,20 @@ interface Props {
 const { category } = Astro.props;
 ---
 
-<div class="space-y-8">
+<div class="space-y-6">
 
   <!-- Category header -->
   <div class="flex items-center gap-3">
-    <span class="material-symbols-outlined text-primary p-2 bg-primary-container/20 rounded-lg">
+    <span class="material-symbols-outlined text-primary" style="font-size:22px">
       {category.icon}
     </span>
-    <h4 class="font-headline font-bold text-xl text-on-surface">{category.category}</h4>
+    <h4 class="font-headline font-bold text-lg text-on-surface">{category.category}</h4>
   </div>
 
   <!-- Skill chips -->
-  <div class="flex flex-wrap gap-3">
+  <div class="flex flex-wrap gap-2">
     {category.skills.map((skill) => (
-      <span class="px-4 py-2 bg-surface-container-low text-on-surface-variant font-label font-semibold rounded-full border border-outline-variant/10 hover:border-primary/50 transition-colors text-sm">
+      <span class="px-3 py-1 bg-secondary-fixed text-on-secondary-fixed-variant font-label font-bold rounded-full text-xs uppercase tracking-tight">
         {skill}
       </span>
     ))}
@@ -127,6 +137,8 @@ const { category } = Astro.props;
 </div>
 ```
 
+Skill chips use `bg-secondary-fixed` (light olive tint) with `rounded-full` — contrasting with the `rounded-sm` tag chips used on project cards.
+
 ---
 
 ## 7.3 `src/pages/projects.astro`
@@ -134,8 +146,8 @@ const { category } = Astro.props;
 ```astro
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
-import ProjectCard from '@components/projects/ProjectCard.astro';
-import SkillCategory from '@components/projects/SkillCategory.astro';
+import ProjectCard from '../components/projects/ProjectCard.astro';
+import SkillCategory from '../components/projects/SkillCategory.astro';
 import projects from '../content/data/projects.json';
 import skills from '../content/data/skills.json';
 ---
@@ -143,65 +155,64 @@ import skills from '../content/data/skills.json';
 <BaseLayout
   title="Projects — Ondřej Burda"
   activeNav="projects"
-  description="Selected projects and technical skills — full-stack applications, distributed systems, and modern UI engineering."
+  description="Selected projects and technical skills — backend applications, distributed systems, and API engineering."
 >
-  <div>
 
-    <!-- Page header -->
-    <header class="mb-20">
-      <h1 class="font-headline font-extrabold text-5xl md:text-6xl text-primary mb-4 tracking-tight">
-        Selected Projects
-      </h1>
-      <p class="text-on-surface-variant text-xl max-w-2xl leading-relaxed">
-        An architectural showcase of full-stack applications, distributed systems, and modern UI engineering.
-      </p>
-    </header>
+  <!-- Page header -->
+  <header class="mb-16">
+    <p class="text-tertiary font-label font-semibold tracking-widest uppercase mb-4">Portfolio</p>
+    <h1 class="text-5xl lg:text-7xl font-headline font-bold text-on-surface leading-[1.1] mb-6">
+      Selected Projects
+    </h1>
+    <p class="text-on-surface-variant text-lg lg:text-xl max-w-2xl leading-relaxed">
+      An architectural showcase of backend applications, distributed systems, and API engineering.
+    </p>
+  </header>
 
-    <!-- Projects bento grid -->
-    <div class="grid grid-cols-1 md:grid-cols-12 gap-8 mb-24">
-      {projects.map((project) => (
-        <ProjectCard project={project} />
-      ))}
+  <!-- Projects bento grid -->
+  <div class="grid grid-cols-1 md:grid-cols-12 gap-8 mb-24">
+    {projects.map((project) => (
+      <ProjectCard project={project} />
+    ))}
+  </div>
+
+  <!-- Technical Arsenal -->
+  <section class="mb-12">
+    <div class="flex items-center gap-4 mb-12">
+      <div class="h-px flex-grow bg-outline-variant opacity-20"></div>
+      <h2 class="text-3xl font-headline font-semibold text-primary">Technical Arsenal</h2>
+      <div class="h-px w-24 bg-outline-variant opacity-20"></div>
     </div>
 
-    <!-- Technical Arsenal -->
-    <section>
-      <div class="flex flex-col md:flex-row justify-between items-baseline mb-12 border-b border-outline-variant/10 pb-6">
-        <h2 class="font-headline font-extrabold text-4xl text-on-surface tracking-tight">
-          Technical Arsenal
-        </h2>
-        <span class="text-primary font-bold tracking-widest text-xs uppercase mt-4 md:mt-0">
-          Stacks & Proficiencies
-        </span>
-      </div>
+    <div class="grid grid-cols-1 lg:grid-cols-3 gap-12">
+      {skills.map((category) => (
+        <SkillCategory category={category} />
+      ))}
+    </div>
+  </section>
 
-      <div class="grid grid-cols-1 lg:grid-cols-3 gap-12">
-        {skills.map((category) => (
-          <SkillCategory category={category} />
-        ))}
-      </div>
-    </section>
-
-  </div>
 </BaseLayout>
 ```
+
+The Technical Arsenal heading uses the same flanking horizontal-line divider pattern as the Experience page (`h-px flex-grow` lines).
 
 ---
 
 ## 7.4 Visual Verification Checklist
 
-Open `http://localhost:4321/projects` and compare against `design-assets/projects/screen.png`:
+Open `http://localhost:4321/projects`:
 
-- [ ] Page H1: "Selected Projects" in `text-primary` (dark blue), `text-5xl/6xl`, extrabold
-- [ ] Featured project: full-width card (`col-span-12`), `aspect-video` image
-- [ ] Regular projects: half-width cards (`col-span-6`), `aspect-square` image
-- [ ] All cards: no visible border in normal state, `editorial-shadow` ambient glow
-- [ ] Project images: scale up on hover (`scale-105`)
-- [ ] Tech tags: pill chips, `bg-surface-container-high`, uppercase, small
-- [ ] External link icons (`open_in_new`, `code`): grey, turn blue on hover
-- [ ] Technical Arsenal section: separated by a faint `border-b border-outline-variant/10`
-- [ ] Each skill category: icon in `bg-primary-container/20` box, skills as rounded-full chips
-- [ ] Skill chips: hover changes border from ghost to `primary/50`
+- [ ] "Portfolio" label in `text-tertiary` above the H1
+- [ ] H1: "Selected Projects" — large, `font-headline font-bold text-on-surface`
+- [ ] Featured project card: full-width (`col-span-12`), `aspect-video` image
+- [ ] Regular project cards: half-width (`col-span-6`), `aspect-square` image
+- [ ] Images: start greyscale, transition to colour + scale on hover
+- [ ] Tag chips: `rounded-sm`, `bg-surface-container-highest`, uppercase
+- [ ] Title hovers to `text-primary`
+- [ ] External link icons (`open_in_new`, `code`): grey, turn primary on hover
+- [ ] "View Project" CTA row with `north_east` icon at card bottom
+- [ ] Technical Arsenal: section divider with flanking lines
+- [ ] Skill chips: `bg-secondary-fixed`, `rounded-full`, uppercase
 
 ---
 

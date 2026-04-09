@@ -1,133 +1,105 @@
 # Step 02 — Design System Setup
 
-Transfer all design tokens from the HTML prototypes into Tailwind configuration and establish global CSS utilities.
+Transfer all design tokens from the Professional Olive palette into Tailwind v4 CSS-first configuration and establish global CSS utilities.
 
-**Prerequisite:** Step 01 complete. `tailwindcss` and `@astrojs/tailwind` installed.
-
----
-
-## 2.1 Create `tailwind.config.mjs`
-
-Create this file in the project root. It is the single source of truth for all design tokens.
-
-```javascript
-/** @type {import('tailwindcss').Config} */
-export default {
-  content: ['./src/**/*.{astro,html,js,jsx,md,mdx,svelte,ts,tsx,vue}'],
-  darkMode: 'class',
-  theme: {
-    extend: {
-      colors: {
-        // --- Primary ---
-        'primary':                    '#004e99',
-        'primary-container':          '#0a66c2',
-        'primary-fixed':              '#d6e3ff',
-        'primary-fixed-dim':          '#a8c8ff',
-        'on-primary':                 '#ffffff',
-        'on-primary-container':       '#dbe6ff',
-        'on-primary-fixed':           '#001b3d',
-        'on-primary-fixed-variant':   '#00468a',
-        'inverse-primary':            '#a8c8ff',
-        'surface-tint':               '#005eb5',
-
-        // --- Surface hierarchy (lightest → darkest) ---
-        'surface-container-lowest':   '#ffffff',
-        'surface-container-low':      '#f1f4f6',
-        'surface':                    '#f7fafc',
-        'background':                 '#f7fafc',
-        'surface-bright':             '#f7fafc',
-        'surface-container':          '#ebeef0',
-        'surface-container-high':     '#e5e9eb',
-        'surface-container-highest':  '#e0e3e5',
-        'surface-variant':            '#e0e3e5',
-        'surface-dim':                '#d7dadc',
-        'inverse-surface':            '#2d3133',
-        'inverse-on-surface':         '#eef1f3',
-
-        // --- Text ---
-        'on-surface':                 '#181c1e',
-        'on-surface-variant':         '#414752',
-        'on-background':              '#181c1e',
-
-        // --- Borders ---
-        'outline':                    '#727783',
-        'outline-variant':            '#c1c6d4',
-
-        // --- Secondary ---
-        'secondary':                  '#466270',
-        'secondary-container':        '#c6e4f4',
-        'secondary-fixed':            '#c9e7f7',
-        'secondary-fixed-dim':        '#adcbda',
-        'on-secondary':               '#ffffff',
-        'on-secondary-container':     '#4a6774',
-        'on-secondary-fixed':         '#001f2a',
-        'on-secondary-fixed-variant': '#2e4b57',
-
-        // --- Tertiary ---
-        'tertiary':                   '#833900',
-        'tertiary-container':         '#a94b00',
-        'tertiary-fixed':             '#ffdbca',
-        'tertiary-fixed-dim':         '#ffb68e',
-        'on-tertiary':                '#ffffff',
-        'on-tertiary-container':      '#ffe0d1',
-        'on-tertiary-fixed':          '#331200',
-        'on-tertiary-fixed-variant':  '#773300',
-
-        // --- Semantic ---
-        'error':                      '#ba1a1a',
-        'error-container':            '#ffdad6',
-        'on-error':                   '#ffffff',
-        'on-error-container':         '#93000a',
-      },
-
-      fontFamily: {
-        'headline': ['Manrope', 'sans-serif'],
-        'body':     ['Inter', 'sans-serif'],
-        'label':    ['Inter', 'sans-serif'],
-      },
-
-      // Custom border-radius scale — conservative, "engineered" aesthetic
-      borderRadius: {
-        'DEFAULT': '0.125rem',   // 2px  — code/sharp elements
-        'lg':      '0.25rem',    // 4px  — subtle
-        'xl':      '0.5rem',     // 8px  — cards, containers (most used)
-        'full':    '0.75rem',    // 12px — pill chips
-        // For perfect circles use rounded-[50%] or the component's own logic
-      },
-
-      boxShadow: {
-        'editorial': '0 20px 40px rgba(24, 28, 30, 0.06)',
-      },
-    },
-  },
-  plugins: [],
-};
-```
+**Prerequisite:** Step 01 complete. `tailwindcss` and `@tailwindcss/vite` installed.
 
 ---
 
-## 2.2 Create `src/styles/global.css`
+## 2.1 Create `src/styles/global.css`
+
+This is the single source of truth for all design tokens. Tailwind v4 uses `@theme` in CSS instead of `tailwind.config.js`.
 
 ```css
-/* Import Tailwind layers */
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@600;700;800&family=Inter:wght@400;500;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap');
+@import "tailwindcss";
+@plugin "@tailwindcss/typography";
 
-/* ─────────────────────────────────────────────
-   Google Fonts
-───────────────────────────────────────────── */
-@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@400;700;800&family=Inter:wght@400;500;600;700&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&display=swap');
+@theme {
+  /* --- Primary (Deep Olive) --- */
+  --color-primary:                    #3e5219;
+  --color-primary-container:          #556b2f;
+  --color-primary-fixed:              #d2eca2;
+  --color-primary-fixed-dim:          #b6d088;
+  --color-on-primary:                 #ffffff;
+  --color-on-primary-container:       #d0eba1;
+  --color-on-primary-fixed:           #131f00;
+  --color-on-primary-fixed-variant:   #394d14;
+  --color-inverse-primary:            #b6d088;
+  --color-surface-tint:               #50652a;
 
-/* ─────────────────────────────────────────────
-   Base resets
-───────────────────────────────────────────── */
+  /* --- Surface hierarchy --- */
+  --color-surface-container-lowest:   #ffffff;
+  --color-surface-container-low:      #f3f3f4;
+  --color-surface:                    #f9f9f9;
+  --color-background:                 #f9f9f9;
+  --color-surface-bright:             #f9f9f9;
+  --color-surface-container:          #eeeeee;
+  --color-surface-container-high:     #e8e8e8;
+  --color-surface-container-highest:  #e2e2e2;
+  --color-surface-variant:            #e2e2e2;
+  --color-surface-dim:                #dadada;
+  --color-inverse-surface:            #2f3131;
+  --color-inverse-on-surface:         #f0f1f1;
+
+  /* --- Text --- */
+  --color-on-surface:                 #1a1c1c;
+  --color-on-surface-variant:         #45483c;
+  --color-on-background:              #1a1c1c;
+
+  /* --- Borders --- */
+  --color-outline:                    #75796b;
+  --color-outline-variant:            #c5c8b8;
+
+  /* --- Secondary (Sage) --- */
+  --color-secondary:                  #586246;
+  --color-secondary-container:        #dce7c3;
+  --color-secondary-fixed:            #dce7c3;
+  --color-secondary-fixed-dim:        #c0cba9;
+  --color-on-secondary:               #ffffff;
+  --color-on-secondary-container:     #5e684c;
+  --color-on-secondary-fixed:         #161e08;
+  --color-on-secondary-fixed-variant: #414a30;
+
+  /* --- Tertiary (Honey / CTA) --- */
+  --color-tertiary:                   #753d00;
+  --color-tertiary-container:         #985100;
+  --color-tertiary-fixed:             #ffdbca;
+  --color-tertiary-fixed-dim:         #ffb68e;
+  --color-on-tertiary:                #ffffff;
+  --color-on-tertiary-container:      #ffd9bf;
+  --color-on-tertiary-fixed:          #331200;
+  --color-on-tertiary-fixed-variant:  #773300;
+
+  /* --- Semantic --- */
+  --color-error:                      #ba1a1a;
+  --color-error-container:            #ffdad6;
+  --color-on-error:                   #ffffff;
+  --color-on-error-container:         #93000a;
+
+  /* --- Typography --- */
+  --font-headline: 'Manrope', sans-serif;
+  --font-body:     'Inter', sans-serif;
+  --font-label:    'Inter', sans-serif;
+
+  /* --- Border radius --- */
+  --radius-DEFAULT: 0.25rem;
+  --radius-lg:      0.5rem;
+  --radius-xl:      0.75rem;
+  --radius-2xl:     1rem;
+  --radius-full:    9999px;
+
+  /* --- Shadows --- */
+  --shadow-editorial: 0 12px 40px rgba(26, 28, 28, 0.04);
+  --shadow-card:      0 20px 40px rgba(26, 28, 28, 0.06);
+}
+
 @layer base {
   html {
     font-family: 'Inter', sans-serif;
-    color: #181c1e;  /* on-surface */
-    background-color: #f7fafc;  /* surface */
+    color: #1a1c1c;
+    background-color: #f9f9f9;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
   }
@@ -136,72 +108,33 @@ export default {
     font-family: 'Manrope', sans-serif;
   }
 
-  /* Selection highlight using design tokens */
   ::selection {
-    background-color: #d6e3ff;  /* primary-fixed */
-    color: #001b3d;             /* on-primary-fixed */
+    background-color: #d2eca2;
+    color: #131f00;
   }
 }
 
-/* ─────────────────────────────────────────────
-   Material Symbols configuration
-───────────────────────────────────────────── */
 .material-symbols-outlined {
   font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+  font-style: normal;
   vertical-align: middle;
   line-height: 1;
-  /* Prevent icon font from causing layout shifts */
-  font-size: inherit;
+  user-select: none;
 }
 
-/* Filled variant — used for premium/highlight icons */
-.material-symbols-filled {
-  font-variation-settings: 'FILL' 1, 'wght' 400, 'GRAD' 0, 'opsz' 24;
-  vertical-align: middle;
-  line-height: 1;
-}
-
-/* ─────────────────────────────────────────────
-   Editorial shadow utility
-   (also available as shadow-editorial via Tailwind config)
-───────────────────────────────────────────── */
-@layer utilities {
-  .editorial-shadow {
-    box-shadow: 0 20px 40px rgba(24, 28, 30, 0.06);
-  }
-}
-
-/* ─────────────────────────────────────────────
-   Experience timeline — dashed vertical line
-───────────────────────────────────────────── */
-.experience-timeline {
-  position: relative;
-}
-
-.experience-timeline::before {
-  content: '';
-  position: absolute;
-  left: 28px;
-  top: 0;
-  bottom: 0;
-  width: 2px;
-  background: repeating-linear-gradient(
-    to bottom,
-    transparent,
-    transparent 4px,
-    #c1c6d4 4px,
-    #c1c6d4 8px
-  );
-  opacity: 0.3;
-  pointer-events: none;
+.custom-scrollbar::-webkit-scrollbar { width: 4px; }
+.custom-scrollbar::-webkit-scrollbar-track { background: transparent; }
+.custom-scrollbar::-webkit-scrollbar-thumb {
+  background: #e2e2e2;
+  border-radius: 10px;
 }
 ```
 
 ---
 
-## 2.3 Add global.css to `BaseLayout.astro`
+## 2.2 Import in `BaseLayout.astro`
 
-When `BaseLayout.astro` is created in Step 04, it must import this stylesheet:
+When `BaseLayout.astro` is created in Step 04, add this import at the top of the frontmatter:
 
 ```astro
 ---
@@ -209,44 +142,46 @@ import '../styles/global.css';
 ---
 ```
 
-This is the **only** place global.css is imported. All other components rely on Tailwind utility classes.
+This is the **only** place `global.css` is imported.
 
 ---
 
-## 2.4 Verify Token Extraction
+## 2.3 Verify Token Extraction
 
-Cross-check: open `design-assets/home/prototype.html` and verify that every color class used in the HTML (e.g. `bg-surface-container-lowest`, `text-on-surface-variant`, `border-outline-variant/15`) has a corresponding entry in `tailwind.config.mjs`.
+Cross-check that every color used in the design prototypes has a corresponding `@theme` variable. Critical tokens to verify:
 
-Critical classes to verify are present:
-- `bg-surface-container-lowest` → `#ffffff`
-- `text-on-surface` → `#181c1e`
-- `text-on-surface-variant` → `#414752`
-- `border-outline-variant` → `#c1c6d4` (used with `/10`, `/15` opacity modifiers)
-- `text-primary-fixed-dim` → `#a8c8ff` (timeline watermarks)
-- `bg-on-primary-fixed-variant` → `#00468a` (Talk highlight card background)
-- `text-inverse-primary` → `#a8c8ff` (icon on dark card)
+| Token | Value | Used in |
+|---|---|---|
+| `--color-primary` | `#3e5219` | Nav active state, headings, timeline dots |
+| `--color-primary-container` | `#556b2f` | CTA backgrounds, experience preview |
+| `--color-surface-container-low` | `#f3f3f4` | Sidebar background, inner sections |
+| `--color-secondary` | `#586246` | Company names in timeline |
+| `--color-secondary-fixed` | `#dce7c3` | Tech tag chip backgrounds |
+| `--color-on-secondary-fixed-variant` | `#414a30` | Tech tag chip text |
+| `--color-tertiary` | `#753d00` | CTA buttons, section label text |
+| `--color-outline-variant` | `#c5c8b8` | Ghost borders |
 
 ---
 
-## 2.5 Verify Build
-
-```bash
-npm run build
-```
-
-Expected: Build completes. No Tailwind warnings about unknown tokens.
+## 2.4 Verify Build
 
 ```bash
 npm run dev
 ```
 
-Open `http://localhost:4321`. Page background should be `#f7fafc` (surface), not white. Font should be Inter.
+Expected: Page background is `#f9f9f9` (Professional Olive surface). Font is Inter. No build errors.
+
+```bash
+npm run build
+```
+
+Expected: Build completes without errors.
 
 ---
 
 ## Commit Checkpoint
 
 ```bash
-git add tailwind.config.mjs src/styles/global.css
-git commit -m "feat: add Tailwind design tokens and global CSS utilities"
+git add src/styles/global.css
+git commit -m "feat: add Professional Olive design tokens and global CSS utilities"
 ```

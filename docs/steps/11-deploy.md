@@ -94,17 +94,25 @@ Explanation:
 Double-check these values are correct for root domain deployment:
 
 ```javascript
+// @ts-check
+import { defineConfig } from 'astro/config';
+import tailwindcss from '@tailwindcss/vite';
+import sitemap from '@astrojs/sitemap';
+
 export default defineConfig({
   site: 'https://burdis28.github.io',
   // No 'base' property needed for root domain deployment
-  // (base would be needed if deploying to burdis28.github.io/subpath)
   integrations: [
-    tailwind({ applyBaseStyles: false }),
     sitemap(),
   ],
+  vite: {
+    plugins: [tailwindcss()],
+  },
   output: 'static',
 });
 ```
+
+Note: Tailwind v4 is configured as a **Vite plugin** (`@tailwindcss/vite`), not as an Astro integration. Do not use `@astrojs/tailwind` — that package is for Tailwind v3.
 
 ---
 
@@ -128,7 +136,7 @@ Expected URL: `https://burdis28.github.io`
 
 ## 11.5 Troubleshooting
 
-### Build fails: "Cannot find module '@astrojs/tailwind'"
+### Build fails: "Cannot find module '@tailwindcss/vite'"
 ```bash
 npm ci
 # Ensure package-lock.json is committed

@@ -1,20 +1,25 @@
 {
   "name": "Ondřej Burda",
-  "title": "Software Developer",
-  "tagline": "Building scalable systems and clean interfaces.",
-  "location": "Prague, Czech Republic",
+  "title": "Backend Engineer · Java & Kotlin",
+  "tagline": "Backend inženýr specializovaný na Kotlin a Java. Píšu kód, který vydrží.",
+  "location": "Praha, Česká republika",
   "website": {
     "label": "burdis28.github.io",
     "url": "https://burdis28.github.io"
   },
   "social": {
     "github": "https://github.com/Burdis28",
-    "linkedin": "https://linkedin.com/in/YOUR_LINKEDIN",
+    "linkedin": "https://linkedin.com/in/ondřej-burda-1a921a1a5",
     "email": "YOUR_EMAIL@example.com"
   },
-  "about": "Passionate about building scalable digital systems and crafting clean user experiences. Experienced in full-stack development with a focus on modern frontend frameworks, distributed backend architecture, and cloud infrastructure. Always exploring the intersection of engineering quality and developer productivity.",
+  "heroHeadline": "Systémy, které",
+  "heroAccent": "drží.",
+  "about": "Jsem backend inženýr se solidními základy v Javě a rostoucí vášní pro Kotlin. Přes pět let stavím systémy, na které se ostatní mohou spolehnout: od e-commerce integrací přes energetické platformy až po rozhraní komunikující s externími ERP systémy. Vedle technické preciznosti mi záleží na tom, jak věci fungují v týmu: srozumitelná komunikace, realistické kompromisy a projekty, které mají jasný směr.",
+  "aboutQuote": "Jsem typ neoblomného, tvrdého astromariňáka, se kterým si není radno zahrávat.",
+  "yearsExperience": "7",
   "resumeUrl": "/files/ondrej-burda-cv.pdf",
-  "avatarUrl": "/images/profile.jpg",
-  "heroBannerUrl": "/images/hero-banner.jpg",
-  "techStack": ["React.js", "TypeScript", "Go", "Kubernetes", "AWS"]
+  "avatarUrl": "/images/profile/avatar.jpg",
+  "heroBannerUrl": "/images/profile/hero-banner.JPG",
+  "techStack": ["Java", "Kotlin", "MongoDB", "SQL", "Spring Boot"],
+  "availability": "unavailable"
 }

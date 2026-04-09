@@ -7,8 +7,11 @@ interface Props {
 const { item } = Astro.props;
 ---
 
-<div class={`relative pl-4 border-l-2 ${item.isActive ? 'border-primary-fixed' : 'border-outline-variant/30'}`}>
-  <h4 class="font-headline font-bold text-on-surface">{item.degree}</h4>
-  <p class="text-primary text-sm font-semibold">{item.institution}</p>
-  <p class="text-on-surface-variant text-xs mt-1">{item.period}</p>
+<div class="group">
+  <p class="text-sm font-label font-bold text-tertiary mb-1">{item.period}</p>
+  <h4 class="text-xl font-headline font-bold text-on-surface group-hover:text-primary transition-colors">{item.degree}</h4>
+  <p class="text-on-surface-variant font-label">{item.institution}</p>
+  {item.note && (
+    <p class="mt-2 text-sm text-on-surface-variant/70 italic">{item.note}</p>
+  )}
 </div>

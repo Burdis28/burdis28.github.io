@@ -1,80 +1,70 @@
 ---
 import projects from '../../content/data/projects.json';
+import { getCollection } from 'astro:content';
+
+const allPosts = (await getCollection('blog')).sort(
+  (a, b) => b.data.date.valueOf() - a.data.date.valueOf()
+).slice(0, 2);
 
 const featuredProject = projects.find((p) => p.featured);
 ---
 
-<section class="space-y-4">
-
-  <div class="flex justify-between items-center px-2">
-    <h2 class="text-xl font-black font-headline text-on-surface tracking-tight">Featured Highlights</h2>
+<!-- Featured Blog Section: Latest Insights -->
+<section class="mb-24">
+  <div class="flex justify-between items-end mb-12">
+    <div>
+      <p class="font-label text-[10px] uppercase tracking-widest text-tertiary font-bold mb-2">Ze zápisníku</p>
+      <h2 class="text-3xl font-bold font-headline text-primary tracking-tight">Čerstvé z blogu</h2>
+    </div>
+    <a href="/blog" class="text-primary font-bold text-sm flex items-center group">
+      Všechny články
+      <span class="material-symbols-outlined ml-1 group-hover:translate-x-1 transition-transform">arrow_forward</span>
+    </a>
   </div>
 
-  <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-
-    <!-- Card 1: Featured Project -->
-    {featuredProject && (
-      <div class="group bg-surface-container-lowest rounded-xl overflow-hidden border border-outline-variant/15 shadow-sm transition-all hover:shadow-md hover:bg-surface-bright">
-        <div class="h-40 overflow-hidden relative">
-          <img
-            src={featuredProject.imageUrl}
-            alt={featuredProject.imageAlt}
-            class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
-            width="400"
-            height="160"
-          />
-          <div class="absolute top-3 right-3 bg-primary-container px-3 py-1 rounded-full">
-            <span class="text-[10px] font-bold text-on-primary-container uppercase tracking-widest">Project</span>
-          </div>
-        </div>
-        <div class="p-6">
-          <h3 class="font-headline font-bold text-lg mb-2">{featuredProject.title}</h3>
-          <p class="text-sm text-on-surface-variant mb-4 line-clamp-2">{featuredProject.description}</p>
-          <div class="flex items-center justify-between">
-            <div class="flex flex-wrap gap-1">
-              {featuredProject.tags.slice(0, 2).map((tag) => (
-                <span class="px-2 py-0.5 bg-surface-container-high rounded-full text-[10px] font-bold text-on-surface-variant uppercase tracking-wider">
-                  {tag}
-                </span>
-              ))}
+  <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+    {allPosts.length > 0 ? allPosts.map((post) => {
+      const formattedDate = post.data.date.toLocaleDateString('cs-CZ', {
+        year: 'numeric', month: 'long', day: 'numeric',
+      });
+      const href = `/blog/${post.id}`;
+      return (
+        <article class="bg-surface-container-lowest group hover:shadow-editorial transition-all flex flex-col h-full rounded-xl overflow-hidden">
+          <a href={href} class="block aspect-[16/9] overflow-hidden bg-surface-container-low" tabindex="-1" aria-hidden="true">
+            <img
+              src={post.data.coverImage}
+              alt={post.data.coverImageAlt}
+              class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-500 group-hover:scale-105"
+              width="600"
+              height="337"
+              loading="lazy"
+            />
+          </a>
+          <div class="p-10 flex flex-col flex-grow">
+            <div class="flex items-center space-x-3 mb-4">
+              <span class="font-label text-[9px] uppercase tracking-widest text-on-surface-variant px-2 py-1 bg-surface-container-high rounded-sm">{post.data.category}</span>
+              <span class="text-on-surface-variant text-[11px]">{post.data.readTime} min čtení</span>
             </div>
-            <a href="/projects" class="material-icons-outlined text-primary group-hover:translate-x-1 transition-transform" style="font-size:20px">
-              arrow_forward
+            <h3 class="text-2xl font-bold font-headline text-on-surface mb-4 leading-tight">
+              <a href={href} class="hover:text-primary transition-colors">{post.data.title}</a>
+            </h3>
+            <p class="text-on-surface-variant text-sm mb-8 flex-grow leading-relaxed">{post.data.excerpt}</p>
+            <a
+              href={href}
+              class="flex items-center space-x-2 text-primary font-bold text-xs uppercase tracking-widest border-t border-surface-container-low pt-6"
+            >
+              <span>Číst dál</span>
+              <span class="material-symbols-outlined text-sm">north_east</span>
             </a>
           </div>
-        </div>
+        </article>
+      );
+    }) : (
+      <!-- Fallback if no blog posts exist yet -->
+      <div class="md:col-span-2 bg-surface-container-lowest p-10 rounded-xl text-center text-on-surface-variant">
+        <span class="material-symbols-outlined text-4xl text-primary/20 block mb-4">edit_note</span>
+        <p class="font-label text-sm">Články přibydou brzy, mezitím se podívejte na mou praxi.</p>
       </div>
     )}
-
-    <!-- Card 2: Status / Achievement -->
-    <div class="group bg-surface-container-lowest rounded-xl overflow-hidden border border-outline-variant/15 shadow-sm transition-all hover:shadow-md">
-      <div class="h-40 bg-on-primary-fixed-variant flex items-center justify-center p-8 relative">
-        <div class="text-center">
-          <span
-            class="material-icons-outlined text-inverse-primary mb-2 block"
-            style="font-size:48px"
-          >
-            workspace_premium
-          </span>
-          <h4 class="text-on-primary font-headline font-black text-xl leading-tight">Open to Opportunities</h4>
-        </div>
-        <div class="absolute top-3 right-3 bg-tertiary-container px-3 py-1 rounded-full">
-          <span class="text-[10px] font-bold text-on-tertiary-container uppercase tracking-widest">Status</span>
-        </div>
-      </div>
-      <div class="p-6">
-        <h3 class="font-headline font-bold text-lg mb-2">Available for New Projects</h3>
-        <p class="text-sm text-on-surface-variant mb-4 line-clamp-2">
-          Looking for interesting engineering challenges. Let's build something great together.
-        </p>
-        <div class="flex items-center justify-between">
-          <span class="text-xs font-bold text-on-surface-variant">Full-time or Contract</span>
-          <a href="/contact" class="material-icons-outlined text-primary group-hover:translate-x-1 transition-transform" style="font-size:20px">
-            arrow_forward
-          </a>
-        </div>
-      </div>
-    </div>
-
   </div>
 </section>

@@ -22,14 +22,14 @@ git remote set-url origin https://github.com/Burdis28/burdis28.github.io.git
 
 ## 1.2 Initialize Astro
 
-Run inside the repo root (`D:\UserData\programming\personal-page\burdasganz`):
+Run inside the repo root:
 
 ```bash
 npm create astro@latest . -- --template minimal --typescript strict --no-install --no-git
 ```
 
 Flags:
-- `.` — scaffold into current directory (files go here, not into a subdirectory)
+- `.` — scaffold into current directory
 - `--template minimal` — bare minimum, no example pages
 - `--typescript strict` — TypeScript with strict mode
 - `--no-install` — we'll install manually in next step
@@ -52,49 +52,44 @@ src/
 
 ```bash
 npm install
-npm install @astrojs/tailwind tailwindcss @astrojs/sitemap
+npm install @astrojs/sitemap @tailwindcss/vite tailwindcss @tailwindcss/typography
 npm install -D @types/node
 ```
 
 Package purposes:
-- `@astrojs/tailwind` — Astro integration that wires Tailwind into the build
-- `tailwindcss` — Tailwind CSS engine
 - `@astrojs/sitemap` — generates `sitemap.xml` automatically at build time
+- `@tailwindcss/vite` — Tailwind CSS v4 Vite plugin (replaces the old `@astrojs/tailwind`)
+- `tailwindcss` — Tailwind CSS v4 engine
+- `@tailwindcss/typography` — optional plugin for blog article prose styling
 - `@types/node` — Node.js type definitions for TypeScript
 
 ---
 
 ## 1.4 Configure `astro.config.mjs`
 
-Replace the generated file with:
-
 ```javascript
 import { defineConfig } from 'astro/config';
-import tailwind from '@astrojs/tailwind';
+import tailwindcss from '@tailwindcss/vite';
 import sitemap from '@astrojs/sitemap';
 
 export default defineConfig({
   site: 'https://burdis28.github.io',
-  integrations: [
-    tailwind({
-      applyBaseStyles: false,  // we manage base styles ourselves in global.css
-    }),
-    sitemap(),
-  ],
+  integrations: [sitemap()],
+  vite: {
+    plugins: [tailwindcss()],
+  },
   output: 'static',
 });
 ```
 
 Notes:
 - `site` must be set for sitemap generation and correct canonical URLs
-- `applyBaseStyles: false` prevents Tailwind from injecting its own `@base` reset globally — we control this in `global.css`
+- Tailwind v4 uses a Vite plugin instead of an Astro integration
 - `output: 'static'` — explicit static site output (required for GitHub Pages)
 
 ---
 
 ## 1.5 Configure `tsconfig.json`
-
-Replace or confirm these settings in `tsconfig.json`:
 
 ```json
 {
@@ -112,18 +107,9 @@ Replace or confirm these settings in `tsconfig.json`:
 }
 ```
 
-Path aliases allow clean imports:
-```typescript
-import TopNavBar from '@components/layout/TopNavBar.astro';
-// instead of:
-import TopNavBar from '../../components/layout/TopNavBar.astro';
-```
-
 ---
 
 ## 1.6 Create Directory Structure
-
-Create all directories upfront so subsequent steps can place files without friction:
 
 ```bash
 mkdir -p src/components/layout
@@ -131,7 +117,6 @@ mkdir -p src/components/home
 mkdir -p src/components/experience
 mkdir -p src/components/projects
 mkdir -p src/components/blog
-mkdir -p src/components/contact
 mkdir -p src/layouts
 mkdir -p src/content/data
 mkdir -p src/content/blog
@@ -148,8 +133,6 @@ mkdir -p .github/workflows
 
 Create the TypeScript interfaces file (full content in `docs/data-schema.md` — TypeScript Interfaces section).
 
-This file exports all shared types used across components when importing JSON data.
-
 ---
 
 ## 1.8 Verify
@@ -158,7 +141,7 @@ This file exports all shared types used across components when importing JSON da
 npm run dev
 ```
 
-Expected: Astro dev server starts at `http://localhost:4321`. The index page will be the default Astro minimal template. No styling yet — that's Step 02.
+Expected: Astro dev server starts at `http://localhost:4321`. No styling yet — that's Step 02.
 
 ```bash
 npm run build
@@ -172,5 +155,5 @@ Expected: Build completes without errors. `dist/` directory is created.
 
 ```bash
 git add .
-git commit -m "feat: scaffold Astro project with Tailwind and Sitemap integrations"
+git commit -m "feat: scaffold Astro project with Tailwind v4 and Sitemap integrations"
 ```
