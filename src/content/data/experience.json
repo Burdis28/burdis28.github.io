@@ -1,20 +1,32 @@
 [
   {
     "id": "job-1",
-    "role": "Java/Kotlin Software Engineer",
+    "role": "Java & Kotlin Software Engineer",
     "company": "Etnetera Core",
     "type": "Full-time",
     "period": { "start": "Lis 2021", "end": "Současnost" },
     "location": "Praha, Česko",
     "icon": "developer_mode_tv",
     "isActive": true,
+    "isPrimary": true,
+    "engagement": "employment",
+    "visibility": "public",
+    "statusNote": "Hlavní pracovní role",
     "year": "2021",
     "bullets": [
-      "Klíčový vývojář na víceLetém projektu pro jednoho z největších hráčů českého trhu s reklamními předměty, který navrhl a implementoval kompletní integraci s externím ERP systémem od základů.",
-      "Pravidelný kontaktní bod mezi vývojovým týmem, klientem a ERP konzultanty; zajišťoval, aby technická řešení odpovídala reálným byznys potřebám.",
+      "Jako backend vývojář na víceletém projektu pro jednoho z největších hráčů českého trhu s reklamními předměty jsem navrhoval a implementoval kompletní integraci s externím ERP systémem od základů. Pravidelný kontaktní bod mezi vývojovým týmem, klientem a ERP konzultanty; zajišťoval jsem, aby technická řešení odpovídala reálným byznys potřebám.",
+      "Backend integrační vývoj na projektu jedné z největších českých platforem pro finanční poradce a zprostředkování investic jejich klientů.",
       "Zkušenosti přesahující jeden sektor: od e-commerce po projekty v oblasti finančních investic."
     ],
-    "tags": ["Kotlin", "Java", "Spring Boot", "MongoDB", "REST API"]
+    "tags": [
+      "Kotlin",
+      "Java",
+      "Spring Boot",
+      "MongoDB",
+      "REST API",
+      "Kubernetes",
+      "Keycloak"
+    ]
   },
   {
     "id": "job-2",
@@ -25,12 +37,16 @@
     "location": "Pardubice a okolí",
     "icon": "terminal",
     "isActive": false,
+    "isPrimary": false,
+    "engagement": "employment",
+    "visibility": "public",
+    "statusNote": "",
     "year": "2018",
     "bullets": [
-      "Součást vývojového týmu na částečný úvazek souběžně s magisterským studiem, důkaz, že se dá pracovat i učit najednou.",
-      "Podílel se na budování platformy pro evropské klienty v energetickém sektoru s přesahem do více zemí.",
-      "Platforma jako první v regionu umožnila přeshraniční obchodování s vyrovnávací energií, výsledek s reálným dopadem na trh."
+      "Práce na částečný úvazek souběžně s magisterským studiem.",
+      "Podílel jsem se na budování platformy pro evropské klienty v energetickém sektoru s přesahem do více zemí.",
+      "Platforma jako první v regionu umožnila přeshraniční obchodování s vyrovnávací energií, výsledek mé práce měl reálný dopad na evropský energetický trh."
     ],
-    "tags": ["Java", "PostgreSQL", "Microservices"]
+    "tags": ["Java", "Spring Boot", "PostgreSQL", "Microservices"]
   }
 ]

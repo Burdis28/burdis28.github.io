@@ -12,11 +12,22 @@ export interface Profile {
   techStack: string[];
 }
 
+export type ExperienceRoleKind =
+  | "full-time"
+  | "part-time"
+  | "freelance"
+  | "side-project"
+  | "volunteer";
+
+export type ExperienceStatus = "active" | "completed" | "paused";
+
 export interface ExperienceItem {
   id: string;
   role: string;
   company: string;
   type: string;
+  kind?: ExperienceRoleKind;
+  status?: ExperienceStatus;
   period: { start: string; end: string };
   location: string;
   icon: string;
@@ -24,6 +35,11 @@ export interface ExperienceItem {
   year: string;
   bullets: string[];
   tags?: string[];
+  summary?: string;
+  teammates?: string;
+  stage?: "idea" | "development" | "beta" | "live";
+  website?: string | null;
+  source?: string | null;
 }
 
 export interface Degree {

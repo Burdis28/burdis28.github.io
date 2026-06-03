@@ -50,7 +50,7 @@ Key additions over a basic schema:
 ```json
 {
   "name": "Ondřej Burda",
-  "title": "Java/Kotlin Software Engineer",
+  "title": "Java & Kotlin Software Engineer",
   "tagline": "Backend developer focused on Kotlin, Java, and modern distributed systems.",
   "location": "Prague, Czech Republic",
   "website": {
@@ -84,7 +84,7 @@ Key additions over a basic schema:
 [
   {
     "id": "job-1",
-    "role": "Java/Kotlin Software Engineer",
+    "role": "Java & Kotlin Software Engineer",
     "company": "Etnetera Core",
     "type": "Full-time",
     "period": { "start": "Nov 2021", "end": "Present" },

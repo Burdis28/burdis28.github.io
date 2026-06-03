@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Architect Portfolio | Alex Rivera</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;700;800&amp;family=Inter:wght@400;500;600;700&amp;family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "surface-tint": "#50652a",
+                    "error-container": "#ffdad6",
+                    "secondary-fixed": "#dce7c3",
+                    "surface-dim": "#dadada",
+                    "on-background": "#1a1c1c",
+                    "primary-container": "#556b2f",
+                    "tertiary-fixed": "#ffdcc3",
+                    "on-primary-container": "#d0eba1",
+                    "inverse-primary": "#b6d088",
+                    "inverse-on-surface": "#f0f1f1",
+                    "primary-fixed": "#d2eca2",
+                    "secondary": "#586246",
+                    "on-tertiary-fixed-variant": "#6e3900",
+                    "on-primary-fixed": "#131f00",
+                    "tertiary-fixed-dim": "#ffb77d",
+                    "secondary-container": "#dce7c3",
+                    "on-secondary-fixed-variant": "#414a30",
+                    "on-error": "#ffffff",
+                    "on-surface": "#1a1c1c",
+                    "outline-variant": "#c5c8b8",
+                    "inverse-surface": "#2f3131",
+                    "tertiary": "#753d00",
+                    "on-error-container": "#93000a",
+                    "error": "#ba1a1a",
+                    "surface-variant": "#e2e2e2",
+                    "surface-container-lowest": "#ffffff",
+                    "on-tertiary-fixed": "#2f1500",
+                    "on-secondary-fixed": "#161e08",
+                    "on-secondary": "#ffffff",
+                    "primary": "#3e5219",
+                    "on-secondary-container": "#5e684c",
+                    "surface-container-high": "#e8e8e8",
+                    "surface-container-highest": "#e2e2e2",
+                    "outline": "#75796b",
+                    "surface-container-low": "#f3f3f4",
+                    "secondary-fixed-dim": "#c0cba9",
+                    "on-tertiary": "#ffffff",
+                    "on-surface-variant": "#45483c",
+                    "tertiary-container": "#985100",
+                    "surface-container": "#eeeeee",
+                    "surface-bright": "#f9f9f9",
+                    "on-primary": "#ffffff",
+                    "on-primary-fixed-variant": "#394d14",
+                    "background": "#f9f9f9",
+                    "primary-fixed-dim": "#b6d088",
+                    "surface": "#f9f9f9",
+                    "on-tertiary-container": "#ffd9bf"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.125rem",
+                    "lg": "0.25rem",
+                    "xl": "0.5rem",
+                    "full": "0.75rem"
+            },
+            "fontFamily": {
+                    "headline": ["Manrope"],
+                    "body": ["Inter"],
+                    "label": ["Inter"]
+            }
+          },
+        }
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        body { font-family: 'Inter', sans-serif; }
+        h1, h2, h3 { font-family: 'Manrope', sans-serif; }
+    </style>
+</head>
+<body class="bg-surface text-on-surface">
+<!-- Top Navigation (Mobile/Standard) -->
+<nav class="fixed top-0 w-full z-50 bg-white/80 dark:bg-zinc-900/80 backdrop-blur-md">
+<div class="flex justify-between items-center px-8 h-16 max-w-7xl mx-auto">
+<span class="text-xl font-black text-olive-900 dark:text-olive-100 tracking-tighter">Architect Portfolio</span>
+<div class="hidden md:flex items-center space-x-8">
+<a class="text-olive-900 dark:text-olive-200 border-b-2 border-olive-700 dark:border-olive-400 pb-1 font-manrope tracking-tight font-bold text-sm" href="#">Overview</a>
+<a class="text-zinc-500 dark:text-zinc-400 hover:text-olive-700 dark:hover:text-olive-300 transition-colors font-manrope tracking-tight font-bold text-sm" href="#">Projects</a>
+<a class="text-zinc-500 dark:text-zinc-400 hover:text-olive-700 dark:hover:text-olive-300 transition-colors font-manrope tracking-tight font-bold text-sm" href="#">Experience</a>
+<a class="text-zinc-500 dark:text-zinc-400 hover:text-olive-700 dark:hover:text-olive-300 transition-colors font-manrope tracking-tight font-bold text-sm" href="#">Articles</a>
+<button class="bg-tertiary text-on-tertiary px-6 py-2 rounded-lg text-sm font-bold scale-95 active:scale-90 duration-200">Hire Me</button>
+</div>
+<button class="md:hidden text-primary"><span class="material-symbols-outlined">menu</span></button>
+</div>
+</nav>
+<!-- Side Navigation Shell (Desktop) -->
+<aside class="hidden md:flex flex-col py-8 px-6 space-y-8 h-screen w-72 fixed left-0 top-0 bg-zinc-50 dark:bg-zinc-900 border-r-0 shadow-sm dark:shadow-none z-40 mt-16">
+<div class="flex flex-col space-y-2 mb-4">
+<div class="w-16 h-16 rounded-full overflow-hidden bg-surface-container-high mb-2">
+<img alt="Alex Rivera" class="w-full h-full object-cover" data-alt="Professional headshot of a mature systems architect with a confident expression, neutral studio background, soft cinematic lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCUEOr_Q9FzmguTVIUjqGAP1oqUJhc7Ttm6zNd3p5NQsohwS_Lil766lEeCbxtCmsnOdUUidTyR-PkMQNB0EUdArwzTrc4BdPtoL73G8_UdYbOkLEn9y5tZY3oV3OuDbdyWrIVEmv-lwWXz2vN56XQPUk-q0_sPHiWFcNNSnaV3zjjMwR0ZIzdM8gP0epNhnkTvorF9-oCHSq7kolR9_ZlUd2I2ZgCsU8TsTvMY0aAEYzoF_8Ks-0nBFrLmR5CZY4D3xTOoTxa-gA"/>
+</div>
+<h2 class="text-lg font-bold text-olive-900">Alex Rivera</h2>
+<p class="font-inter text-[10px] uppercase tracking-widest text-zinc-500">Senior Systems Architect</p>
+</div>
+<nav class="flex flex-col space-y-1">
+<a class="flex items-center space-x-3 text-olive-900 dark:text-olive-100 font-bold border-l-4 border-olive-600 pl-4 py-2 bg-zinc-100 dark:bg-zinc-800/30 transition-all" href="#">
+<span class="material-symbols-outlined text-sm">dashboard</span>
+<span class="font-inter text-xs uppercase tracking-widest">Overview</span>
+</a>
+<a class="flex items-center space-x-3 text-zinc-400 dark:text-zinc-500 pl-4 py-2 hover:bg-zinc-200/50 dark:hover:bg-zinc-800 transition-all" href="#">
+<span class="material-symbols-outlined text-sm">code</span>
+<span class="font-inter text-xs uppercase tracking-widest">Repository</span>
+</a>
+<a class="flex items-center space-x-3 text-zinc-400 dark:text-zinc-500 pl-4 py-2 hover:bg-zinc-200/50 dark:hover:bg-zinc-800 transition-all" href="#">
+<span class="material-symbols-outlined text-sm">insights</span>
+<span class="font-inter text-xs uppercase tracking-widest">Analytics</span>
+</a>
+<a class="flex items-center space-x-3 text-zinc-400 dark:text-zinc-500 pl-4 py-2 hover:bg-zinc-200/50 dark:hover:bg-zinc-800 transition-all" href="#">
+<span class="material-symbols-outlined text-sm">settings</span>
+<span class="font-inter text-xs uppercase tracking-widest">Settings</span>
+</a>
+</nav>
+<div class="mt-auto space-y-6">
+<div class="space-y-3">
+<p class="font-inter text-[10px] uppercase tracking-widest text-zinc-400">Connect</p>
+<div class="flex flex-col space-y-2">
+<a class="flex items-center space-x-2 text-zinc-500 hover:text-olive-700 text-xs transition-colors" href="#">
+<span class="material-symbols-outlined text-sm">link</span>
+<span>LinkedIn</span>
+</a>
+<a class="flex items-center space-x-2 text-zinc-500 hover:text-olive-700 text-xs transition-colors" href="#">
+<span class="material-symbols-outlined text-sm">terminal</span>
+<span>GitHub</span>
+</a>
+</div>
+</div>
+<button class="w-full bg-primary-container text-on-primary-container py-3 rounded-lg text-[10px] uppercase tracking-[0.2em] font-bold hover:brightness-110 transition-all">
+                Download CV
+            </button>
+</div>
+</aside>
+<!-- Main Content Canvas -->
+<main class="md:ml-72 pt-24 pb-16 px-6 lg:px-12 max-w-7xl">
+<!-- Intro Section: About Me -->
+<section class="mb-24">
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
+<div class="lg:col-span-7">
+<div class="mb-4 inline-block bg-secondary-container px-3 py-1 rounded-full">
+<span class="text-on-secondary-container font-inter text-[10px] uppercase tracking-widest font-bold">The Narrative</span>
+</div>
+<h1 class="text-5xl lg:text-7xl font-extrabold text-primary mb-8 tracking-tight leading-none">
+                        Engineering with <br/> <span class="text-tertiary">Precision.</span>
+</h1>
+<div class="space-y-6 text-on-surface text-lg max-w-2xl leading-relaxed">
+<p>
+                            I am a systems architect who views code as a construction material—structural, aesthetic, and enduring. For over a decade, I've specialized in transforming complex technical requirements into elegant, high-performance distributed systems.
+                        </p>
+<p class="text-on-surface-variant italic border-l-4 border-tertiary/30 pl-6">
+                            "Architecture is the art of how to waste space; engineering is the science of how to use it." I find the intersection of both in the cloud.
+                        </p>
+<p>
+                            When I’m not sketching whiteboards for Global Tech Solutions, I’m exploring the nuances of Rust or writing about the future of edge computing. My approach is rooted in the belief that the best code isn't just functional—it's legible, maintainable, and resilient.
+                        </p>
+</div>
+</div>
+<div class="lg:col-span-5 relative mt-12 lg:mt-0">
+<div class="aspect-square bg-surface-container-low rounded-lg relative overflow-hidden group">
+<img alt="Modern Office Space" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" data-alt="Modern architectural office with high ceilings, minimalist desk, and large windows overlooking a city during twilight" src="https://lh3.googleusercontent.com/aida-public/AB6AXuA4GQWXQCvJJdj_pjn05B0rn2cXaf8KlALjZEdaeDKOVlcgv_dGNjxMTDpKUH50r-bC5tH3s_XQLiBnr51u2Tbno-KbECmWdppOVM-XRrhlZfXCmQDgidZDCkVRhFSDSrr-POVHGIRngzEut2NN5Xsl_kfmZo8ttFofUkVtHVK_mZM_BhzRYxFSncuU-tokaZo_32WNYGF2iJY-33uDmYBpkg2Hu70VsM1mz_Fi6QfN7mygiUivT8AniIpQwScX9ejPBec3_qpL8A"/>
+<div class="absolute bottom-6 -left-6 bg-surface-container-lowest p-6 shadow-xl max-w-[240px]">
+<p class="font-headline font-bold text-primary text-xl mb-1">12+</p>
+<p class="font-label text-[10px] uppercase tracking-widest text-on-surface-variant">Years of Enterprise Experience</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Featured Blog Section: Latest Insights -->
+<section class="mb-24">
+<div class="flex justify-between items-end mb-12">
+<div>
+<p class="font-label text-[10px] uppercase tracking-widest text-tertiary font-bold mb-2">Knowledge Base</p>
+<h2 class="text-3xl font-bold text-primary tracking-tight">Latest Insights</h2>
+</div>
+<a class="text-primary font-bold text-sm flex items-center group" href="#">
+                    View All Articles
+                    <span class="material-symbols-outlined ml-1 group-hover:translate-x-1 transition-transform">arrow_forward</span>
+</a>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+<!-- Blog Card 1 -->
+<article class="bg-surface-container-lowest p-10 group hover:shadow-[0_12px_40px_rgba(26,28,28,0.04)] transition-all flex flex-col h-full">
+<div class="aspect-[16/9] mb-8 overflow-hidden rounded-lg bg-surface-container-low">
+<img alt="Cybersecurity" class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-500" data-alt="Close-up of high-tech server rack with glowing blue and green led lights in a dark data center" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB6k2Ln8L27SRizeAx6yNIa--whuFkGpfb7U5vovZmcphQhPXRkHDR3gYK3C3vRfw2TitRINmHzdEhTa2TKUaJztPW7QjoaK7ZTLaqHm9VOE3Dt_U-jFvhjM_tlfqr_3K_P1Fr3Mk6XrHqCHtgChrIqp_bmx86NY5tp-MAqbII4_wOoTYXUvCXuR7XMXTqVL6zT8bZuoRqyiYYj_Mka9SM3aLtd6IHvSkbJNiFbPqHNT0TubZNIAsNQGYrUYM__jeLObzdl7P-w-g"/>
+</div>
+<div class="flex items-center space-x-3 mb-4">
+<span class="font-label text-[9px] uppercase tracking-widest text-on-surface-variant px-2 py-1 bg-surface-container-high">Infrastructure</span>
+<span class="text-on-surface-variant text-[11px]">8 min read</span>
+</div>
+<h3 class="text-2xl font-bold text-primary mb-4 leading-tight group-hover:text-tertiary transition-colors">Scaling Beyond the Monolith: A Post-Mortem of 2023.</h3>
+<p class="text-on-surface-variant text-sm mb-8 flex-grow">
+                        An in-depth look at how we migrated Global Tech's legacy systems to a distributed micro-kernel architecture without dropping a single packet.
+                    </p>
+<div class="flex items-center space-x-2 text-primary font-bold text-xs uppercase tracking-widest border-t border-surface-container-low pt-6">
+<span>Read Full Insight</span>
+<span class="material-symbols-outlined text-sm">north_east</span>
+</div>
+</article>
+<!-- Blog Card 2 -->
+<article class="bg-surface-container-lowest p-10 group hover:shadow-[0_12px_40px_rgba(26,28,28,0.04)] transition-all flex flex-col h-full">
+<div class="aspect-[16/9] mb-8 overflow-hidden rounded-lg bg-surface-container-low">
+<img alt="React Architecture" class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-500" data-alt="Abstract visualization of a complex neural network or node structure with golden lines connecting glowing points" src="https://lh3.googleusercontent.com/aida-public/AB6AXuA-lAY7fRk_jnAPNR3tq7VkvJ6_A5Jpce_TIOKjovgi1BCmwqw2hA94yQ9p5abQpYFH5HQ6PNA3m_OFWurCZEbmBc7hSnDqef1Bx0i2R-ZXpd--H86x4eXa5jKE3LmunrWYqMb7qPeBEm4v5l3W88CUOmL2eQWCcWMHmAHCYRH2H9qRBPDYfWhr9gTzeCKpF7O2UqX8OXVVo2xjEl_kQRm_Nydp4kDh3gVZblzw-iZwIlXOhiFgksp4E3Ak7wAHLha1KAaMKrjC4w"/>
+</div>
+<div class="flex items-center space-x-3 mb-4">
+<span class="font-label text-[9px] uppercase tracking-widest text-on-surface-variant px-2 py-1 bg-surface-container-high">Architecture</span>
+<span class="text-on-surface-variant text-[11px]">12 min read</span>
+</div>
+<h3 class="text-2xl font-bold text-primary mb-4 leading-tight group-hover:text-tertiary transition-colors">The Aesthetic of Clean Code: Why Structure Matters.</h3>
+<p class="text-on-surface-variant text-sm mb-8 flex-grow">
+                        Exploring why the visual layout of code is just as important as its logic when it comes to long-term maintainability and developer ergonomics.
+                    </p>
+<div class="flex items-center space-x-2 text-primary font-bold text-xs uppercase tracking-widest border-t border-surface-container-low pt-6">
+<span>Read Full Insight</span>
+<span class="material-symbols-outlined text-sm">north_east</span>
+</div>
+</article>
+</div>
+</section>
+<!-- Professional Tenure Preview -->
+<section class="bg-primary-container p-12 lg:p-20 rounded-lg relative overflow-hidden">
+<!-- Background Decorative Element -->
+<div class="absolute -right-20 -bottom-20 opacity-10">
+<span class="material-symbols-outlined text-[300px] text-on-primary-container">architecture</span>
+</div>
+<div class="relative z-10 grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+<div>
+<p class="font-label text-[10px] uppercase tracking-[0.3em] text-on-primary-container font-bold mb-6">Currently Engaged</p>
+<h2 class="text-4xl lg:text-5xl font-extrabold text-white mb-6 tracking-tight leading-tight">
+                        Principal Systems Architect <br/>
+<span class="text-on-primary-container">@ Global Tech Solutions</span>
+</h2>
+<p class="text-on-primary-container/80 text-lg max-w-md leading-relaxed mb-8">
+                        Directing the core architectural evolution for the world's leading logistics platform. Overseeing a team of 40+ engineers across 3 continents.
+                    </p>
+</div>
+<div class="flex flex-col space-y-6 lg:items-end">
+<button class="bg-tertiary text-on-tertiary px-10 py-5 rounded-lg text-sm font-bold uppercase tracking-widest shadow-xl hover:translate-y-[-2px] active:translate-y-[0] transition-all w-full lg:w-auto">
+                        View Full Experience History
+                    </button>
+<div class="flex space-x-4">
+<div class="flex flex-col items-center">
+<span class="text-white font-bold text-xl">400k+</span>
+<span class="text-on-primary-container/60 text-[9px] uppercase tracking-widest">TPS Handled</span>
+</div>
+<div class="w-px h-10 bg-on-primary-container/20"></div>
+<div class="flex flex-col items-center">
+<span class="text-white font-bold text-xl">99.99%</span>
+<span class="text-on-primary-container/60 text-[9px] uppercase tracking-widest">SLA Maintained</span>
+</div>
+<div class="w-px h-10 bg-on-primary-container/20"></div>
+<div class="flex flex-col items-center">
+<span class="text-white font-bold text-xl">14+</span>
+<span class="text-on-primary-container/60 text-[9px] uppercase tracking-widest">Patents Held</span>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Footer Credits -->
+<footer class="mt-24 pt-8 border-t border-surface-container-high flex flex-col md:flex-row justify-between items-center text-[10px] uppercase tracking-widest text-on-surface-variant font-bold">
+<p>© 2024 Alex Rivera — Digital Architect Portfolio</p>
+<div class="flex space-x-8 mt-4 md:mt-0">
+<a class="hover:text-tertiary transition-colors" href="#">Privacy Policy</a>
+<a class="hover:text-tertiary transition-colors" href="#">Terms of Service</a>
+<a class="hover:text-tertiary transition-colors" href="#">Colophon</a>
+</div>
+</footer>
+</main>
+<!-- Contextual FAB (Suppressing on Details/Settings as per instructions, but keeping on Home) -->
+<div class="fixed bottom-8 right-8 z-50">
+<button class="bg-tertiary text-on-tertiary w-14 h-14 rounded-full shadow-2xl flex items-center justify-center group hover:scale-110 transition-transform">
+<span class="material-symbols-outlined">mail</span>
+</button>
+</div>
+</body></html>

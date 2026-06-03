@@ -11,7 +11,7 @@ All structured content lives in `src/content/data/` (JSON) and `src/content/blog
 ```json
 {
   "name": "Ondřej Burda",
-  "title": "Java/Kotlin Software Engineer",
+  "title": "Java & Kotlin Software Engineer",
   "tagline": "Backend developer focused on Kotlin, Java, and modern distributed systems.",
   "location": "Prague, Czech Republic",
   "website": {
@@ -48,7 +48,7 @@ Fields:
 [
   {
     "id": "job-1",
-    "role": "Java/Kotlin Software Engineer",
+    "role": "Java & Kotlin Software Engineer",
     "company": "Company Name",
     "type": "Full-time",
     "period": {

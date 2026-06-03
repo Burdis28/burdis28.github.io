@@ -1,99 +1,199 @@
 ---
-import BaseLayout from '../layouts/BaseLayout.astro';
-import TimelineItem from '../components/experience/TimelineItem.astro';
-import EducationItem from '../components/experience/EducationItem.astro';
-import CertificationItem from '../components/experience/CertificationItem.astro';
-import experience from '../content/data/experience.json';
-import educationData from '../content/data/education.json';
+import BaseLayout from "../layouts/BaseLayout.astro";
+import TimelineItem from "../components/experience/TimelineItem.astro";
+import EducationItem from "../components/experience/EducationItem.astro";
+import CertificationItem from "../components/experience/CertificationItem.astro";
+import experience from "../content/data/experience.json";
+import educationData from "../content/data/education.json";
+
+const extracurricularItems = [
+    {
+        title: "UPCE Esports",
+        description:
+            "Zakladatel a bývalý předseda studentského spolku. Pomáhal jsem rozjíždět komunitu, organizovat univerzitní akce a propojovat hráče napříč fakultami.",
+        icon: "groups",
+    },
+    {
+        title: "Osobní technické projekty",
+        description:
+            "Mimo práci průběžně stavím menší nástroje a experimenty, kde zkouším nové přístupy v backendu, automatizaci a produktovém přemýšlení.",
+        icon: "build",
+    },
+    {
+        title: "Fotbal a vedení týmu",
+        description:
+            "Od pěti let aktivně hraju fotbal. Posledních pět let působím zároveň jako kapitán a vedoucí mužstva, což obnáší organizaci týmu, koordinaci lidí a odpovědnost za fungování kabiny i zápasového režimu.",
+        icon: "sports_soccer",
+    },
+];
 ---
 
 <BaseLayout
-  title="Zkušenosti — Ondřej Burda"
-  activeNav="experience"
-  description="Profesní kariéra, vzdělání a certifikace — přehled toho, co jsem za roky v oboru zažil a postavil."
+    title="Zkušenosti — Ondřej Burda"
+    activeNav="experience"
+    description="Profesní kariéra, vzdělání a certifikace — přehled toho, co jsem za roky v oboru zažil a postavil."
 >
+    <!-- Hero Section -->
+    <header class="mb-16">
+        <p
+            class="text-tertiary font-label font-semibold tracking-widest uppercase mb-4"
+        >
+            Kariéra
+        </p>
+        <h1
+            class="text-5xl lg:text-7xl font-headline font-bold text-on-surface leading-[1.1] mb-6"
+        >
+            Praxe &amp; vzdělání
+        </h1>
+        <p
+            class="text-lg lg:text-xl text-on-surface-variant max-w-2xl font-body leading-relaxed"
+        >
+            Přes sedm let budování systémů, které musí fungovat, a týmů, které
+            musí táhnout za jeden provaz.
+        </p>
+    </header>
 
-  <!-- Hero Section -->
-  <header class="mb-16">
-    <p class="text-tertiary font-label font-semibold tracking-widest uppercase mb-4">Kariéra</p>
-    <h1 class="text-5xl lg:text-7xl font-headline font-bold text-on-surface leading-[1.1] mb-6">Praxe &amp; vzdělání</h1>
-    <p class="text-lg lg:text-xl text-on-surface-variant max-w-2xl font-body leading-relaxed">
-      Pět let budování systémů, které musí fungovat, a týmů, které musí táhnout za jeden provaz.
-    </p>
-  </header>
+    <!-- Experience Timeline -->
+    <section class="mb-24">
+        <div class="flex items-center gap-4 mb-12">
+            <div class="h-px flex-grow bg-outline-variant opacity-20"></div>
+            <h2 class="text-3xl font-headline font-semibold text-primary">
+                Praxe
+            </h2>
+            <div class="h-px w-24 bg-outline-variant opacity-20"></div>
+        </div>
 
-  <!-- Experience Timeline -->
-  <section class="mb-24">
-    <div class="flex items-center gap-4 mb-12">
-      <div class="h-px flex-grow bg-outline-variant opacity-20"></div>
-      <h2 class="text-3xl font-headline font-semibold text-primary">Praxe</h2>
-      <div class="h-px w-24 bg-outline-variant opacity-20"></div>
-    </div>
+        <div class="space-y-12">
+            {experience.map((item) => <TimelineItem item={item} />)}
+        </div>
+    </section>
 
-    <div class="space-y-12">
-      {experience.map((item) => (
-        <TimelineItem item={item} />
-      ))}
-    </div>
-  </section>
+    <!-- Bento Grid: Education + Contact & Certifications -->
+    <section class="grid grid-cols-1 lg:grid-cols-12 gap-6 mb-6">
+        <!-- Education -->
+        <div
+            class="lg:col-span-7 bg-surface-container-low rounded-xl p-8 lg:p-10"
+        >
+            <div class="flex items-center gap-3 mb-8">
+                <span
+                    class="material-symbols-outlined text-primary text-3xl"
+                    style="font-variation-settings: 'FILL' 1">school</span
+                >
+                <h2 class="text-2xl font-headline font-bold text-on-surface">
+                    Vzdělání
+                </h2>
+            </div>
+            <div class="space-y-8">
+                {
+                    educationData.degrees.map((degree, i) => (
+                        <>
+                            <EducationItem item={degree} />
+                            {i < educationData.degrees.length - 1 && (
+                                <div class="h-px bg-outline-variant/20" />
+                            )}
+                        </>
+                    ))
+                }
+            </div>
+        </div>
 
-  <!-- Bento Grid: Education & Certifications -->
-  <section class="grid grid-cols-1 lg:grid-cols-12 gap-6">
+        <!-- Right Column: Contact, Certifications, Extracurriculars -->
+        <div class="lg:col-span-5 flex flex-col gap-6">
+            <!-- Contact Card -->
+            <div
+                class="bg-primary-container rounded-xl p-8 relative overflow-hidden group"
+            >
+                <div class="relative z-10">
+                    <h4
+                        class="text-xl font-headline font-bold text-on-primary-container mb-2"
+                    >
+                        Zaujala vás moje praxe?
+                    </h4>
+                    <p
+                        class="text-sm text-on-primary-container/80 mb-4 leading-relaxed"
+                    >
+                        Pojďme si promluvit — rád se pobavím o zajímavých
+                        projektech i příležitostech.
+                    </p>
+                    <a
+                        href="/contact"
+                        class="inline-flex items-center gap-2 text-white font-label font-bold text-sm bg-primary px-6 py-2 rounded-lg hover:bg-primary-fixed hover:text-on-primary-fixed transition-all"
+                    >
+                        Napsat mi
+                        <span class="material-symbols-outlined text-sm"
+                            >arrow_forward</span
+                        >
+                    </a>
+                </div>
+                <div
+                    class="absolute -right-10 -bottom-10 opacity-20 transform group-hover:scale-110 transition-transform duration-700"
+                    aria-hidden="true"
+                >
+                    <span
+                        class="material-symbols-outlined text-[120px] text-white"
+                        style="font-variation-settings: 'FILL' 1"
+                        >architecture</span
+                    >
+                </div>
+            </div>
 
-    <!-- Education -->
-    <div class="lg:col-span-7 bg-surface-container-low rounded-xl p-8 lg:p-10">
-      <div class="flex items-center gap-3 mb-8">
-        <span class="material-symbols-outlined text-primary text-3xl" style="font-variation-settings: 'FILL' 1">school</span>
-          <h2 class="text-2xl font-headline font-bold text-on-surface">Vzdělání</h2>
-      </div>
-      <div class="space-y-8">
-        {educationData.degrees.map((degree, i) => (
-          <>
-            <EducationItem item={degree} />
-            {i < educationData.degrees.length - 1 && (
-              <div class="h-px bg-outline-variant/20"></div>
-            )}
-          </>
-        ))}
-      </div>
-    </div>
+            <!-- Certifications -->
+            <div class="bg-surface-container-highest rounded-xl p-8">
+                <div class="flex items-center gap-3 mb-6">
+                    <span
+                        class="material-symbols-outlined text-primary text-3xl"
+                        style="font-variation-settings: 'FILL' 1">verified</span
+                    >
+                    <h2
+                        class="text-2xl font-headline font-bold text-on-surface"
+                    >
+                        Certifikáty
+                    </h2>
+                </div>
+                <ul class="space-y-4">
+                    {
+                        educationData.certifications.map((cert) => (
+                            <CertificationItem item={cert} />
+                        ))
+                    }
+                </ul>
+            </div>
+        </div>
+    </section>
 
-    <!-- Certifications + CTA -->
-    <div class="lg:col-span-5 flex flex-col gap-6">
-
-      <div class="bg-surface-container-highest rounded-xl p-8 flex-grow">
+    <!-- Full-width: Extracurricular Projects & Activities -->
+    <section class="bg-surface-container rounded-xl p-8 lg:p-10">
         <div class="flex items-center gap-3 mb-6">
-          <span class="material-symbols-outlined text-primary text-3xl" style="font-variation-settings: 'FILL' 1">verified</span>
-          <h2 class="text-2xl font-headline font-bold text-on-surface">Certifikáty</h2>
+            <span
+                class="material-symbols-outlined text-primary text-3xl"
+                style="font-variation-settings: 'FILL' 1">rocket_launch</span
+            >
+            <h2 class="text-2xl font-headline font-bold text-on-surface">
+                Mimopracovní projekty &amp; aktivity
+            </h2>
         </div>
-        <ul class="space-y-4">
-          {educationData.certifications.map((cert) => (
-            <CertificationItem item={cert} />
-          ))}
+
+        <ul class="space-y-5">
+            {
+                extracurricularItems.map((item) => (
+                    <li class="flex gap-4">
+                        <span
+                            class="material-symbols-outlined text-primary mt-1"
+                            aria-hidden="true"
+                        >
+                            {item.icon}
+                        </span>
+                        <div>
+                            <h3 class="font-headline font-semibold text-on-surface mb-1">
+                                {item.title}
+                            </h3>
+                            <p class="text-sm text-on-surface-variant leading-relaxed">
+                                {item.description}
+                            </p>
+                        </div>
+                    </li>
+                ))
+            }
         </ul>
-      </div>
-
-      <!-- Call to Action Card -->
-      <div class="bg-primary-container rounded-xl p-8 relative overflow-hidden group">
-        <div class="relative z-10">
-          <h4 class="text-xl font-headline font-bold text-on-primary-container mb-2">Zaujala vás moje praxe?</h4>
-          <p class="text-sm text-on-primary-container/80 mb-4 leading-relaxed">
-            Pojďme si promluvit — rád se pobavím o zajímavých projektech i příležitostech.
-          </p>
-          <a
-            href="/contact"
-            class="inline-flex items-center gap-2 text-white font-label font-bold text-sm bg-primary px-6 py-2 rounded-lg hover:bg-primary-fixed hover:text-on-primary-fixed transition-all"
-          >
-            Napsat mi
-            <span class="material-symbols-outlined text-sm">arrow_forward</span>
-          </a>
-        </div>
-        <div class="absolute -right-10 -bottom-10 opacity-20 transform group-hover:scale-110 transition-transform duration-700" aria-hidden="true">
-          <span class="material-symbols-outlined text-[120px] text-white" style="font-variation-settings: 'FILL' 1">architecture</span>
-        </div>
-      </div>
-
-    </div>
-  </section>
-
+    </section>
 </BaseLayout>

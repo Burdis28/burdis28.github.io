@@ -1,108 +1,146 @@
 ---
-import profile from '../../content/data/profile.json';
+import profile from "../../content/data/profile.json";
 
 interface Props {
-  activeNav: 'home' | 'experience' | 'projects' | 'blog' | 'contact';
+    activeNav: "home" | "experience" | "projects" | "blog" | "contact";
 }
 const { activeNav } = Astro.props;
 ---
 
-<aside class="fixed left-0 top-20 h-[calc(100vh-5rem)] w-72 overflow-y-auto bg-surface-container-low hidden lg:flex flex-col p-8 gap-6 custom-scrollbar">
-
-  <!-- Profile card -->
-  <div class="flex flex-col items-center gap-3 mb-2">
-    <div class="w-28 h-28 rounded-full overflow-hidden bg-surface-container-highest ring-4 ring-surface-container">
-      <img
-        src={profile.avatarUrl}
-        alt={profile.name}
-        class="w-full h-full object-cover"
-        width="112"
-        height="112"
-      />
-    </div>
-    <div class="text-center">
-      <h3 class="font-headline font-bold text-lg text-on-surface">{profile.name}</h3>
-      <p class="text-on-surface-variant font-label text-sm">{profile.title}</p>
-      {profile.location && (
-        <div class="flex items-center justify-center gap-1 mt-1.5 text-on-surface-variant/70">
-          <span class="material-symbols-outlined text-sm" style="font-size: 14px">location_on</span>
-          <span class="font-label text-xs">{profile.location}</span>
+<aside
+    class="fixed left-0 top-20 h-[calc(100vh-5rem)] w-72 overflow-y-auto bg-surface-container-low hidden lg:flex flex-col p-8 gap-6 custom-scrollbar"
+>
+    <!-- Profile card -->
+    <div class="flex flex-col items-center gap-3 mb-2">
+        <div
+            class="w-32 h-32 rounded-full overflow-hidden bg-surface-container-highest ring-4 ring-surface-container"
+        >
+            <img
+                src={profile.avatarUrl}
+                alt={profile.name}
+                class="w-full h-full object-cover"
+                width="128"
+                height="128"
+            />
         </div>
-      )}
+        <div class="text-center">
+            <h3 class="font-headline font-bold text-lg text-on-surface">
+                {profile.name}
+            </h3>
+            <p class="text-on-surface-variant font-label text-sm">
+                {profile.title}
+            </p>
+            {
+                profile.location && (
+                    <div class="flex items-center justify-center gap-1 mt-1.5 text-on-surface-variant/70">
+                        <span
+                            class="material-symbols-outlined text-sm"
+                            style="font-size: 14px"
+                        >
+                            location_on
+                        </span>
+                        <span class="font-label text-xs">
+                            {profile.location}
+                        </span>
+                    </div>
+                )
+            }
+        </div>
     </div>
-  </div>
 
-  <!-- Stats -->
-  <div class="flex items-center gap-3 px-4 py-2.5 bg-surface-container rounded-lg">
-    <span class="material-symbols-outlined text-on-surface-variant" style="font-size: 18px">business</span>
-    <p class="font-label font-semibold text-sm text-on-surface">Etnetera Core</p>
-  </div>
-
-  <!-- Tech stack -->
-  {profile.techStack && profile.techStack.length > 0 && (
-    <div>
-      <p class="font-label text-[10px] text-on-surface-variant uppercase tracking-widest mb-2">Tech stack</p>
-      <div class="flex flex-wrap gap-1.5">
-        {profile.techStack.map((tech) => (
-          <span class="px-2.5 py-1 bg-surface-container rounded-full text-[10px] font-bold text-on-surface uppercase tracking-wide">
-            {tech}
-          </span>
-        ))}
-        <span class="px-2.5 py-1 bg-surface-container rounded-full text-[10px] font-bold text-on-surface-variant tracking-wide">...</span>
-      </div>
+    <!-- Stats -->
+    <div
+        class="flex items-center gap-3 px-4 py-2.5 bg-surface-container rounded-lg"
+    >
+        <span
+            class="material-symbols-outlined text-on-surface-variant"
+            style="font-size: 18px">business</span
+        >
+        <p class="font-label font-semibold text-sm text-on-surface">
+            Etnetera Core
+        </p>
     </div>
-  )}
 
-  <!-- Divider -->
-  <div class="h-px bg-outline-variant/20"></div>
+    <!-- Tech stack -->
+    {
+        profile.techStack && profile.techStack.length > 0 && (
+            <div>
+                <p class="font-label text-[10px] text-on-surface-variant uppercase tracking-widest mb-2">
+                    Tech stack
+                </p>
+                <div class="flex flex-wrap gap-1.5">
+                    {profile.techStack.map((tech) => (
+                        <span class="px-2.5 py-1 bg-surface-container rounded-full text-[10px] font-bold text-on-surface uppercase tracking-wide">
+                            {tech}
+                        </span>
+                    ))}
+                    <span class="px-2.5 py-1 bg-surface-container rounded-full text-[10px] font-bold text-on-surface-variant tracking-wide">
+                        ...
+                    </span>
+                </div>
+            </div>
+        )
+    }
 
-  <!-- Social links -->
-  <div class="flex flex-col gap-1">
-    <a
-      href={profile.social.github}
-      target="_blank"
-      rel="noopener noreferrer"
-      class="flex items-center gap-3 px-4 py-2.5 text-on-surface-variant hover:bg-surface-container-highest/50 transition-all duration-200 rounded-lg group"
-    >
-      <span class="material-symbols-outlined text-on-surface-variant group-hover:text-primary">code</span>
-      <span class="font-label font-medium">GitHub</span>
-    </a>
-    <a
-      href={profile.social.linkedin}
-      target="_blank"
-      rel="noopener noreferrer"
-      class="flex items-center gap-3 px-4 py-2.5 text-on-surface-variant hover:bg-surface-container-highest/50 transition-all duration-200 rounded-lg group"
-    >
-      <span class="material-symbols-outlined text-on-surface-variant group-hover:text-primary">share</span>
-      <span class="font-label font-medium">LinkedIn</span>
-    </a>
-    {profile.website?.url && (
-      <a
-        href={profile.website.url}
-        class="flex items-center gap-3 px-4 py-2.5 text-on-surface-variant hover:bg-surface-container-highest/50 transition-all duration-200 rounded-lg group"
-      >
-        <span class="material-symbols-outlined text-on-surface-variant group-hover:text-primary">language</span>
-        <span class="font-label font-medium">Web</span>
-      </a>
-    )}
-  </div>
+    <!-- Divider -->
+    <div class="h-px bg-outline-variant/20"></div>
 
-  <!-- Bottom actions -->
-  <div class="mt-auto flex flex-col gap-3">
-    <a
-      href={profile.resumeUrl}
-      download
-      class="flex items-center gap-3 px-4 py-3 bg-surface-container-highest text-primary font-medium rounded-lg hover:bg-outline-variant/30 transition-all duration-200"
-    >
-      <span class="material-symbols-outlined">download</span>
-      <span class="font-label">Stáhnout životopis</span>
-    </a>
-    <a
-      href="/contact"
-      class="w-full py-3 bg-primary text-on-primary font-headline font-bold rounded-lg hover:bg-primary-container transition-all duration-300 text-center"
-    >
-      Kontaktovat
-    </a>
-  </div>
+    <!-- Social links -->
+    <div class="flex flex-col gap-1">
+        <a
+            href={profile.social.github}
+            target="_blank"
+            rel="noopener noreferrer"
+            class="flex items-center gap-3 px-4 py-2.5 text-on-surface-variant hover:bg-surface-container-highest/50 transition-all duration-200 rounded-lg group"
+        >
+            <span
+                class="material-symbols-outlined text-on-surface-variant group-hover:text-primary"
+                >code</span
+            >
+            <span class="font-label font-medium">GitHub</span>
+        </a>
+        <a
+            href={profile.social.linkedin}
+            target="_blank"
+            rel="noopener noreferrer"
+            class="flex items-center gap-3 px-4 py-2.5 text-on-surface-variant hover:bg-surface-container-highest/50 transition-all duration-200 rounded-lg group"
+        >
+            <span
+                class="material-symbols-outlined text-on-surface-variant group-hover:text-primary"
+                >share</span
+            >
+            <span class="font-label font-medium">LinkedIn</span>
+        </a>
+        {
+            profile.website?.url && (
+                <a
+                    href={profile.website.url}
+                    class="flex items-center gap-3 px-4 py-2.5 text-on-surface-variant hover:bg-surface-container-highest/50 transition-all duration-200 rounded-lg group"
+                >
+                    <span class="material-symbols-outlined text-on-surface-variant group-hover:text-primary">
+                        language
+                    </span>
+                    <span class="font-label font-medium">Web</span>
+                </a>
+            )
+        }
+    </div>
 
+    <!-- Bottom actions -->
+    <div class="mt-auto flex flex-col gap-3">
+        <a
+            href={profile.resumeUrl}
+            download
+            class="flex items-center gap-3 px-4 py-3 bg-surface-container-highest text-primary font-medium rounded-lg hover:bg-outline-variant/30 transition-all duration-200"
+        >
+            <span class="material-symbols-outlined">download</span>
+            <span class="font-label">Stáhnout životopis</span>
+        </a>
+        <a
+            href="/contact"
+            class="w-full py-3 bg-primary text-on-primary font-headline font-bold rounded-lg hover:bg-primary-container transition-all duration-300 text-center"
+        >
+            Kontaktovat
+        </a>
+    </div>
 </aside>

@@ -91,3 +91,88 @@ const formattedDate = post.data.date.toLocaleDateString('en-US', {
 
   </article>
 </BaseLayout>
+
+<!-- Lightbox modal (shared for all carousels on page) -->
+<div class="blog-lightbox" id="blog-lightbox" role="dialog" aria-modal="true" aria-label="Náhled obrázku">
+  <div class="blog-lightbox__inner">
+    <button class="blog-lightbox__close" id="blog-lightbox-close" aria-label="Zavřít">&times;</button>
+    <img class="blog-lightbox__img" id="blog-lightbox-img" src="" alt="" />
+    <p class="blog-lightbox__caption" id="blog-lightbox-caption"></p>
+  </div>
+</div>
+
+<script>
+  // ── Lightbox ──
+  const lightbox = document.getElementById('blog-lightbox')!;
+  const lightboxImg = document.getElementById('blog-lightbox-img') as HTMLImageElement;
+  const lightboxCaption = document.getElementById('blog-lightbox-caption')!;
+  const lightboxClose = document.getElementById('blog-lightbox-close')!;
+
+  function openLightbox(src: string, alt: string, caption: string) {
+    lightboxImg.src = src;
+    lightboxImg.alt = alt;
+    lightboxCaption.textContent = caption;
+    lightbox.classList.add('is-open');
+    document.body.style.overflow = 'hidden';
+  }
+
+  function closeLightbox() {
+    lightbox.classList.remove('is-open');
+    document.body.style.overflow = '';
+  }
+
+  lightboxClose.addEventListener('click', closeLightbox);
+  lightbox.addEventListener('click', (e) => { if (e.target === lightbox) closeLightbox(); });
+  document.addEventListener('keydown', (e) => { if (e.key === 'Escape') closeLightbox(); });
+
+  // ── Carousels ──
+  document.querySelectorAll<HTMLElement>('[data-carousel]').forEach((carousel) => {
+    const track = carousel.querySelector<HTMLElement>('.blog-carousel__track')!;
+    const slides = carousel.querySelectorAll<HTMLElement>('.blog-carousel__slide');
+    const prevBtn = carousel.querySelector<HTMLButtonElement>('.blog-carousel__btn--prev')!;
+    const nextBtn = carousel.querySelector<HTMLButtonElement>('.blog-carousel__btn--next')!;
+    const thumbsContainer = carousel.querySelector<HTMLElement>('.blog-carousel__thumbs')!;
+
+    let current = 0;
+    const total = slides.length;
+
+    // Build thumbnail strip + wire up lightbox on main slide images
+    slides.forEach((slide, i) => {
+      const srcImg = slide.querySelector('img')!;
+      const figcaption = slide.querySelector('figcaption');
+
+      // Thumbnail button
+      const btn = document.createElement('button');
+      btn.className = 'blog-carousel__thumb' + (i === 0 ? ' blog-carousel__thumb--active' : '');
+      btn.setAttribute('aria-label', `Snímek ${i + 1}`);
+      const thumbImg = document.createElement('img');
+      thumbImg.src = srcImg.src;
+      thumbImg.alt = srcImg.alt;
+      btn.appendChild(thumbImg);
+      btn.addEventListener('click', () => goTo(i));
+      thumbsContainer.appendChild(btn);
+
+      // Click on main image → lightbox
+      srcImg.addEventListener('click', () => {
+        openLightbox(srcImg.src, srcImg.alt, figcaption?.textContent ?? '');
+      });
+    });
+
+    function goTo(index: number) {
+      current = index;
+      track.style.transform = `translateX(-${current * 100}%)`;
+
+      thumbsContainer.querySelectorAll('.blog-carousel__thumb').forEach((t, i) => {
+        t.classList.toggle('blog-carousel__thumb--active', i === current);
+      });
+
+      prevBtn.disabled = current === 0;
+      nextBtn.disabled = current === total - 1;
+    }
+
+    prevBtn.addEventListener('click', () => { if (current > 0) goTo(current - 1); });
+    nextBtn.addEventListener('click', () => { if (current < total - 1) goTo(current + 1); });
+
+    goTo(0);
+  });
+</script>

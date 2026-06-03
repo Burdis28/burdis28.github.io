@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@600;700;800&amp;family=Inter:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "secondary": "#586246",
+                    "outline-variant": "#c5c8b8",
+                    "secondary-fixed-dim": "#c0cba9",
+                    "secondary-fixed": "#dce7c3",
+                    "background": "#fbfbe2",
+                    "on-tertiary": "#ffffff",
+                    "on-secondary": "#ffffff",
+                    "surface-container-high": "#eaead1",
+                    "on-secondary-fixed-variant": "#414a30",
+                    "on-primary-fixed": "#131f00",
+                    "tertiary-container": "#85537e",
+                    "error-container": "#ffdad6",
+                    "inverse-on-surface": "#f2f2d9",
+                    "primary-fixed": "#d2eca2",
+                    "primary": "#3e5219",
+                    "inverse-surface": "#303221",
+                    "tertiary-fixed": "#ffd7f5",
+                    "on-primary": "#ffffff",
+                    "surface": "#fbfbe2",
+                    "surface-variant": "#e4e4cc",
+                    "on-tertiary-container": "#ffd5f5",
+                    "tertiary": "#6b3b65",
+                    "surface-bright": "#fbfbe2",
+                    "surface-container": "#efefd7",
+                    "on-error": "#ffffff",
+                    "on-secondary-fixed": "#161e08",
+                    "inverse-primary": "#b6d088",
+                    "on-background": "#1b1d0e",
+                    "surface-tint": "#50652a",
+                    "primary-fixed-dim": "#b6d088",
+                    "on-primary-fixed-variant": "#394d14",
+                    "surface-dim": "#dbdcc3",
+                    "error": "#ba1a1a",
+                    "secondary-container": "#dce7c3",
+                    "surface-container-lowest": "#ffffff",
+                    "on-surface-variant": "#45483c",
+                    "outline": "#75796b",
+                    "on-secondary-container": "#5e684c",
+                    "tertiary-fixed-dim": "#f0b4e5",
+                    "surface-container-low": "#f5f5dc",
+                    "on-error-container": "#93000a",
+                    "surface-container-highest": "#e4e4cc",
+                    "on-tertiary-fixed": "#330931",
+                    "on-tertiary-fixed-variant": "#65365f",
+                    "on-primary-container": "#d0eba1",
+                    "primary-container": "#556b2f",
+                    "on-surface": "#1b1d0e"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "fontFamily": {
+                    "headline": ["Manrope"],
+                    "body": ["Inter"],
+                    "label": ["Inter"]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        body {
+            background-color: #fbfbe2;
+            color: #1b1d0e;
+        }
+        .custom-scrollbar::-webkit-scrollbar {
+            width: 4px;
+        }
+        .custom-scrollbar::-webkit-scrollbar-track {
+            background: transparent;
+        }
+        .custom-scrollbar::-webkit-scrollbar-thumb {
+            background: #e4e4cc;
+            border-radius: 10px;
+        }
+    </style>
+</head>
+<body class="font-body selection:bg-primary-fixed selection:text-on-primary-fixed">
+<!-- Top Navigation Bar -->
+<nav class="fixed top-0 w-full z-50 bg-[#fbfbe2]/70 dark:bg-stone-900/70 backdrop-blur-xl flex justify-between items-center px-12 h-20 max-w-full mx-auto">
+<div class="text-xl font-bold text-[#3e5219] dark:text-[#fbfbe2] font-headline tracking-tight">
+            Evergreen Studio
+        </div>
+<div class="hidden md:flex items-center gap-8 font-headline font-semibold tracking-tight">
+<a class="text-stone-500 hover:text-[#3e5219] transition-colors duration-300" href="#">Home</a>
+<a class="text-[#3e5219] border-b-2 border-[#3e5219] pb-1" href="#">Experience</a>
+<a class="text-stone-500 hover:text-[#3e5219] transition-colors duration-300" href="#">Skills</a>
+<a class="text-stone-500 hover:text-[#3e5219] transition-colors duration-300" href="#">Projects</a>
+<a class="text-stone-500 hover:text-[#3e5219] transition-colors duration-300" href="#">Blog</a>
+<a class="text-stone-500 hover:text-[#3e5219] transition-colors duration-300" href="#">Contact</a>
+</div>
+<div class="md:hidden">
+<span class="material-symbols-outlined text-primary cursor-pointer">menu</span>
+</div>
+</nav>
+<!-- Side Navigation Bar -->
+<aside class="fixed left-0 top-20 h-[calc(100vh-5rem)] w-72 overflow-y-auto bg-[#f5f5dc] dark:bg-stone-800 flex flex-col p-8 gap-6 border-r border-stone-200/20 shadow-[rgba(27,29,14,0.06)_12px_0px_32px_blur] hidden lg:flex custom-scrollbar">
+<div class="flex flex-col items-center gap-3 mb-4">
+<div class="w-20 h-20 rounded-full overflow-hidden bg-surface-container-highest">
+<img class="w-full h-full object-cover" data-alt="professional headshot of a developer with a clean background, soft natural lighting, earthy olive tones" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC2JvuZ6AMdYn9dOB2kdAC07RomNKx_WZWbpSATfKwfVg7WyTB-dJVlLZid89ot4i3-rpj-_S562IPYoiwoQKDULwvyyKiBv4mYAUuny-iRxDKzl5IbK-T_9TpF2Zpv05hexdgOI5x1s3CS0iq1F753zAuvhzOv_gnaJxoBH5mMUXJulcafhbtFV7op6ZoWiUgnkTPNnzEKrdQ2-yDXg9G3C0pG6wsHK4IIzdw6jSepmsC-sIJOhca1b-exgGfqpPr6IHmUO8rtjQ"/>
+</div>
+<div class="text-center">
+<h3 class="font-headline font-bold text-lg text-[#1b1d0e]">Alex Dev</h3>
+<p class="text-stone-600 font-label text-sm">Full Stack Architect</p>
+</div>
+</div>
+<div class="flex flex-col gap-2">
+<a class="flex items-center gap-3 px-4 py-3 text-stone-600 hover:bg-[#e4e4cc]/50 transition-all duration-200 rounded-lg group" href="#">
+<span class="material-symbols-outlined text-stone-500 group-hover:text-primary">code</span>
+<span class="font-label font-medium">GitHub</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-stone-600 hover:bg-[#e4e4cc]/50 transition-all duration-200 rounded-lg group" href="#">
+<span class="material-symbols-outlined text-stone-500 group-hover:text-primary">account_circle</span>
+<span class="font-label font-medium">LinkedIn</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-stone-600 hover:bg-[#e4e4cc]/50 transition-all duration-200 rounded-lg group" href="#">
+<span class="material-symbols-outlined text-stone-500 group-hover:text-primary">language</span>
+<span class="font-label font-medium">Web</span>
+</a>
+</div>
+<div class="mt-auto flex flex-col gap-4">
+<a class="flex items-center gap-3 px-4 py-3 bg-[#e4e4cc] text-[#3e5219] font-medium rounded-lg" href="#">
+<span class="material-symbols-outlined">terminal</span>
+<span class="font-label">Tech Stack</span>
+</a>
+<button class="w-full py-3 bg-primary text-on-primary font-headline font-bold rounded-lg hover:bg-primary-container transition-all duration-300">
+                Download Resume
+            </button>
+</div>
+</aside>
+<!-- Main Content Canvas -->
+<main class="pt-24 pb-12 px-6 lg:ml-72 lg:px-16 max-w-7xl">
+<!-- Hero Section -->
+<header class="mb-16">
+<p class="text-tertiary font-label font-semibold tracking-widest uppercase mb-4">The Digital Atelier</p>
+<h1 class="text-5xl lg:text-7xl font-headline font-bold text-on-surface leading-[1.1] mb-6">Professional Journey</h1>
+<p class="text-lg lg:text-xl text-stone-600 max-w-2xl font-body leading-relaxed">
+                Bridging the gap between geometric code and organic craft. A decade of building scalable architectures with a focus on precision and human-centric design.
+            </p>
+</header>
+<!-- Experience Timeline -->
+<section class="mb-24">
+<div class="flex items-center gap-4 mb-12">
+<div class="h-px flex-grow bg-outline-variant opacity-20"></div>
+<h2 class="text-3xl font-headline font-semibold text-primary">Experience</h2>
+<div class="h-px w-24 bg-outline-variant opacity-20"></div>
+</div>
+<div class="space-y-12">
+<!-- Role 1 -->
+<div class="relative pl-8 md:pl-12 border-l-2 border-surface-container-highest">
+<div class="absolute -left-[9px] top-0 w-4 h-4 rounded-full bg-primary ring-4 ring-surface"></div>
+<div class="flex flex-col md:flex-row md:items-start justify-between gap-4 mb-4">
+<div>
+<h3 class="text-2xl font-headline font-bold text-on-surface">Senior Full Stack Architect</h3>
+<p class="text-lg font-label font-medium text-secondary">Ethereal Cloud Solutions</p>
+</div>
+<span class="inline-block px-4 py-1.5 bg-surface-container-low text-primary font-label text-sm rounded-full border border-outline-variant/10">
+                            2020 — Present
+                        </span>
+</div>
+<p class="text-stone-600 mb-6 max-w-3xl leading-relaxed">
+                        Leading the architectural evolution of a distributed cloud platform. Implementing micro-frontend architectures using React and Node.js, resulting in a 40% reduction in deployment cycles. Mentoring a global team of 15 developers across three time zones.
+                    </p>
+<div class="flex flex-wrap gap-2">
+<span class="px-3 py-1 bg-secondary-fixed text-on-secondary-fixed-variant text-xs font-bold rounded-full uppercase tracking-tight">Kubernetes</span>
+<span class="px-3 py-1 bg-secondary-fixed text-on-secondary-fixed-variant text-xs font-bold rounded-full uppercase tracking-tight">GraphQL</span>
+<span class="px-3 py-1 bg-secondary-fixed text-on-secondary-fixed-variant text-xs font-bold rounded-full uppercase tracking-tight">System Design</span>
+</div>
+</div>
+<!-- Role 2 -->
+<div class="relative pl-8 md:pl-12 border-l-2 border-surface-container-highest">
+<div class="absolute -left-[9px] top-0 w-4 h-4 rounded-full bg-surface-container-highest ring-4 ring-surface"></div>
+<div class="flex flex-col md:flex-row md:items-start justify-between gap-4 mb-4">
+<div>
+<h3 class="text-2xl font-headline font-bold text-on-surface">Lead Software Engineer</h3>
+<p class="text-lg font-label font-medium text-secondary">Vanguard Digital Agency</p>
+</div>
+<span class="inline-block px-4 py-1.5 bg-surface-container-low text-stone-500 font-label text-sm rounded-full border border-outline-variant/10">
+                            2017 — 2020
+                        </span>
+</div>
+<p class="text-stone-600 mb-6 max-w-3xl leading-relaxed">
+                        Orchestrated the development of high-traffic e-commerce solutions for Fortune 500 clients. Focused on performance optimization and accessibility compliance, achieving a 98+ Lighthouse score across all flagship projects.
+                    </p>
+<div class="flex flex-wrap gap-2">
+<span class="px-3 py-1 bg-secondary-fixed text-on-secondary-fixed-variant text-xs font-bold rounded-full uppercase tracking-tight">Next.js</span>
+<span class="px-3 py-1 bg-secondary-fixed text-on-secondary-fixed-variant text-xs font-bold rounded-full uppercase tracking-tight">AWS Lambda</span>
+<span class="px-3 py-1 bg-secondary-fixed text-on-secondary-fixed-variant text-xs font-bold rounded-full uppercase tracking-tight">Redis</span>
+</div>
+</div>
+<!-- Role 3 -->
+<div class="relative pl-8 md:pl-12 border-l-2 border-surface-container-highest">
+<div class="absolute -left-[9px] top-0 w-4 h-4 rounded-full bg-surface-container-highest ring-4 ring-surface"></div>
+<div class="flex flex-col md:flex-row md:items-start justify-between gap-4 mb-4">
+<div>
+<h3 class="text-2xl font-headline font-bold text-on-surface">Junior Full Stack Developer</h3>
+<p class="text-lg font-label font-medium text-secondary">Greenfield Tech Lab</p>
+</div>
+<span class="inline-block px-4 py-1.5 bg-surface-container-low text-stone-500 font-label text-sm rounded-full border border-outline-variant/10">
+                            2014 — 2017
+                        </span>
+</div>
+<p class="text-stone-600 mb-6 max-w-3xl leading-relaxed">
+                        Developed and maintained full-stack applications using Python/Django and React. Collaborated with UI/UX designers to translate complex wireframes into high-performance web components.
+                    </p>
+<div class="flex flex-wrap gap-2">
+<span class="px-3 py-1 bg-secondary-fixed text-on-secondary-fixed-variant text-xs font-bold rounded-full uppercase tracking-tight">Python</span>
+<span class="px-3 py-1 bg-secondary-fixed text-on-secondary-fixed-variant text-xs font-bold rounded-full uppercase tracking-tight">PostgreSQL</span>
+</div>
+</div>
+</div>
+</section>
+<!-- Bento Grid: Education & Certs -->
+<section class="grid grid-cols-1 lg:grid-cols-12 gap-6">
+<!-- Education Section -->
+<div class="lg:col-span-7 bg-surface-container-low rounded-xl p-8 lg:p-10">
+<div class="flex items-center gap-3 mb-8">
+<span class="material-symbols-outlined text-primary text-3xl">school</span>
+<h2 class="text-2xl font-headline font-bold text-on-surface">Education</h2>
+</div>
+<div class="space-y-8">
+<div class="group">
+<p class="text-sm font-label font-bold text-tertiary mb-1">2012 — 2014</p>
+<h4 class="text-xl font-headline font-bold text-on-surface group-hover:text-primary transition-colors">M.S. in Computer Science</h4>
+<p class="text-stone-600 font-label">Stanford University</p>
+<p class="mt-2 text-sm text-stone-500 italic">Specialization in Distributed Systems and Cloud Computing.</p>
+</div>
+<div class="h-px bg-outline-variant/20"></div>
+<div class="group">
+<p class="text-sm font-label font-bold text-tertiary mb-1">2008 — 2012</p>
+<h4 class="text-xl font-headline font-bold text-on-surface group-hover:text-primary transition-colors">B.S. in Software Engineering</h4>
+<p class="text-stone-600 font-label">Georgia Institute of Technology</p>
+<p class="mt-2 text-sm text-stone-500 italic">Magna Cum Laude. Minor in Industrial Design.</p>
+</div>
+</div>
+</div>
+<!-- Certifications Section -->
+<div class="lg:col-span-5 flex flex-col gap-6">
+<div class="bg-surface-container-highest rounded-xl p-8 flex-grow">
+<div class="flex items-center gap-3 mb-6">
+<span class="material-symbols-outlined text-primary text-3xl">verified</span>
+<h2 class="text-2xl font-headline font-bold text-on-surface">Certifications</h2>
+</div>
+<ul class="space-y-4">
+<li class="flex items-start gap-4">
+<div class="mt-1 w-2 h-2 rounded-full bg-primary shrink-0"></div>
+<div>
+<h5 class="font-headline font-bold text-sm text-on-surface">AWS Certified Solutions Architect</h5>
+<p class="text-xs text-stone-500">Professional Level • 2023</p>
+</div>
+</li>
+<li class="flex items-start gap-4">
+<div class="mt-1 w-2 h-2 rounded-full bg-primary shrink-0"></div>
+<div>
+<h5 class="font-headline font-bold text-sm text-on-surface">Google Professional Cloud Dev</h5>
+<p class="text-xs text-stone-500">Professional Level • 2022</p>
+</div>
+</li>
+<li class="flex items-start gap-4">
+<div class="mt-1 w-2 h-2 rounded-full bg-primary shrink-0"></div>
+<div>
+<h5 class="font-headline font-bold text-sm text-on-surface">Certs in Distributed Systems</h5>
+<p class="text-xs text-stone-500">MIT Professional Education • 2021</p>
+</div>
+</li>
+</ul>
+</div>
+<!-- Call to Action Card -->
+<div class="bg-primary-container rounded-xl p-8 relative overflow-hidden group">
+<div class="relative z-10">
+<h4 class="text-xl font-headline font-bold text-on-primary-container mb-2">Ready to Build?</h4>
+<p class="text-sm text-on-primary-container/80 mb-4 leading-relaxed">Let's discuss how my experience can help scale your next big idea.</p>
+<a class="inline-flex items-center gap-2 text-white font-label font-bold text-sm bg-primary px-6 py-2 rounded-lg hover:bg-primary-fixed hover:text-on-primary-fixed transition-all" href="#">
+                            Hire Me
+                            <span class="material-symbols-outlined text-sm">arrow_forward</span>
+</a>
+</div>
+<!-- Aesthetic Detail -->
+<div class="absolute -right-10 -bottom-10 opacity-20 transform group-hover:scale-110 transition-transform duration-700">
+<span class="material-symbols-outlined text-[120px] text-white" style="font-variation-settings: 'FILL' 1;">architecture</span>
+</div>
+</div>
+</div>
+</section>
+</main>
+<!-- Footer Space -->
+<footer class="lg:ml-72 p-12 text-center text-stone-400 font-label text-xs">
+<p>© 2024 Evergreen Studio. Handcrafted with intention and precision.</p>
+</footer>
+<!-- Mobile Bottom Navigation Shell (Relevance Check: Top-Level) -->
+<div class="md:hidden fixed bottom-0 left-0 w-full bg-surface-container-low backdrop-blur-lg flex justify-around items-center h-16 z-50 px-4">
+<a class="flex flex-col items-center text-stone-500" href="#">
+<span class="material-symbols-outlined">home</span>
+<span class="text-[10px] font-label">Home</span>
+</a>
+<a class="flex flex-col items-center text-primary" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">work</span>
+<span class="text-[10px] font-label font-bold">Exp</span>
+</a>
+<a class="flex flex-col items-center text-stone-500" href="#">
+<span class="material-symbols-outlined">terminal</span>
+<span class="text-[10px] font-label">Skills</span>
+</a>
+<a class="flex flex-col items-center text-stone-500" href="#">
+<span class="material-symbols-outlined">mail</span>
+<span class="text-[10px] font-label">Contact</span>
+</a>
+</div>
+</body></html>
