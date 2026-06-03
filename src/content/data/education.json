@@ -15,6 +15,14 @@
       "period": "2015 – 2018",
       "activities": "Esportový klub",
       "isActive": false
+    },
+    {
+      "id": "degree-3",
+      "degree": "Střední škola",
+      "institution": "Střední Průmyslová Škola Kutná Hora",
+      "period": "2011 – 2015",
+      "activities": "",
+      "isActive": false
     }
   ],
   "certifications": [
