@@ -1,56 +1,92 @@
 ---
-import experience from '../../content/data/experience.json';
-import profile from '../../content/data/profile.json';
+import experience from "../../content/data/experience.json";
+import profile from "../../content/data/profile.json";
 
 const latestJob = experience[0];
 ---
 
 <!-- Professional Tenure Preview -->
-<section class="bg-primary-container p-12 lg:p-20 rounded-lg relative overflow-hidden mb-12">
-  <!-- Background decorative element -->
-  <div class="absolute -right-20 -bottom-20 opacity-10" aria-hidden="true">
-    <span class="material-symbols-outlined text-[300px] text-on-primary-container" style="font-variation-settings: 'FILL' 1">architecture</span>
-  </div>
-
-  <div class="relative z-10 grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-    <div>
-      <p class="font-label text-[10px] uppercase tracking-[0.3em] text-on-primary-container font-bold mb-6">Kde právě pracuji</p>
-      {latestJob && (
-        <>
-          <h2 class="text-4xl lg:text-5xl font-extrabold font-headline text-white mb-6 tracking-tight leading-tight">
-            {latestJob.role} <br/>
-            <span class="text-on-primary-container">@ {latestJob.company}</span>
-          </h2>
-          <p class="text-on-primary-container/80 text-lg max-w-md leading-relaxed mb-8">
-            {latestJob.bullets[0]}
-          </p>
-        </>
-      )}
+<section
+    class="bg-primary-container p-12 lg:p-20 rounded-lg relative overflow-hidden mb-12"
+>
+    <!-- Background decorative element -->
+    <div class="absolute -right-20 -bottom-20 opacity-10" aria-hidden="true">
+        <span
+            class="material-symbols-outlined text-[300px] text-on-primary-container"
+            style="font-variation-settings: 'FILL' 1">architecture</span
+        >
     </div>
 
-    <div class="flex flex-col space-y-6 lg:items-end">
-      <a
-        href="/experience"
-        class="bg-tertiary text-on-tertiary px-10 py-5 rounded-lg text-sm font-bold uppercase tracking-widest shadow-xl hover:-translate-y-0.5 active:translate-y-0 transition-all w-full lg:w-auto text-center"
-      >
-        Celá kariéra →
-      </a>
-      <div class="flex space-x-4">
-        <div class="flex flex-col items-center">
-          <span class="text-white font-bold text-xl">{experience.length}</span>
-          <span class="text-on-primary-container/60 text-[9px] uppercase tracking-widest">Pozice</span>
-        </div>
-        <div class="w-px h-10 bg-on-primary-container/20"></div>
-        <div class="flex flex-col items-center">
-          <span class="text-white font-bold text-xl">{profile.yearsExperience}+</span>
-          <span class="text-on-primary-container/60 text-[9px] uppercase tracking-widest">Roků</span>
-        </div>
-        <div class="w-px h-10 bg-on-primary-container/20"></div>
-        <div class="flex flex-col items-center">
-          <span class="text-white font-bold text-xl">BE</span>
-          <span class="text-on-primary-container/60 text-[9px] uppercase tracking-widest">Backend</span>
-        </div>
-      </div>
+    <div class="relative z-10">
+        <p
+            class="font-label text-[10px] uppercase tracking-[0.3em] text-on-primary-container font-bold mb-6"
+        >
+            Kde právě pracuji
+        </p>
+
+        {
+            latestJob && (
+                <>
+                    <h2 class="text-4xl lg:text-5xl font-extrabold font-headline text-white mb-3 tracking-tight leading-tight w-full">
+                        {latestJob.role}
+                    </h2>
+                    <p class="text-on-primary-container text-xl lg:text-2xl font-semibold mb-10">
+                        @ {latestJob.company}
+                    </p>
+
+                    <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+                        <p class="text-on-primary-container/80 text-lg leading-relaxed">
+                            V Etnetera Core se dlouhodobě věnuji backend vývoji
+                            v Kotlinu a Javě na enterprise projektech pro
+                            e-commerce i finance. Navrhuji a realizuji
+                            integrační řešení (včetně napojení na externí ERP),
+                            vyvíjím REST API a podílím se na technických
+                            rozhodnutích i komunikaci mezi vývojem, klientem a
+                            konzultanty. Pracuji se Spring Boot, MongoDB,
+                            Kubernetes i Keycloak a zaměřuji se na to, aby
+                            řešení byla stabilní, udržitelná a zároveň
+                            odpovídala reálným byznys potřebám.
+                        </p>
+
+                        <div class="flex flex-col space-y-6 items-center justify-center">
+                            <a
+                                href="/experience"
+                                class="bg-tertiary text-on-tertiary px-10 py-5 rounded-lg text-sm font-bold uppercase tracking-widest shadow-xl hover:-translate-y-0.5 active:translate-y-0 transition-all w-full lg:w-auto text-center"
+                            >
+                                Celá kariéra →
+                            </a>
+                            <div class="flex space-x-4">
+                                <div class="flex flex-col items-center">
+                                    <span class="text-white font-bold text-xl">
+                                        {experience.length}
+                                    </span>
+                                    <span class="text-on-primary-container/60 text-[9px] uppercase tracking-widest">
+                                        Pozice
+                                    </span>
+                                </div>
+                                <div class="w-px h-10 bg-on-primary-container/20" />
+                                <div class="flex flex-col items-center">
+                                    <span class="text-white font-bold text-xl">
+                                        {profile.yearsExperience}+
+                                    </span>
+                                    <span class="text-on-primary-container/60 text-[9px] uppercase tracking-widest">
+                                        Roků
+                                    </span>
+                                </div>
+                                <div class="w-px h-10 bg-on-primary-container/20" />
+                                <div class="flex flex-col items-center">
+                                    <span class="text-white font-bold text-xl">
+                                        BE
+                                    </span>
+                                    <span class="text-on-primary-container/60 text-[9px] uppercase tracking-widest">
+                                        Backend
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </>
+            )
+        }
     </div>
-  </div>
 </section>
