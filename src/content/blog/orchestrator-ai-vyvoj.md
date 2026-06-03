@@ -18,9 +18,11 @@ Zkusil jsem kombinaci **Copilot + OpenCode**.
 ## Jak to funguje
 
 Vytvořil jsem si **Orchestrator agenta** (Opus 4.6) s přesně popsaným workflow – jak má postupovat pro různé typy úloh, kdy se může ptát uživatele a na co. Z pohledu práce je to jediný primární agent, se kterým komunikuju.
+K dispozici má několik specializovaných subagentů: **Analytik, Backend architekt, Backend vývojář, Code Reviewer, Quality Reviewer, Test specialist**. Orchestrátor ví, jak s nimi pracovat, jak jim předávat zprávy a jak pracovat s jejich výstupy. 
 
-K dispozici má několik specializovaných subagentů: **Analytik, Backend architekt, Backend vývojář, Code Reviewer, Quality Reviewer, Test specialist**. Orchestrátor ví, jak s nimi pracovat, jak jim předávat zprávy a jak pracovat s jejich výstupy. Všechno má připravené šablony = tzv. **Context Passing Protocol**. Dá se nastavit míra, do které chci jako uživatel vstupovat – jestli má jet od A do Z, nebo po každém subagentovi počkat na moji kontrolu.
+Základ celého systému je tzv. **Context Passing Protocol** – šablonovací systém, který přesně definuje, jak má vypadat zadání předávané každému subagentovi a v jakém formátu se očekává výstup. Každý přechod mezi agenty má svoji šablonu: co dostane na vstup, co musí vrátit, v jaké struktuře. Díky tomu Orchestrátor nepotřebuje "chápat" obsah – jen plní šablony daty z předchozího kroku a předává dál. Součástí přístupu je i to, že šablony předávají jen to nejnutnější: místo celého obsahu souboru třeba jen cestu k němu. Subagent si ho načte sám, když ho potřebuje – a kontext zůstane čistý. 
 
+Dá se nastavit míra, do které chci jako uživatel vstupovat – jestli má jet od A do Z, nebo po každém subagentovi počkat na moji kontrolu.
 Subagenti jsou vedeni jako samostatné procesy spouštěné Orchestrátorem, někdy i paralelně. Navzájem spolu neinteragují. Každý má v `opencode.json` definovaná práva, nastavený model (pro vývoj stačí Sonnet 4.6) a další konfigurační parametry, kterými se dají tunit.
 
 Klíčová věc: v Backend developer agentovi mám popsaná pouze vývojová specifika daného projektu – ne obecný "clean code" balast. Analytik o tom nemusí nic vědět a neznečišťuji mu tím kontext. Pro různé subagenty mám definované i specifické skills (kompletní guide integrace, nebo postup při přepisu Java → Kotlin), které dostávají podle typu tasku.
