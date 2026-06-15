@@ -5,7 +5,7 @@ import sitemap from '@astrojs/sitemap';
 
 // https://astro.build/config
 export default defineConfig({
-  site: 'https://burdis28.github.io',
+  site: 'https://www.burdis.cz',
   integrations: [
     sitemap(),
   ],
