@@ -1,10 +1,15 @@
 ---
 import type { Project } from '../../types';
+import { Image } from 'astro:assets';
 
 interface Props {
   project: Project;
 }
 const { project } = Astro.props;
+
+const images = import.meta.glob<{ default: ImageMetadata }>('../../assets/images/projects/**/*.{jpg,jpeg,png,webp}', { eager: true });
+const imagePath = project.imageUrl.replace('/images/', '../../assets/images/');
+const resolvedImage = images[imagePath]?.default;
 ---
 
 <article
@@ -15,14 +20,25 @@ const { project } = Astro.props;
   <!-- Project image -->
   <div class={`overflow-hidden rounded-lg bg-surface-container-low mb-6
     ${project.featured ? 'aspect-video' : 'aspect-square'}`}>
-    <img
-      src={project.imageUrl}
-      alt={project.imageAlt}
-      class="w-full h-full object-cover grayscale group-hover:grayscale-0 group-hover:scale-105 transition-all duration-500"
-      width={project.featured ? 900 : 400}
-      height={project.featured ? 506 : 400}
-      loading="lazy"
-    />
+    {resolvedImage ? (
+      <Image
+        src={resolvedImage}
+        alt={project.imageAlt}
+        class="w-full h-full object-cover grayscale group-hover:grayscale-0 group-hover:scale-105 transition-all duration-500"
+        width={project.featured ? 900 : 400}
+        height={project.featured ? 506 : 400}
+        loading="lazy"
+      />
+    ) : (
+      <img
+        src={project.imageUrl}
+        alt={project.imageAlt}
+        class="w-full h-full object-cover grayscale group-hover:grayscale-0 group-hover:scale-105 transition-all duration-500"
+        width={project.featured ? 900 : 400}
+        height={project.featured ? 506 : 400}
+        loading="lazy"
+      />
+    )}
   </div>
 
   <!-- Tags -->

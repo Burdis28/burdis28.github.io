@@ -1,5 +1,7 @@
 ---
 import profile from "../../content/data/profile.json";
+import { Image } from "astro:assets";
+import avatarImg from "../../assets/images/profile/avatar.jpg";
 
 interface Props {
     activeNav: "home" | "experience" | "projects" | "blog" | "contact";
@@ -15,12 +17,12 @@ const { activeNav } = Astro.props;
         <div
             class="w-32 h-32 rounded-full overflow-hidden bg-surface-container-highest ring-4 ring-surface-container"
         >
-            <img
-                src={profile.avatarUrl}
+            <Image
+                src={avatarImg}
                 alt={profile.name}
                 class="w-full h-full object-cover"
-                width="128"
-                height="128"
+                width={128}
+                height={128}
             />
         </div>
         <div class="text-center">

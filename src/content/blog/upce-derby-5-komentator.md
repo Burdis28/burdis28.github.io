@@ -5,7 +5,7 @@ readTime: 4
 category: "Komunita"
 featured: false
 excerpt: "Páté univerzitní esport derby UPCE vs. UHK a moje třetí sezóna za mikrofonem. Letos v pardubické aule padala fakt silná čísla – přes 15 000 unikátních diváků za den."
-coverImage: "/images/blog/upce-derby-5-komentator/cover.jpg"
+coverImage: "../../assets/images/blog/upce-derby-5-komentator/cover.jpg"
 coverImageAlt: "Páté univerzitní esport derby UPCE vs. UHK"
 ---
 
