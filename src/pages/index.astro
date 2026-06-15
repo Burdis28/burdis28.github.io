@@ -53,10 +53,12 @@ import profile from "../content/data/profile.json";
                 >
                     <img
                         src={profile.heroBannerUrl}
-                        alt="Profile"
+                        alt={`${profile.name} — profilová fotografie`}
                         class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
                         width="500"
                         height="500"
+                        fetchpriority="high"
+                        decoding="async"
                         onerror="this.style.display='none'"
                     />
                     <div

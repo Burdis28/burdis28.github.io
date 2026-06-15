@@ -21,7 +21,7 @@ All structured content lives in `src/content/data/` (JSON) and `src/content/blog
   "social": {
     "github": "https://github.com/Burdis28",
     "linkedin": "https://linkedin.com/in/YOUR_LINKEDIN",
-    "email": "your@email.com"
+    "email": "ondra.burda@seznam.cz"
   },
   "heroHeadline": "Engineering with",
   "heroAccent": "Precision.",
@@ -158,7 +158,7 @@ Fields:
     "id": "tools",
     "category": "Tools & DevOps",
     "icon": "terminal",
-    "skills": ["Docker", "Git", "CI/CD", "Linux"]
+    "skills": ["Docker", "Git", "CI/CD", "Kubernetes"]
   }
 ]
 ```

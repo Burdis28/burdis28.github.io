@@ -8,7 +8,7 @@ const { project } = Astro.props;
 ---
 
 <article
-  class={`bg-surface-container-lowest rounded-xl group cursor-pointer hover:shadow-editorial transition-all duration-300
+  class={`bg-surface-container-lowest rounded-xl group hover:shadow-editorial transition-all duration-300
     ${project.featured ? 'md:col-span-12 p-8' : 'md:col-span-6 p-8 flex flex-col'}`}
 >
 
@@ -71,9 +71,16 @@ const { project } = Astro.props;
   </p>
 
   <!-- Read link -->
-  <div class="flex items-center space-x-2 text-primary font-bold text-xs uppercase tracking-widest border-t border-surface-container-low pt-6 mt-6">
-    <span>Otevřít projekt</span>
-    <span class="material-symbols-outlined text-sm">north_east</span>
-  </div>
+  {project.links.demo && (
+    <a
+      href={project.links.demo}
+      target="_blank"
+      rel="noopener noreferrer"
+      class="flex items-center space-x-2 text-primary font-bold text-xs uppercase tracking-widest border-t border-surface-container-low pt-6 mt-6 hover:text-primary/70 transition-colors w-fit"
+    >
+      <span>Otevřít web</span>
+      <span class="material-symbols-outlined text-sm">north_east</span>
+    </a>
+  )}
 
 </article>

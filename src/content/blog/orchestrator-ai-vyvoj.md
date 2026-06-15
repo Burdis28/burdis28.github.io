@@ -5,7 +5,7 @@ readTime: 5
 category: "AI"
 featured: false
 excerpt: "Agentní systémy jsou všude. Rozhodl jsem se postavit vlastní lehkou orchestraci pro každodenní backend vývoj – s konkrétními rolemi, skills a workflow scénáři. Takhle to dopadlo."
-coverImage: "/images/blog/orchestrator-ai-vyvoj/cover-agents.png"
+coverImage: "/images/blog/orchestrator-ai-vyvoj/cover-agents.webp"
 coverImageAlt: "Orchestrátor a subagenti v AI-asistovaném vývoji"
 ---
 

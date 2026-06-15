@@ -3,21 +3,65 @@ import '../styles/global.css';
 import TopNavBar from '../components/layout/TopNavBar.astro';
 import LeftSidebar from '../components/layout/LeftSidebar.astro';
 import Footer from '../components/layout/Footer.astro';
+import profile from '../content/data/profile.json';
 
 interface Props {
   title: string;
   activeNav: 'home' | 'experience' | 'projects' | 'blog' | 'contact';
   description?: string;
+  /** Absolute or root-relative path to the social share image. */
+  ogImage?: string;
+  /** Set for blog posts — switches og:type and adds BlogPosting structured data. */
+  article?: {
+    publishedDate: Date;
+    category: string;
+  };
 }
 
 const {
   title,
   activeNav,
   description = 'Ondřej Burda — backend inženýr se zaměřením na Kotlin a Javu. Portfolio, praxe a blog.',
+  ogImage = '/images/og-card.jpg',
+  article,
 } = Astro.props;
 
 const siteUrl = 'https://burdis28.github.io';
 const canonicalUrl = new URL(Astro.url.pathname, siteUrl).href;
+const ogImageUrl = new URL(ogImage, siteUrl).href;
+
+const personSchema = {
+  '@type': 'Person',
+  '@id': `${siteUrl}/#person`,
+  name: profile.name,
+  jobTitle: profile.title,
+  url: siteUrl,
+  image: new URL(profile.avatarUrl, siteUrl).href,
+  sameAs: [profile.social.github, profile.social.linkedin],
+};
+
+const jsonLd = article
+  ? {
+      '@context': 'https://schema.org',
+      '@type': 'BlogPosting',
+      headline: title,
+      description,
+      image: ogImageUrl,
+      url: canonicalUrl,
+      datePublished: article.publishedDate.toISOString(),
+      articleSection: article.category,
+      inLanguage: 'cs',
+      author: personSchema,
+    }
+  : {
+      '@context': 'https://schema.org',
+      '@type': 'WebSite',
+      name: `${profile.name} — portfolio`,
+      url: siteUrl,
+      description,
+      inLanguage: 'cs',
+      author: personSchema,
+    };
 ---
 
 <!DOCTYPE html>
@@ -29,23 +73,54 @@ const canonicalUrl = new URL(Astro.url.pathname, siteUrl).href;
 
   <!-- SEO -->
   <meta name="description" content={description} />
+  <meta name="author" content={profile.name} />
   <link rel="canonical" href={canonicalUrl} />
 
+  <!-- Fonts — preconnect + non-blocking stylesheet links (faster than CSS @import) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Manrope:wght@600;700;800&family=Inter:wght@400;500;600&display=swap" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=block" />
+
   <!-- Open Graph -->
-  <meta property="og:type" content="website" />
+  <meta property="og:type" content={article ? 'article' : 'website'} />
   <meta property="og:url" content={canonicalUrl} />
   <meta property="og:title" content={title} />
   <meta property="og:description" content={description} />
-  <meta property="og:image" content={`${siteUrl}/images/og-card.jpg`} />
+  <meta property="og:image" content={ogImageUrl} />
+  <meta property="og:locale" content="cs_CZ" />
+  <meta property="og:site_name" content={`${profile.name} — portfolio`} />
+  {article && (
+    <meta property="article:published_time" content={article.publishedDate.toISOString()} />
+  )}
 
-  <!-- Favicon -->
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content={title} />
+  <meta name="twitter:description" content={description} />
+  <meta name="twitter:image" content={ogImageUrl} />
+
+  <!-- Structured data -->
+  <script type="application/ld+json" set:html={JSON.stringify(jsonLd)} />
+
+  <!-- Icons & PWA -->
   <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+  <link rel="icon" href="/favicon.ico" sizes="32x32" />
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+  <link rel="manifest" href="/site.webmanifest" />
+  <meta name="theme-color" content="#3e5219" />
 
-  <!-- Sitemap -->
+  <!-- Feeds & sitemap -->
   <link rel="sitemap" href="/sitemap-index.xml" />
+  <link rel="alternate" type="application/rss+xml" title={`${profile.name} — blog`} href="/rss.xml" />
 </head>
 
 <body class="bg-surface font-body text-on-surface selection:bg-primary-fixed selection:text-on-primary-fixed">
+
+  <!-- Skip link for keyboard users -->
+  <a href="#main-content" class="sr-only focus:not-sr-only focus:fixed focus:top-2 focus:left-2 focus:z-[100] focus:bg-primary focus:text-on-primary focus:px-4 focus:py-2 focus:rounded-lg">
+    Přeskočit na obsah
+  </a>
 
   <!-- Fixed top navigation bar -->
   <TopNavBar activeNav={activeNav} />
@@ -55,7 +130,7 @@ const canonicalUrl = new URL(Astro.url.pathname, siteUrl).href;
 
   <!-- Content area — offset by sidebar on desktop, then centered within that space -->
   <div class="lg:ml-72">
-    <main class="pt-20 pb-12 px-6 lg:px-16 max-w-[1400px] mx-auto">
+    <main id="main-content" class="pt-20 pb-12 px-6 lg:px-16 max-w-6xl mx-auto">
       <slot />
     </main>
 
