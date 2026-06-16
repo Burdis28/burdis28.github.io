@@ -5,6 +5,7 @@
     "directory": "./dist"
   },
   "routes": [
+    { "pattern": "burdis.cz", "custom_domain": true },
     { "pattern": "www.burdis.cz", "custom_domain": true }
   ]
 }
