@@ -1,0 +1,74 @@
+{
+  "$schema": "https://opencode.ai/config.json",
+  "autoupdate": false,
+  "provider": {
+    "openai": {
+      "options": {
+        "baseURL": "http://aiplatform2-gateway:8787/v1",
+        "apiKey": "{env:AIPLATFORM_GATEWAY_API_KEY_b6838ebe35db4c6ebdb197ee008da0f2}",
+        "headers": {
+          "x-model-role": "primary",
+          "openai-intent": "conversation-edits",
+          "x-trace-id": "agent_72863db4-d66b-42ba-b938-e21833047609_6a3a81a519001b5602f35490_1782225598"
+        }
+      },
+      "models": {
+        "claude-sonnet-4-6": {}
+      }
+    },
+    "openai-small": {
+      "options": {
+        "baseURL": "http://aiplatform2-gateway:8787/v1",
+        "apiKey": "{env:AIPLATFORM_GATEWAY_API_KEY_b6838ebe35db4c6ebdb197ee008da0f2}",
+        "headers": {
+          "x-model-role": "small",
+          "openai-intent": "conversation-edits",
+          "x-trace-id": "agent_72863db4-d66b-42ba-b938-e21833047609_6a3a81a519001b5602f35490_1782225598"
+        }
+      },
+      "models": {
+        "claude-sonnet-4-6": {}
+      }
+    }
+  },
+  "model": "openai/claude-sonnet-4-6",
+  "small_model": "openai-small/claude-sonnet-4-6",
+  "tools": {
+    "bash": true,
+    "read": true,
+    "write": true,
+    "edit": true,
+    "list": true,
+    "glob": true,
+    "grep": true,
+    "patch": true,
+    "task": false,
+    "todoread": false,
+    "todowrite": false,
+    "webfetch": true,
+    "computer": false,
+    "question": true
+  },
+  "agent": {
+    "default": {
+      "prompt": "You are a software engineer with expertise in personal website presentations.\n",
+      "model": "openai/claude-sonnet-4-6"
+    }
+  },
+  "permission": {
+    "bash": "allow",
+    "read": "allow",
+    "write": "allow",
+    "edit": "allow",
+    "list": "allow",
+    "glob": "allow",
+    "grep": "allow",
+    "patch": "allow",
+    "webfetch": "allow",
+    "question": "allow",
+    "external_directory": {
+      "*": "allow",
+      "/tmp/opencode_run_92xd1kr4/*": "allow"
+    }
+  }
+}

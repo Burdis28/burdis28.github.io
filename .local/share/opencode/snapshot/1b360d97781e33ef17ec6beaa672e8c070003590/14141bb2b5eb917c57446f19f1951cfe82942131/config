@@ -1,0 +1,10 @@
+[core]
+	repositoryformatversion = 0
+	filemode = true
+	bare = false
+	logallrefupdates = true
+	worktree = /tmp/opencode_run_92xd1kr4
+	autocrlf = false
+	longpaths = true
+	symlinks = true
+	fsmonitor = false
