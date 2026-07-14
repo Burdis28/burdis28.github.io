@@ -14,14 +14,17 @@
     "statusNote": "Hlavní pracovní role",
     "year": "2021",
     "bullets": [
-      "Navrhl jsem a od základů implementoval kompletní integraci s externím ERP systémem pro jednoho z největších hráčů českého trhu s reklamními předměty. Zároveň jsem fungoval jako kontaktní bod mezi vývojovým týmem, klientem a ERP konzultanty a hlídal, aby technická řešení odpovídala reálným potřebám byznysu.",
-      "Backend a integrační vývoj na jedné z největších českých platforem pro finanční poradce a zprostředkování investic jejich klientů."
+      "Navrhl jsem a od základů implementoval kompletní integraci s externím ERP systémem pro jednoho z největších hráčů českého trhu s reklamními předměty. Vedle integrace jsem se podílel i na vývoji dalších významných částí e-shopu. Zároveň jsem fungoval jako kontaktní bod mezi vývojovým týmem, klientem a ERP konzultanty a hlídal, aby technická řešení odpovídala reálným potřebám byznysu.",
+      "Backend a integrační vývoj na jedné z největších českých platforem pro finanční poradce a zprostředkování investic jejich klientů. Projekt běží už několik let, vedle nových funkcí jsem se staral o jeho dlouhodobou údržbu a postupný přepis z Javy do Kotlinu.",
+      "Aktuálně na zelené louce stavím backend nové investiční platformy s event-driven přístupem a hexagonální architekturou. Při vývoji využíváme orchestrované AI workflows, jejichž výstupy procházejí důkladným review, a spolupracujeme v několika streamech ve středně velkém týmu."
     ],
     "tags": [
       "Kotlin",
       "Java",
       "Spring Boot",
       "MongoDB",
+      "PostgreSQL",
+      "Azure",
       "REST API",
       "Kubernetes",
       "Keycloak"
@@ -42,9 +45,7 @@
     "statusNote": "",
     "year": "2018",
     "bullets": [
-      "Práce na částečný úvazek při studiu na vysoké škole.",
-      "Podílel jsem se na budování platformy pro evropské klienty v energetickém sektoru s přesahem do více zemí.",
-      "Platforma jako první v regionu umožnila přeshraniční obchodování s vyrovnávací energií."
+      "Při studiu na vysoké škole jsem se podílel na budování platformy pro evropské klienty v energetickém sektoru. Platforma jako první v regionu umožnila přeshraniční obchodování s vyrovnávací energií."
     ],
     "tags": ["Java", "Spring Boot", "PostgreSQL", "Microservices"]
   }

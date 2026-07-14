@@ -5,7 +5,7 @@
     "description": "Studentský spolek Univerzity Pardubice, který jsem spoluzakládal v roce 2018, krátce po prvním fakultním turnaji v CS:GO. Jako předseda jsem vybudoval komunitu, která přesahuje herní scénu: pravidelné akce, univerzitní Derby UPCE vs. UHK a místo, kde se potkávají lidi s chutí něco dělat.",
     "featured": true,
     "imageUrl": "/images/projects/upce-esports/cover.jpg",
-    "imageAlt": "UPCE Esports spolek logo",
+    "imageAlt": "Komentátoři a hráč v dresu UPCE Esports na univerzitním esport derby",
     "tags": ["Esport", "Komunitní akce", "Organizace", "CS:GO"],
     "links": {
       "demo": "https://www.facebook.com/UPCEesports",
@@ -31,7 +31,7 @@
     "description": "Tenhle web je přehled mé práce, zkušeností a myšlenek. Postavený na Astru s Tailwindem, navržený tak, aby byl rychlý, přehledný a trochu osobnější než klasické CV.",
     "featured": false,
     "imageUrl": "/images/projects/personal-web/cover.jpg",
-    "imageAlt": "Osobní web Ondřeje Burdy",
+    "imageAlt": "Náhled úvodní stránky osobního webu Ondřeje Burdy",
     "tags": ["Astro", "TypeScript", "Web"],
     "links": {
       "demo": "https://www.burdis.cz",
