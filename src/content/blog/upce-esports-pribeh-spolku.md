@@ -5,7 +5,7 @@ readTime: 5
 category: "Komunita"
 featured: false
 excerpt: "V roce 2018 jsme po fakultním CS:GO turnaji na Univerzitě Pardubice zakládali studentský esportový spolek. Dával jsem nám pár měsíců. Mýlil jsem se."
-coverImage: "/images/blog/upce-esports-pribeh-spolku/cover.jpg"
+coverImage: "../../assets/images/blog/upce-esports-pribeh-spolku/cover.jpg"
 coverImageAlt: "Čtvrté univerzitní esport derby UPCE vs. UHK"
 ---
 

@@ -60,7 +60,7 @@ Key additions over a basic schema:
   "social": {
     "github": "https://github.com/Burdis28",
     "linkedin": "https://linkedin.com/in/YOUR_LINKEDIN",
-    "email": "YOUR_EMAIL@example.com"
+    "email": "ondra.burda@seznam.cz"
   },
   "heroHeadline": "Engineering with",
   "heroAccent": "Precision.",
@@ -170,7 +170,7 @@ Only one project should have `featured: true`.
     "id": "tools",
     "category": "Tools & DevOps",
     "icon": "terminal",
-    "skills": ["Docker", "Git", "CI/CD", "Linux"]
+    "skills": ["Docker", "Git", "CI/CD", "Kubernetes"]
   }
 ]
 ```

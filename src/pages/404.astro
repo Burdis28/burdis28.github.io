@@ -1,0 +1,28 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+---
+
+<BaseLayout
+  title="Stránka nenalezena — Ondřej Burda"
+  activeNav="home"
+  description="Stránka, kterou hledáte, neexistuje nebo byla přesunuta."
+>
+  <div class="flex flex-col items-center justify-center text-center py-24 lg:py-32">
+    <p class="text-tertiary font-label font-semibold tracking-widest uppercase mb-4">
+      Chyba 404
+    </p>
+    <h1 class="text-7xl lg:text-9xl font-headline font-extrabold text-primary leading-none mb-6">
+      404
+    </h1>
+    <p class="text-lg lg:text-xl text-on-surface-variant max-w-md leading-relaxed mb-10">
+      Tahle stránka neexistuje, nebo se přestěhovala jinam. Zkuste se vrátit na hlavní stránku.
+    </p>
+    <a
+      href="/"
+      class="inline-flex items-center gap-2 text-white font-label font-bold text-sm bg-primary px-8 py-3 rounded-lg hover:bg-primary-fixed hover:text-on-primary-fixed transition-all"
+    >
+      <span class="material-symbols-outlined text-sm">home</span>
+      Zpět domů
+    </a>
+  </div>
+</BaseLayout>

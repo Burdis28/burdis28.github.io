@@ -5,7 +5,7 @@ readTime: 6
 category: "AI"
 featured: false
 excerpt: "Na AI Bábovky hackathonu jsme za pár týdnů vytvořili webovou tahovou strategii inspirovanou studií AI 2027. Kotlin backend, React frontend, deployment do Azure, nula databáze a spousta chaosu. Skončili jsme třetí."
-coverImage: "/images/blog/posledni-vynalez/prezentace.jpg"
+coverImage: "../../assets/images/blog/posledni-vynalez/prezentace.jpg"
 coverImageAlt: "Herní dashboard Poslední Vynález - Kolo 19, Éra zralosti"
 ---
 

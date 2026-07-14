@@ -13,6 +13,19 @@
     }
   },
   {
+    "id": "project-3",
+    "title": "Galtex",
+    "description": "Web pro rodinnou prodejnu textilní galanterie ve Světlé nad Sázavou. Prezentační stránka s přehledem sortimentu, otevírací dobou a kontaktem. Postavená na Vite + React, navržená tak, aby byla rychlá, přehledná a přístupná i méně technicky zdatným zákazníkům.",
+    "featured": false,
+    "imageUrl": "/images/projects/galtex/cover.webp",
+    "imageAlt": "Galtex – textilní galanterie Světlá nad Sázavou",
+    "tags": ["Web", "React", "Vite"],
+    "links": {
+      "demo": "https://www.galtex.cz",
+      "source": null
+    }
+  },
+  {
     "id": "project-2",
     "title": "Osobní web",
     "description": "Tenhle web je přehled mé práce, zkušeností a myšlenek. Postavený na Astru s Tailwindem, navržený tak, aby byl rychlý, přehledný a trochu osobnější než klasické CV.",

@@ -5,7 +5,7 @@ readTime: 4
 category: "AI"
 featured: false
 excerpt: "Vzali jsme si stánek na Future Port Youth a celý den jsme se bavili se středoškolskými studenty o umělé inteligenci. Co z toho vzešlo? Překvapivě zralý pohled na AI a pár věcí, které nás samotné přiměly přemýšlet."
-coverImage: "/images/blog/future-port-youth-ai/cover.jpg"
+coverImage: "../../assets/images/blog/future-port-youth-ai/cover.jpg"
 coverImageAlt: "Stánek Etnetera Core na Future Port Youth konferenci"
 ---
 

@@ -5,7 +5,7 @@ readTime: 6
 category: "AI"
 featured: true
 excerpt: "Interní soutěž v agentní AI platformě, 87 zapojených lidí, tři fáze a finále před porotou. Já do toho šel obráceně: nejdřív přihláška, pak hledání problému. A vyšlo z toho první místo."
-coverImage: "/images/blog/krotitele-agentu-winston/cover.jpg"
+coverImage: "../../assets/images/blog/krotitele-agentu-winston/cover.jpg"
 coverImageAlt: "Přebírání zlaté trofeje za první místo v soutěži Krotitelé agentů"
 ---
 
