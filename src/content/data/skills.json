@@ -3,18 +3,24 @@
     "id": "backend",
     "category": "Backend & Core",
     "icon": "dns",
-    "skills": ["Java", "Kotlin", "Spring Boot", "REST API"]
+    "skills": ["Java", "Kotlin", "Spring", "Ktor", "Vaadin", "REST API"]
   },
   {
     "id": "databases",
     "category": "Databáze",
     "icon": "storage",
-    "skills": ["MongoDB", "PostgreSQL", "SQL", "Redis"]
+    "skills": ["MongoDB", "PostgreSQL"]
   },
   {
     "id": "devops",
     "category": "Nástroje & DevOps",
     "icon": "terminal",
-    "skills": ["Git", "Docker", "CI/CD", "Linux"]
+    "skills": ["Git", "Docker", "Podman", "Azure", "CI/CD", "Keycloak"]
+  },
+  {
+    "id": "ai",
+    "category": "AI Stack",
+    "icon": "smart_toy",
+    "skills": ["Claude", "Opencode", "Agentic workflows", "Beads", "Superpowers", "MCP"]
   }
 ]

@@ -21,7 +21,6 @@ Tato složka obsahuje veškerý strukturovaný obsah webu. **Žádné komponenty
   "tagline": "...",
   "avatarUrl": "/images/profile/avatar.jpg",       // čtvercová fotka
   "heroBannerUrl": "/images/profile/hero-banner.jpg",
-  "resumeUrl": "/files/ondrej-burda-cv.pdf",        // CV ke stažení
   "social": {
     "github": "https://github.com/...",
     "linkedin": "https://linkedin.com/in/...",

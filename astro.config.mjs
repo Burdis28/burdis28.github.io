@@ -5,9 +5,14 @@ import sitemap from '@astrojs/sitemap';
 
 // https://astro.build/config
 export default defineConfig({
-  site: 'https://burdis28.github.io',
+  site: 'https://www.burdis.cz',
   integrations: [
-    sitemap(),
+    sitemap({
+      serialize(item) {
+        item.lastmod = new Date().toISOString();
+        return item;
+      },
+    }),
   ],
   vite: {
     plugins: [tailwindcss()],

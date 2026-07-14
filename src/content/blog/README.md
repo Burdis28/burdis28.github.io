@@ -30,7 +30,11 @@ coverImageAlt: "Popis obrázku pro screen readery"
 
 | Soubor                              | Slug                          | Featured |
 |-------------------------------------|-------------------------------|----------|
-| `future-port-youth-ai.md`           | future-port-youth-ai          | ano      |
+| `krotitele-agentu-winston.md`       | krotitele-agentu-winston      | ano      |
+| `future-port-youth-ai.md`           | future-port-youth-ai          | ne       |
+| `orchestrator-ai-vyvoj.md`          | orchestrator-ai-vyvoj         | ne       |
+| `posledni-vynalez.md`               | posledni-vynalez              | ne       |
+| `upce-derby-5-komentator.md`        | upce-derby-5-komentator       | ne       |
 | `upce-esports-pribeh-spolku.md`     | upce-esports-pribeh-spolku    | ne       |
 
 > Pozn.: Maximálně jeden článek by měl mít `featured: true`. Tento článek se zobrazuje jako velká hero karta na stránce blogu.

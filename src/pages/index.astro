@@ -3,12 +3,30 @@ import BaseLayout from "../layouts/BaseLayout.astro";
 import FeaturedHighlights from "../components/home/FeaturedHighlights.astro";
 import ExperiencePreview from "../components/home/ExperiencePreview.astro";
 import profile from "../content/data/profile.json";
+
+const personSchema = {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    name: profile.name,
+    url: "https://www.burdis.cz",
+    jobTitle: profile.title,
+    image: new URL(profile.avatarUrl, "https://www.burdis.cz").href,
+    address: {
+        "@type": "PostalAddress",
+        addressLocality: "Praha",
+        addressCountry: "CZ",
+    },
+    email: `mailto:${profile.social.email}`,
+    sameAs: [profile.social.github, profile.social.linkedin],
+    knowsAbout: profile.techStack,
+};
 ---
 
 <BaseLayout
-    title="Ondřej Burda — Backend Engineer"
+    title="Ondřej Burda — Backend vývojář | Java & Kotlin, Praha"
     activeNav="home"
     description={profile.tagline}
+    jsonLd={personSchema}
 >
     <!-- Intro Section: About Me -->
     <section class="mb-24">
@@ -53,7 +71,7 @@ import profile from "../content/data/profile.json";
                 >
                     <img
                         src={profile.heroBannerUrl}
-                        alt="Profile"
+                        alt={profile.name}
                         class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
                         width="500"
                         height="500"

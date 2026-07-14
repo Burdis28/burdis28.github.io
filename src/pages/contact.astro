@@ -49,14 +49,14 @@ import profile from "../content/data/profile.json";
                             >alternate_email</span
                         >
                     </div>
-                    <div>
+                    <div class="min-w-0">
                         <p
                             class="text-xs font-label uppercase tracking-widest text-on-surface-variant mb-1"
                         >
                             E-mail
                         </p>
                         <p
-                            class="font-semibold text-on-surface group-hover:text-primary transition-colors"
+                            class="font-semibold text-on-surface group-hover:text-primary transition-colors break-words"
                         >
                             {profile.social.email}
                         </p>
@@ -163,7 +163,7 @@ import profile from "../content/data/profile.json";
         <aside class="lg:col-span-5 flex flex-col gap-6">
             <!-- Availability card -->
             <div
-                class="relative overflow-hidden rounded-xl group h-64 bg-primary-container"
+                class="relative overflow-hidden rounded-xl group min-h-64 bg-primary-container"
             >
                 <div
                     class="relative z-10 p-8 h-full flex flex-col justify-between"
