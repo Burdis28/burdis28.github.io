@@ -4,43 +4,95 @@ import ProjectCard from '../components/projects/ProjectCard.astro';
 import SkillCategory from '../components/projects/SkillCategory.astro';
 import projects from '../content/data/projects.json';
 import skills from '../content/data/skills.json';
+
+const workPrinciples = [
+  {
+    title: 'Stabilita především',
+    description:
+      'Píšu kód, který má vydržet. Sázím na čitelná a udržitelná řešení, která obstojí i za pár let.',
+    icon: 'foundation',
+  },
+  {
+    title: 'AI jako páka',
+    description:
+      'Agenti a automatizace mi berou rutinu, ne odpovědnost. Claude a spol. používám denně, ale výsledný kód pečlivě validuji a testuji.',
+    icon: 'smart_toy',
+  },
+  {
+    title: 'Domluva je půlka práce',
+    description:
+      'Technické řešení musí odpovídat tomu, co byznys opravdu potřebuje. Proto si radši dvakrát vyjasním zadání, než abych stavěl něco, co nikdo nechtěl.',
+    icon: 'forum',
+  },
+];
 ---
 
 <BaseLayout
-  title="Projekty — Ondřej Burda"
+  title="Stack | Ondřej Burda"
   activeNav="projects"
-  description="Vybrané projekty a technické dovednosti — backendové aplikace, systémové integrace a API inženýrství."
+  description="Technologie, které používám denně, a způsob, jakým stavím software. Java, Kotlin, Spring a AI nástroje v každodenní praxi."
 >
 
   <!-- Page header -->
   <header class="mb-16">
-    <p class="text-tertiary font-label font-semibold tracking-widest uppercase mb-4">Co jsem stavěl</p>
+    <p class="text-tertiary font-label font-semibold tracking-widest uppercase mb-4">Čím pracuju</p>
     <h1 class="text-5xl lg:text-7xl font-headline font-bold text-on-surface leading-[1.1] mb-6">
-      Vybrané projekty
+      Stack &amp; nástroje
     </h1>
     <p class="text-on-surface-variant text-lg lg:text-xl max-w-2xl leading-relaxed">
-      Od komunitních iniciativ přes osobní projekty až po produkční systémy, tady je průřez tím, co jsem za ta léta tvořil.
+      Technologie, které používám denně, a způsob, jakým stavím software. Není to výčet všeho, co jsem kdy viděl, jen to, na co se dá spolehnout.
     </p>
   </header>
 
-  <!-- Projects bento grid -->
-  <div class="grid grid-cols-1 md:grid-cols-12 gap-8 mb-24">
-    {projects.map((project) => (
-      <ProjectCard project={project} />
-    ))}
-  </div>
+  <!-- Skills grid -->
+  <section class="mb-24">
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
+      {skills.map((category) => (
+        <SkillCategory category={category} />
+      ))}
+    </div>
+  </section>
 
-  <!-- Technical Arsenal -->
-  <section class="mb-12">
+  <!-- How I work -->
+  <section class="mb-24">
     <div class="flex items-center gap-4 mb-12">
       <div class="h-px flex-grow bg-outline-variant opacity-20"></div>
-      <h2 class="text-3xl font-headline font-semibold text-primary">Technická výbava</h2>
+      <h2 class="text-3xl font-headline font-semibold text-primary">Jak pracuju</h2>
       <div class="h-px w-24 bg-outline-variant opacity-20"></div>
     </div>
 
-    <div class="grid grid-cols-1 lg:grid-cols-3 gap-12">
-      {skills.map((category) => (
-        <SkillCategory category={category} />
+    <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+      {workPrinciples.map((principle) => (
+        <div class="bg-surface-container-low rounded-xl p-8">
+          <span
+            class="material-symbols-outlined text-primary text-3xl mb-4 block"
+            style="font-variation-settings: 'FILL' 1"
+            aria-hidden="true"
+          >
+            {principle.icon}
+          </span>
+          <h3 class="font-headline font-bold text-lg text-on-surface mb-2">
+            {principle.title}
+          </h3>
+          <p class="text-sm text-on-surface-variant leading-relaxed">
+            {principle.description}
+          </p>
+        </div>
+      ))}
+    </div>
+  </section>
+
+  <!-- Off-work projects -->
+  <section class="mb-12">
+    <div class="flex items-center gap-4 mb-12">
+      <div class="h-px flex-grow bg-outline-variant opacity-20"></div>
+      <h2 class="text-3xl font-headline font-semibold text-primary">Mimo práci</h2>
+      <div class="h-px w-24 bg-outline-variant opacity-20"></div>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-12 gap-8">
+      {projects.map((project) => (
+        <ProjectCard project={project} />
       ))}
     </div>
   </section>

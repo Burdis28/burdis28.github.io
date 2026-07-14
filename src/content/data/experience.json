@@ -14,9 +14,8 @@
     "statusNote": "Hlavní pracovní role",
     "year": "2021",
     "bullets": [
-      "Jako backend vývojář na víceletém projektu pro jednoho z největších hráčů českého trhu s reklamními předměty jsem navrhoval a implementoval kompletní integraci s externím ERP systémem od základů. Pravidelný kontaktní bod mezi vývojovým týmem, klientem a ERP konzultanty; zajišťoval jsem, aby technická řešení odpovídala reálným byznys potřebám.",
-      "Backend integrační vývoj na projektu jedné z největších českých platforem pro finanční poradce a zprostředkování investic jejich klientů.",
-      "Zkušenosti přesahující jeden sektor: od e-commerce po projekty v oblasti finančních investic."
+      "Navrhl jsem a od základů implementoval kompletní integraci s externím ERP systémem pro jednoho z největších hráčů českého trhu s reklamními předměty. Zároveň jsem fungoval jako kontaktní bod mezi vývojovým týmem, klientem a ERP konzultanty a hlídal, aby technická řešení odpovídala reálným potřebám byznysu.",
+      "Backend a integrační vývoj na jedné z největších českých platforem pro finanční poradce a zprostředkování investic jejich klientů."
     ],
     "tags": [
       "Kotlin",
@@ -43,9 +42,9 @@
     "statusNote": "",
     "year": "2018",
     "bullets": [
-      "Práce na částečný úvazek souběžně s magisterským studiem.",
+      "Práce na částečný úvazek při studiu na vysoké škole.",
       "Podílel jsem se na budování platformy pro evropské klienty v energetickém sektoru s přesahem do více zemí.",
-      "Platforma jako první v regionu umožnila přeshraniční obchodování s vyrovnávací energií, výsledek mé práce měl reálný dopad na evropský energetický trh."
+      "Platforma jako první v regionu umožnila přeshraniční obchodování s vyrovnávací energií."
     ],
     "tags": ["Java", "Spring Boot", "PostgreSQL", "Microservices"]
   }

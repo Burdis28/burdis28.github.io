@@ -18,7 +18,7 @@
     },
     {
       "id": "degree-3",
-      "degree": "Střední škola",
+      "degree": "Maturita – Informační technologie",
       "institution": "Střední Průmyslová Škola Kutná Hora",
       "period": "2011 – 2015",
       "activities": "",
@@ -28,9 +28,9 @@
   "certifications": [
     {
       "id": "cert-1",
-      "name": "Kotlin akademie",
+      "name": "Kotlin pro praxi",
       "issuer": "Kotlin akademie",
-      "meta": "Kotlin pro praxi",
+      "meta": "Kotlin akademie",
       "icon": "code"
     }
   ]
