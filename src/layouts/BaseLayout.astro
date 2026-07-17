@@ -26,7 +26,7 @@ const {
   article,
 } = Astro.props;
 
-const siteUrl = 'https://burdis28.github.io';
+const siteUrl = 'https://www.burdis.cz';
 const canonicalUrl = new URL(Astro.url.pathname, siteUrl).href;
 const ogImageUrl = new URL(ogImage, siteUrl).href;
 
@@ -93,12 +93,6 @@ const jsonLd = article
   {article && (
     <meta property="article:published_time" content={article.publishedDate.toISOString()} />
   )}
-
-  <!-- Twitter Card -->
-  <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content={title} />
-  <meta name="twitter:description" content={description} />
-  <meta name="twitter:image" content={ogImageUrl} />
 
   <!-- Structured data -->
   <script type="application/ld+json" set:html={JSON.stringify(jsonLd)} />

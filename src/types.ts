@@ -6,7 +6,6 @@ export interface Profile {
   website: { label: string; url: string };
   social: { github: string; linkedin: string; email: string };
   about: string;
-  resumeUrl: string;
   avatarUrl: string;
   heroBannerUrl: string;
   techStack: string[];

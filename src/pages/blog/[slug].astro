@@ -25,7 +25,7 @@ const formattedDate = post.data.date.toLocaleDateString('cs-CZ', {
   title={`${post.data.title} — Ondřej Burda`}
   activeNav="blog"
   description={post.data.excerpt}
-  ogImage={post.data.coverImage}
+  ogImage={post.data.coverImage.src}
   article={{ publishedDate: post.data.date, category: post.data.category }}
 >
   <article class="max-w-3xl">

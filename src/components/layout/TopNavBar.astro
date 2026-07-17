@@ -1,6 +1,4 @@
 ---
-import profile from '../../content/data/profile.json';
-
 interface Props {
   activeNav: 'home' | 'experience' | 'projects' | 'blog' | 'contact';
 }
@@ -9,19 +7,22 @@ const { activeNav } = Astro.props;
 const navLinks = [
   { id: 'home',       label: 'Domů',     href: '/' },
   { id: 'experience', label: 'Praxe',    href: '/experience' },
-  { id: 'projects',   label: 'Projekty', href: '/projects' },
+  { id: 'projects',   label: 'Stack',    href: '/projects' },
   { id: 'blog',       label: 'Blog',     href: '/blog' },
   { id: 'contact',    label: 'Kontakt',  href: '/contact' },
 ];
 ---
 
 <nav class="fixed top-0 w-full z-50 bg-surface/70 backdrop-blur-xl h-20">
-  <div class="max-w-[1400px] mx-auto px-8 md:px-12 h-full flex justify-between items-center">
-    <!-- Brand wordmark -->
-    <a href="/" class="text-xl font-bold text-primary font-headline tracking-tight hover:opacity-80 transition-opacity">
-      {profile.name}
-    </a>
+  <!-- Brand wordmark: on lg centered above the sidebar column (w-72), on mobile aligned left -->
+  <a
+    href="/"
+    class="absolute left-0 top-0 h-full px-8 md:px-12 lg:px-0 lg:w-72 flex items-center lg:justify-center text-xl font-bold text-primary font-headline tracking-tight hover:opacity-80 transition-opacity"
+  >
+    Burdis
+  </a>
 
+  <div class="max-w-[1400px] mx-auto px-8 md:px-12 h-full flex justify-end items-center">
     <!-- Desktop nav links -->
     <div class="hidden md:flex items-center gap-8 font-headline font-semibold tracking-tight">
       {navLinks.map((link) => (

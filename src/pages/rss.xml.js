@@ -8,7 +8,7 @@ export async function GET(context) {
 
   return rss({
     title: `${profile.name} — blog`,
-    description: 'Zápisky o backendu, Kotlinu, Javě a věcech okolo softwarového inženýrství.',
+    description: 'Blog Ondřeje Burdy — AI agenti a backendová praxe, ale i esport a komentování. Někdy technika, někdy příběh, vždycky z první ruky.',
     site: context.site,
     items: posts.map((post) => ({
       title: post.data.title,

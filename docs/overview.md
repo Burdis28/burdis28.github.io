@@ -1,6 +1,6 @@
 # Ondřej Burda — Personal Portfolio: Implementation Overview
 
-Personal portfolio website built as a static site (Astro + Tailwind CSS v4), deployed to GitHub Pages at `https://burdis28.github.io`.
+Personal portfolio website built as a static site (Astro + Tailwind CSS v4), deployed via Cloudflare Pages (built from the GitHub repository `burdis28.github.io`) and served at `https://www.burdis.cz`.
 
 ## Stack
 
@@ -12,8 +12,8 @@ Personal portfolio website built as a static site (Astro + Tailwind CSS v4), dep
 | Icons | Material Symbols Outlined — Google Fonts |
 | Structured data | JSON files (`src/content/data/`) |
 | Blog content | Markdown files (`src/content/blog/`) |
-| Deploy | GitHub Pages — repository `burdis28.github.io` |
-| CI/CD | GitHub Actions — push to `main` triggers build + deploy |
+| Deploy | Cloudflare Pages — built from repository `burdis28.github.io` |
+| CI/CD | Cloudflare Pages — push to `main` triggers build + deploy |
 
 ---
 

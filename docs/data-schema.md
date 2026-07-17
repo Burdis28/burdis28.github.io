@@ -15,8 +15,8 @@ All structured content lives in `src/content/data/` (JSON) and `src/content/blog
   "tagline": "Backend developer focused on Kotlin, Java, and modern distributed systems.",
   "location": "Prague, Czech Republic",
   "website": {
-    "label": "burdis28.github.io",
-    "url": "https://burdis28.github.io"
+    "label": "burdis.cz",
+    "url": "https://www.burdis.cz"
   },
   "social": {
     "github": "https://github.com/Burdis28",
@@ -28,7 +28,6 @@ All structured content lives in `src/content/data/` (JSON) and `src/content/blog
   "about": "Multi-sentence bio paragraph shown on the Home page hero section.",
   "aboutQuote": "Optional single-sentence quote shown in an italic blockquote style.",
   "yearsExperience": "5",
-  "resumeUrl": "/files/ondrej-burda-cv.pdf",
   "avatarUrl": "/images/profile.jpg",
   "heroBannerUrl": "/images/hero-banner.jpg",
   "techStack": ["Java", "Kotlin", "MongoDB", "SQL", "Spring Boot"]
@@ -247,7 +246,6 @@ export interface Profile {
   about: string;
   aboutQuote?: string;
   yearsExperience?: string;
-  resumeUrl: string;
   avatarUrl: string;
   heroBannerUrl: string;
   techStack: string[];

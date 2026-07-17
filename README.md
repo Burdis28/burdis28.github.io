@@ -1,7 +1,7 @@
 # Ondřej Burda — Personal Portfolio
 
 Personal portfolio website — online CV and blog.
-Live at: **[burdis28.github.io](https://burdis28.github.io)**
+Live at: **[www.burdis.cz](https://www.burdis.cz)**
 
 ---
 
@@ -14,8 +14,8 @@ Live at: **[burdis28.github.io](https://burdis28.github.io)**
 | Fonts | Manrope + Inter (Google Fonts) |
 | Icons | Material Symbols Outlined |
 | Content | JSON files + Markdown (Astro Content Collections) |
-| Contact form | [Formspree](https://formspree.io) |
-| Deploy | GitHub Pages via GitHub Actions |
+| Contact | E-mail (mailto) + social links |
+| Deploy | Cloudflare Pages (build from GitHub repo) |
 
 ---
 
@@ -27,7 +27,7 @@ Live at: **[burdis28.github.io](https://burdis28.github.io)**
 | `/experience` | Full career timeline, education, certifications |
 | `/projects` | Project portfolio (bento grid) + technical skills |
 | `/blog` | Article listing + individual articles |
-| `/contact` | Contact form + social links |
+| `/contact` | Contact info + social links |
 
 ---
 

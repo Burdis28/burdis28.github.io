@@ -130,19 +130,23 @@ const { activeNav } = Astro.props;
 
     <!-- Bottom actions -->
     <div class="mt-auto flex flex-col gap-3">
-        <a
-            href={profile.resumeUrl}
-            download
-            class="flex items-center gap-3 px-4 py-3 bg-surface-container-highest text-primary font-medium rounded-lg hover:bg-outline-variant/30 transition-all duration-200"
+        <div
+            class="px-4 py-3 bg-surface-container-highest rounded-lg"
+            title="Žádné cv_final_v7_OPRAVDU-final.pdf tu nehledejte."
         >
-            <span class="material-symbols-outlined">download</span>
-            <span class="font-label">Stáhnout životopis</span>
-        </a>
+            <div class="flex items-center gap-3 text-primary">
+                <span class="material-symbols-outlined">download_done</span>
+                <span class="font-label font-medium">Stáhnout životopis?</span>
+            </div>
+            <p class="mt-1 pl-9 font-label text-xs text-on-surface-variant">
+                Netřeba, právě si ho prohlížíte.
+            </p>
+        </div>
         <a
             href="/contact"
             class="w-full py-3 bg-primary text-on-primary font-headline font-bold rounded-lg hover:bg-primary-container transition-all duration-300 text-center"
         >
-            Kontaktovat
+            Napište mi
         </a>
     </div>
 </aside>
